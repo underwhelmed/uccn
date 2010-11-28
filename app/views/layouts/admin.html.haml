@@ -1,0 +1,33 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title UCCN Administration
+    = stylesheet_link_tag "admin/master", :media => "all"
+    /[if IE] 
+      <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    /[if lt IE 8]  
+      = stylesheet_link_tag "admin/ie", :media => "all"
+    /[if IE] 
+      = javascript_include_tag "admin/excanvas.js"
+    = javascript_include_tag :all
+    = csrf_meta_tag
+  %body
+    #hld
+      .wrapper
+        #header
+          .hdrl
+          .hdrr
+          %h1
+            = link_to 'UCCN Admin', :controller => :admin, :action => :index
+          %ul#nav
+            %li
+              %a{:href => "#"} Users
+              %ul
+                %li
+                  %a{:href => "#"} Add New User        
+            %li
+              %a{:href => "#"} Calendar          
+          %p.user            
+            = link_to "View Website", :root
+        = yield
