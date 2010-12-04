@@ -1,0 +1,31 @@
+- content_for(:title) do
+  Welcome to the UCCN
+
+- content_for(:head) do
+  :javascript
+
+    var sections = [
+      "section-1", 
+      "section-2"
+    ];
+     
+    var currentSection = 1;
+		
+    function scroll () {
+      currentSection++;
+      if(currentSection > 2){currentSection = 1;}
+      if(currentSection == 1){$("#slider").animate({backgroundColor: '#0065A7'});}
+      if(currentSection == 2){$("#slider").animate({backgroundColor: '#8C0003'});}
+      sectiontoscroll = "section-" + currentSection;
+      $("#viewport").scrollTo ("#" + sectiontoscroll, 500);			
+    }
+
+    $(document).ready (function () {
+      var s = window.setInterval(scroll, 6000);		
+    });
+
+= render :partial => "_slider"
+
+%section.pageboxy.white
+  .elements
+    %h2 Welcome to the UCCN

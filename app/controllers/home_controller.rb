@@ -1,8 +1,11 @@
 class HomeController < ApplicationController
   
-   layout "boxy_lg_blue"
-  
   def index
+
+  end
+  
+  def boxylightblue
+    render :layout =>  "boxy_lg_blue"  
   end
 
 end
