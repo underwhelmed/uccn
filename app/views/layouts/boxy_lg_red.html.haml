@@ -4,7 +4,7 @@
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %title 
       = yield(:title)
-    = stylesheet_link_tag "boxy_lg_blue/style", :media => "all"
+    = stylesheet_link_tag "boxy_lg_red/style"
     = javascript_include_tag "boxy/jquery", "boxy/jquery.scrollTo", "boxy/jquery.animate-colors"
 
     = yield(:head)
@@ -15,7 +15,7 @@
     #top
       #topwrapper
         #logo
-          %img{:src => "images/boxy_lg_blue/logo.png"}/
+          %img{:src => "images/boxy_lg_red/logo.png"}/
           %p.title UCCN
           %p.slogan United Child Care Network
         %nav
@@ -63,7 +63,7 @@
           .title
             %h2.boxed About this site
           .elements
-            %img{:src => "images/boxy_lg_blue/footer_img.jpg"}
+            %img{:src => "images/boxy_lg_red/footer_img.jpg"}
             %p This is a placeholder for more stuffs
           .bottom
             %a{:href => '#'} Go Here to Join us
