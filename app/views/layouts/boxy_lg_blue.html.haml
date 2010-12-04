@@ -1,0 +1,52 @@
+!!! 5
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title UCCN
+    = stylesheet_link_tag "boxy_lg_blue/style", :media => "all"
+    /[if IE]
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    = csrf_meta_tag
+  %body
+    #top
+      #topwrapper
+        #logo
+          %img{:src => "images/boxy_lg_blue/logo.png"}/
+          %p.title UCCN
+          %p.slogan United Child Care Network
+        %nav
+          %ul#menu
+            %li.current
+              = link_to 'Home', :root
+            %li
+              %a{:href => "#"} About
+            %li
+              %a{:href => "#"} Calendar
+            %li
+              %a{:href => "#"} Openings
+            %li
+              %a{:href => "#"} Resources
+            %li
+              %a{:href => "#"} Members
+          %br.clear/
+    #content
+      = yield
+    %footer
+      %div
+        %p
+          Copyright © 2010 All Rights Reserved
+        %ul
+          %li
+            %a{:href => "#"}> Advertise
+            |
+          %li
+            %a{:href => "#"}> Suggestions
+            |
+          %li
+            %a{:href => "#"}> About Us
+            |
+          %li
+            %a{:href => "#"}> Terms
+            |
+          %li
+            %a{:href => "#"} Contact Us
