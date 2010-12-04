@@ -12,10 +12,5 @@ class HomeController < ApplicationController
     render :layout =>  "boxy_lg_red"  
   end
   
-  def boxylightgreen
-    render :layout =>  "boxy_lg_green"  
-  end
   
-  
-
 end

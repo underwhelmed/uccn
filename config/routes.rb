@@ -4,7 +4,6 @@ Uccnrails::Application.routes.draw do
   match 'admin/' => 'admin#index'
   match 'boxylightblue' => 'home#boxylightblue'
   match 'boxylightred' => 'home#boxylightred'
-  match 'boxylightgreen' => 'home#boxylightgreen'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
