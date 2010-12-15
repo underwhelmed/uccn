@@ -14,4 +14,8 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'spork'
   gem 'launchy'
+
+  gem 'hpricot'
+  gem 'ruby_parser'
+
 end
