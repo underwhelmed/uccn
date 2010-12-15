@@ -20,19 +20,24 @@
           %a{:href => "#"} Referrals
     %li
       %a{:href => "#"} Blog
-    %li
-      %a{:href => "#"} Members
-      %ul
-        %li
-          %a{:href => "#"} Forum
-        %li
-          %a{:href => "#"} Documents
-        %li
-          %a{:href => "#"} Member Directory
-        %li
-          %a{:href => "#"} My Profile
-        %li
-          %a{:href => "#"} Administration
-        %li
-          %a{:href => "#"} Logout
+    - if user_signed_in?
+      %li
+        %a{:href => "#"} Members
+        %ul
+          %li
+            %a{:href => "#"} Forum
+          %li
+            %a{:href => "#"} Documents
+          %li
+            %a{:href => "#"} Member Directory
+          %li
+            %a{:href => "#"} My Profile
+          - unless current_user.admin?
+            %li
+              %a{:href => "#"} Administration
+          %li
+            %a{:href => "#"} Logout
+    - else
+      %li
+        = link_to 'Members', new_user_session_path
   %br.clear/
