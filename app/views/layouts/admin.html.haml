@@ -19,13 +19,13 @@
           .hdrl
           .hdrr
           %h1
-            = link_to 'UCCN Admin', :controller => :admin, :action => :index
+            = link_to 'UCCN Admin', admin_path
           %ul#nav
             %li
-              %a{:href => "#"} Users
+              = link_to 'Users', admin_users_path
               %ul
                 %li
-                  %a{:href => "#"} Add New User        
+                  = link_to 'Add New User', new_admin_user_path        
             %li
               %a{:href => "#"} Calendar          
           %p.user            

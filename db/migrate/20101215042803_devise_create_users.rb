@@ -13,6 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :login
       t.string :first_name
       t.string :last_name
+      t.string :display_name
       t.string :business_name
       t.string :address1
       t.string :address2
@@ -26,6 +27,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email_address
       t.boolean :board_member
       t.boolean :active
+      t.boolean :admin
       t.datetime :last_login_date
       t.string :board_position
 
