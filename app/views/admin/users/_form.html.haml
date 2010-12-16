@@ -1,10 +1,24 @@
-- form_for @user do |f|
+- form_for [:admin, @user] do |f|
   - if @user.errors.any?
     .message.errormsg{:style => "display: block; "}
       %p 
-        There were errors trying to create a new user: %br
-        - @user.errors.full_messages.each do |msg|
-          - * =msg  
-      %span.close{:title => "Dismiss"}
-  %fieldset
-    %legend Enter User Details
+        There were errors trying to create this user: 
+        %br
+        - @user.errors.full_messages.each do |msg|          
+          = msg
+          %br
+      %span.close{:title => 'Dismiss'}
+  %p
+    = f.label :login 
+    %br
+    = f.text_field :login, :class => 'text small'
+    %span.note *
+  %p
+    = f.label :first_name
+    %br
+    = f.text_field :first_name, :class => 'text small'
+    %span.note *
+  %p
+    = f.submit 'Add New User', :class => 'submit mid'
+
+    
