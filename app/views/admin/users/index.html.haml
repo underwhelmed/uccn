@@ -4,9 +4,11 @@
     .bheadr
     %h2 Users
     %ul
-      %li.nobg
-        = link_to 'Add New User', new_admin_user_path
+      %li.nobg        
+        = link_to image_tag('/images/add.png', :alt => 'Add', :style=>'vertical-align: text-bottom') + ' Add New User', new_admin_user_path, :style => 'line-height:5em'
   .block_content
+    %p 
+      %em Click the user's name to edit their profile
     - if @users.empty?
       .message.warning{:style => "display: block; "}
         %p No Users currently in the system
@@ -23,9 +25,15 @@
         %tbody
           - @users.each do |user| 
             %tr{ :class => cycle('even', 'odd') }
-              %td =link_to {user.login}, edit_admin_user_path({user})
-              %td {user.display_name}
-              %td {user.email_address}
-              %td {user.last_login_date}
-              %td.delete = link_to 'Destroy', user, :confirm => 'Are you sure you want to delete this user?', :method => :delete
+              %td  
+                =link_to user.login, edit_admin_user_path(user)
+              %td= user.first_name + ' ' + user.last_name
+              %td= user.email
+              %td
+                - if user.last_login_date.nil? 
+                  N/A
+                - else
+                  user.last_login_date
+              %td= user.active? ? 'Yes' : 'No'
+              %td.delete= link_to 'Delete', admin_user_path(user), :confirm => 'Are you sure you want to delete this user?', :method => :delete
 			                 

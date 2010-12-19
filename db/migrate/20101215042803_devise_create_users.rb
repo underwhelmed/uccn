@@ -24,7 +24,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :cell_number
       t.string :fax_number
       t.date :birthday
-      t.string :email_address
       t.boolean :board_member
       t.boolean :active
       t.boolean :admin
@@ -34,7 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :users, :email,                :unique => true
+    add_index :users, :login,                :unique => true
     add_index :users, :reset_password_token, :unique => true
     # add_index :users, :confirmation_token,   :unique => true
     # add_index :users, :unlock_token,         :unique => true
