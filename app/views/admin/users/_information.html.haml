@@ -1,5 +1,5 @@
 = form_for [:admin, @user] do |f|
-  =if @user.errors.any?
+  -if @user.errors.any?
     .message.errormsg{:style=> 'display:block;'}
       %p
         There were errors trying to update this user:
@@ -8,6 +8,10 @@
           *
           = msg
           %br/
+  - if !notice.nil?
+    .message.success{:style=> 'display:block;'}
+      %p 
+        = notice
   %p
     = f.label :login
     %br/

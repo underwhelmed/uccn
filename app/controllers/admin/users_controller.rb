@@ -14,7 +14,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new(params[:user])
     
     if @user.save
-      redirect_to(admin_users_url, :notice => 'User #{@user.name} was successfully created.')
+      redirect_to(admin_users_url, :notice => "User #{@user.name} was successfully created.")
     else
       render :action => "new"
     end
@@ -26,16 +26,13 @@ class Admin::UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        redirect_to(edit_admin_user_path(@user), :notice => 'User was successfully updated.') 
-        format.xml  { head :ok }
-      else
-        format.html { render :action => :edit }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
+    
+    if @user.update_attributes(params[:user])
+      redirect_to(edit_admin_user_path(@user), :notice => "User #{@user.name} was successfully updated.") 
+    else
+      render :action => :edit 
     end
+
   end
   
   def destroy
