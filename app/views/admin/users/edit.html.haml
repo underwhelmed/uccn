@@ -2,7 +2,9 @@
   .block_head
     .bheadl
     .bheadr
-    %h2 Edit User    
+    %h2 
+      Edit User -
+      =@user.name
     %ul
       %li.nobg
         =link_to 'Cancel', admin_users_path, :confirm => 'Are you sure you want to cancel?'
@@ -10,27 +12,32 @@
     .sidebar
       %ul.sidemenu
         %li
-          %a{:href => "#sb1"} Information
+          %a{:href => "#info"} Information
         %li
-          %a{:href => "#sb2"} Change Password
+          %a{:href => "#password"} Change Password
         %li
-          %a{:href => "#sb3"} Address &amp; Contact
+          %a{:href => "#address"} Address &amp; Contact
         %li
-          %a{:href => "#sb4"} Preferences
+          %a{:href => "#pref"} Preferences
         %li
-          %a{:href => "#sb5"} Website Settings
-    #sb1.sidebar_content{:style => "display: block; "}
-      <h3>Information</h3>
+          %a{:href => "#settings"} Website Settings
+    #info.sidebar_content
+      %h3 Information
+      %hr/
       = render 'information'
-    #sb2.sidebar_content{:style => "display: none; "}
-      <h3>Change User Password</h3>
+    #password.sidebar_content
+      %h3 Change User Password
+      %hr/
       = render 'new_password'
-    #sb3.sidebar_content{:style => "display: none; "}
-      <h3>Change User Address</h3>
-    #sb4.sidebar_content{:style => "display: none; "}
-      <h3>Change Preferences</h3>
-    #sb5.sidebar_content{:style => "display: none; "}
-      <h3>Change Website Settings</h3> 
+    #address.sidebar_content
+      %h3 Change User Address
+      %hr/
+    #pref.sidebar_content
+      %h3 Change Preferences
+      %hr/
+    #settings.sidebar_content
+      %h3 Change Website Settings
+      %hr/
       = render 'website_settings'   
     .bheadl
     .bheadr

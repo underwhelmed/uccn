@@ -8,7 +8,7 @@
         = link_to image_tag('/images/add.png', :alt => 'Add', :style=>'vertical-align: text-bottom') + ' Add New User', new_admin_user_path, :style => 'line-height:5em'
   .block_content
     %p 
-      %em Click the user's name to edit their profile
+      %em Click the user's login to edit their profile
     - if @users.empty?
       .message.warning{:style => "display: block; "}
         %p No Users currently in the system
@@ -27,9 +27,9 @@
             %tr{ :class => cycle('even', 'odd') }
               %td  
                 =link_to user.login, edit_admin_user_path(user)
-              %td= user.first_name + ' ' + user.last_name
+              %td= user.name
               %td= user.email
-              %td= user.last_login_date.nil? ? 'N/A' : user.last_login_date
+              %td= user.last_sign_in_at.nil? ? 'N/A' : time_ago_in_words(user.current_sign_in_at) + ' ago'
               %td= user.active? ? 'Yes' : 'No'
               %td= link_to image_tag('/images/delete.png', :alt=>'Delete'), admin_user_path(user), :confirm => 'Are you sure you want to delete this user?', :method => :delete
 			                 

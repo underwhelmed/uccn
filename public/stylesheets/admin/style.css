@@ -597,8 +597,8 @@ a:hover {
 /* Forms */
 
 .block form p {
-	overflow: hidden;
-	clear: both;
+	/*overflow: hidden;
+	clear: both;*/
 	}
 
 .block form label {
