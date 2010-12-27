@@ -6,6 +6,14 @@ class User < ActiveRecord::Base
   
   attr_accessible :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :active, :admin
     
+  before_destroy :ensure_an_admin_remains
+
+   def ensure_user_is_not_admin
+     if self.admin?
+       raise "Can't delete an Administrator"
+     end
+   end
+    
   def name
     if self.display_name.nil?
       self.first_name + ' ' + self.last_name
