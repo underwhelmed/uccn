@@ -9,7 +9,7 @@
   .block_content
     .sidebar
       %ul.sidemenu
-        %li.active
+        %li
           %a{:href => "#sb1"} Information
         %li
           %a{:href => "#sb2"} Change Password
@@ -18,18 +18,19 @@
         %li
           %a{:href => "#sb4"} Preferences
         %li
-          %a{:href => "#sb5"} Website Information
-      %p
-        <strong>Information here?</strong>
+          %a{:href => "#sb5"} Website Settings
     #sb1.sidebar_content{:style => "display: block; "}
       <h3>Information</h3>
+      = render 'information'
     #sb2.sidebar_content{:style => "display: none; "}
       <h3>Change User Password</h3>
+      = render 'new_password'
     #sb3.sidebar_content{:style => "display: none; "}
       <h3>Change User Address</h3>
     #sb4.sidebar_content{:style => "display: none; "}
       <h3>Change Preferences</h3>
     #sb5.sidebar_content{:style => "display: none; "}
-      <h3>Change Website Information</h3>    
+      <h3>Change Website Settings</h3> 
+      = render 'website_settings'   
     .bheadl
     .bheadr
