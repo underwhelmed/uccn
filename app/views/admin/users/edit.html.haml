@@ -1,0 +1,37 @@
+.block
+  .block_head
+    .bheadl
+    .bheadr
+    %h2 Edit User
+    %ul
+      %li.nobg
+        = link_to 'Cancel', admin_users_path
+  .block_content
+    = form_for [:admin, @user] do |f|
+      = if @user.errors.any?
+        .message.errormsg{:style => "display: block; "}
+          %p 
+            There were errors trying to update this user: 
+            %br
+            - @user.errors.full_messages.each do |msg|   
+              *        
+              = msg
+              %br/     
+      %p
+        = f.label :login 
+        %br
+        = f.text_field :login, :class => 'text small'            
+      %p
+        = f.label :first_name
+        %br
+        = f.text_field :first_name, :class => 'text medium'
+      %p
+        = f.label :last_name
+        %br
+        = f.text_field :last_name, :class => 'text medium'
+      %p
+        = f.label :email
+        %br
+        = f.text_field :email, :class => 'text big'
+      %p
+        = f.submit 'Update User', :class => 'submit mid'
