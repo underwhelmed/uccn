@@ -7,7 +7,7 @@
       %li.nobg
         = link_to 'Cancel', admin_users_path
   .block_content
-    - form_for [:admin, @user] do |f|
+    = form_for [:admin, @user] do |f|
       - if @user.errors.any?
         .message.errormsg{:style => "display: block; "}
           %p 
@@ -16,7 +16,10 @@
             - @user.errors.full_messages.each do |msg|   
               *        
               = msg
-              %br/         
+              %br/   
+      - if !notice.nil?
+        .message.success{:style=> 'display:block;'}
+          %p = notice      
       %p
         %em All fields are required
       %p
@@ -43,5 +46,8 @@
         = f.label :email
         %br
         = f.text_field :email, :class => 'text big'
+      %p
+        %label{:for => "user_send_welcome_email"} Send Welcome Email?
+        = check_box_tag(:send_welcome_email)
       %p
         = f.submit 'Add New User', :class => 'submit mid'

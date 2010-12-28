@@ -14,9 +14,13 @@ class Admin::UsersController < ApplicationController
     @user = User.new(params[:user])
     
     if @user.save
+      send = params[:send_welcome_email]
+      if send?
+        UserMailer.welcome_email(@user).deliver
+      end
       redirect_to(admin_users_url, :notice => "User #{@user.name} was successfully created.")
     else
-      render :action => "new"
+      render :action => "new", :notice => "Cannot save user"
     end
   end
   
