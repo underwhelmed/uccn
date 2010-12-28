@@ -2,11 +2,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
     
   validates_uniqueness_of :login
-  validates_presence_of :login, :first_name, :last_name, :active, :admin
+  validates_presence_of :login, :first_name, :last_name
   
   attr_accessible :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :active, :admin
   
-  before_validation :default_values  
   before_destroy :ensure_an_admin_remains
 
   def ensure_user_is_not_admin
@@ -22,12 +21,5 @@ class User < ActiveRecord::Base
        self.display_name
      end
    end
-   
-  private
-  
-  def default_values
-    self.active = true unless !self.active.nil?
-    self.admin = false unless !self.admin.nil?
-  end
  
-end
+ end

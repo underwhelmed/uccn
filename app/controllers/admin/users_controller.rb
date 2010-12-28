@@ -1,21 +1,25 @@
 class Admin::UsersController < ApplicationController
-  #before_filter :admin_required
+  before_filter :admin_required
   layout 'admin'
   
   def index
-    @users = User.all()
+    @users = User.all(:order => :login)
   end
   
   def new
-     @user = User.new    
+     @user = User.new   
   end
   
   def create
     @user = User.new(params[:user])
     
+    #these should be moved to the model using the before_validation callback
+    @user.active = true 
+    @user.admin = false
+    
     if @user.save
       send = params[:send_welcome_email]
-      if send?
+      if send
         UserMailer.welcome_email(@user).deliver
       end
       redirect_to(admin_users_url, :notice => "User #{@user.name} was successfully created.")
