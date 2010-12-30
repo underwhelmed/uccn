@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :login
   validates_presence_of :login, :first_name, :last_name
   
-  attr_accessible :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :active, :admin, :display_name, :birthday
+  attr_accessible :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :active, :admin, :display_name, :birthday, :business_name, :address1, :address2, :city, :state, :zip_code, :phone_number, :cell_number, :fax_number  
   
   before_destroy :ensure_an_admin_remains, :ensure_user_is_not_admin
 
@@ -27,5 +27,4 @@ class User < ActiveRecord::Base
        self.display_name
      end
    end
- 
- end
+end

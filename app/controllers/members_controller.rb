@@ -5,6 +5,7 @@ class MembersController < ApplicationController
   end
   
   def directory
+    @users = User.all()
   end
   
   def profile
