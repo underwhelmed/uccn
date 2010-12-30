@@ -1,10 +1,11 @@
 - content_for :title do
   UCCN Member Login
   
-- content_for :javascript do
-  $(document).ready( function() {
-  input[type='text']:enabled:first
-  });  
+- content_for :head do
+  :javascript
+    $(document).ready(function() {
+      $("form :input[type='text']:enabled:first").focus();
+    });  
   
 %section#header
   %h1 Login to the Members Area
