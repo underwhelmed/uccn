@@ -4,15 +4,27 @@ Uccnrails::Application.routes.draw do
   match 'about' => 'home#about'
   match 'join' => 'home#join'
   match 'calendar' => 'calendar#index'
-  
-#  get "home/index" 
-   
+  match 'resources' => 'resources#index'
+  match 'membership' => 'home#join'
+  match 'resources/associations' => 'resources#associations'
+  match 'resources/foodprograms' => 'resources#food_programs'
+  match 'resources/referrals' => 'resources#referrals'
+  match 'blog' => 'blog#index'
+  match 'members' => 'members#index', :as => 'user_root'
+  match 'profile' => 'members#profile'
+
+  namespace 'members' do
+    match 'forum' => 'forum#index'
+    match 'directory' => 'members#directory'
+    resources :documents
+  end
+ 
   match 'admin/' => 'admin#index'
   
   namespace "admin" do
     resources :users
   end
-  
+   
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

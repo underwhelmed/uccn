@@ -3,35 +3,35 @@
     %li.current
       = link_to 'Home', :root
     %li
-      = link_to 'About', :action=>"about", :controller=>"home"
+      = link_to 'About', about_path
       %ul
         %li
-          = link_to 'Join', :action=>"join", :controller=>"home"
+          = link_to 'Join', join_path
     %li
-      = link_to 'Calendar', :action=>"index", :controller=>"calendar"
+      = link_to 'Calendar', calendar_path
     %li
-      %a{:href => "#"} Resources
+      = link_to 'Resources', resources_path
       %ul
         %li
-          %a{:href => "#"} Associations
+          = link_to 'Associations', resources_associations_path
         %li
-          %a{:href => "#"} Food Programs
+          = link_to 'Food Programs', resources_foodprograms_path
         %li
-          %a{:href => "#"} Referrals
+          = link_to 'Referrals', resources_referrals_path
     %li
-      %a{:href => "#"} Blog
+      = link_to 'Blog', blog_path
     - if user_signed_in?
       %li
-        %a{:href => "#"} Members
+        = link_to 'Members', user_root_path
         %ul
           %li
-            %a{:href => "#"} Forum
+            = link_to 'Forum', members_forum_path
           %li
-            %a{:href => "#"} Documents
+            = link_to 'Documents', members_documents_path
           %li
-            %a{:href => "#"} Member Directory
+            = link_to 'Member Directory', members_directory_path
           %li
-            %a{:href => "#"} My Profile
+            = link_to 'My Profile', profile_path
           - if current_user.admin?
             %li
               = link_to 'Administration', admin_path

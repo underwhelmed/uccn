@@ -9,6 +9,4 @@ class HomeController < ApplicationController
   def join
   end
   
-  
-  
 end
