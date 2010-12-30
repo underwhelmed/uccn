@@ -1,7 +1,11 @@
 Uccnrails::Application.routes.draw do
   devise_for :users
- 
-  get "home/index" 
+
+  match 'about' => 'home#about'
+  match 'join' => 'home#join'
+  match 'calendar' => 'calendar#index'
+  
+#  get "home/index" 
    
   match 'admin/' => 'admin#index'
   

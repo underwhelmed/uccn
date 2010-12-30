@@ -3,12 +3,12 @@
     %li.current
       = link_to 'Home', :root
     %li
-      %a{:href => "#"} About
+      = link_to 'About', :action=>"about", :controller=>"home"
       %ul
         %li
-          %a{:href => "#"} Join
+          = link_to 'Join', :action=>"join", :controller=>"home"
     %li
-      %a{:href => "#"} Calendar
+      = link_to 'Calendar', :action=>"index", :controller=>"calendar"
     %li
       %a{:href => "#"} Resources
       %ul
