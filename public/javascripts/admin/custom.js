@@ -7,13 +7,6 @@ $(function () {
 	$('#header #nav li:last').addClass('nobg');
 	$('.block_head ul').each(function() { $('li:first', this).addClass('nobg'); });
 	$('.block form input[type=file]').addClass('file');
-	
-	// Sort table
-	$("table.sortable").tablesorter({
-		headers: { 0: { sorter: false}, 5: {sorter: false} },		// Disabled on the 1st and 6th columns
-		widgets: ['zebra']
-	});	
-	$('.block table tr th.header').css('cursor', 'pointer');
 			
 	// Check / uncheck all checkboxes
 	$('.check_all').click(function() {
@@ -21,7 +14,7 @@ $(function () {
 	});		
 
 	// Set WYSIWYG editor
-	$('.wysiwyg').wysiwyg({css: "css/wysiwyg.css"});
+	$('.wysiwyg').wysiwyg({css: "/stylesheets/admin/wysiwyg.css"});
 	
 	// Modal boxes - to all links with rel="facebox"
 	$('a[rel*=facebox]').facebox()
@@ -53,6 +46,14 @@ $(function () {
 		var activeTab = $(this).find("a").attr("href");
 		$(activeTab).show();
 		return false;
+	});
+	
+	// Style file input
+	$("input[type=file]").filestyle({ 
+	    image: "/images/admin/upload.gif",
+	    imageheight : 30,
+	    imagewidth : 80,
+	    width : 250
 	});
 	
 	// Sidebar Tabs
@@ -97,15 +98,7 @@ $(function () {
 			return false;
 		}
 	});
-	
-	// Style file input
-	$("input[type=file]").filestyle({ 
-	    image: "/images/admin/upload.gif",
-	    imageheight : 30,
-	    imagewidth : 80,
-	    width : 250
-	});
-	
+
 	// Date picker
 	$('input.date_picker').date_input();
   

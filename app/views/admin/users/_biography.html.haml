@@ -12,9 +12,9 @@
     = f.label :biography
     = f.text_area :biography, :class => 'wysiwyg'  
   %p.fileupload
-    %label Photo Upload:
+    %label Photo:
     %br/
     %input#fileupload{:type => "file"}/
-    %span#uploadmsg Max size 3Mb
+    %span#uploadmsg NOTE: The photo will be resized to fit the page
   %p
     = f.submit 'Update', :class => 'submit mid'
