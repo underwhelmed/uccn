@@ -12,6 +12,12 @@
     .message.success{:style=> 'display:block;'}
       %p 
         = notice
- 
+  %p
+    = f.label :display_name
+    %br/
+    = f.text_field :display_name, :class => 'text medium'
+  %p
+    = f.label :birthday
+    = f.text_field :birthday, :class => 'text date_picker'
   %p
     = f.submit 'Update', :class => 'submit mid'
