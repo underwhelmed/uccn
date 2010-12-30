@@ -15,7 +15,7 @@
           %tr
             %th.header{:style => "cursor: pointer; "} Name
             %th.header{:style => "cursor: pointer; "} Address
-            %th.header{:style => "cursor: pointer; "} Phone Numbers           
+            %th.header{:style => "cursor: pointer; "} Phone Number(s)           
             %th.header{:style => "cursor: pointer; "} Birthday
         %tbody
           - @users.each do |user| 
@@ -23,17 +23,30 @@
               %td
                 %strong= user.name
                 = '*' if user.backup_care
-                = "#{user.business_name}" if !user.business_name.nil? && !user.business_name.blank?
+                - if !user.business_name.nil? && !user.business_name.blank?
+                  %br/
+                  = user.business_name
                 %br/
                 = mail_to user.email
               %td
                 = user.address1
-                = "<br/>" + user.address2 if !user.address2.blank?
+                - if !user.address2.blank?
+                  %br/
+                  = user.address2
                 - if !user.city.blank? && !user.state.blank? && !user.zip_code.blank?
-                  = "<br/>" + user.city + ', ' + user.state + ' ' + user.zip_code
-              %td
+                  %br/
+                  = user.city + ', ' + user.state + ' ' + user.zip_code
+              %td{:style=>"text-align:center"}
                 - if !user.phone_number.blank?
                   = "Phone: #{number_to_phone(user.phone_number)}"
+                - if !user.cell_number.blank?
+                  - if !user.phone_number.blank?
+                    %br/
+                  = "Cell: #{number_to_phone(user.cell_number)}"
+                - if !user.fax_number.blank?
+                  - if !user.phone_number.blank? || !user.cell_number.blank?
+                    %br/
+                  = "Fax: #{number_to_phone(user.fax_number)}"
               %td{:style=>"text-align:center"}
                 - if !user.birthday.nil? 
                   = user.birthday.strftime("%B %d")           
