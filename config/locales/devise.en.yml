@@ -7,7 +7,7 @@ en:
 
   devise:
     failure:
-      unauthenticated: 'You need to sign in before continuing.'
+      unauthenticated: 'You need to login before continuing.'
       unconfirmed: 'You have to confirm your account before continuing.'
       locked: 'Your account is locked.'
       invalid: 'Invalid login or password.'
@@ -15,14 +15,14 @@ en:
       timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'Your account was not activated yet.'
     sessions:
-      signed_in: 'Signed in successfully.'
-      signed_out: 'Signed out successfully.'
+      signed_in: 'Logged in successfully.'
+      signed_out: 'Logged out successfully.'
     passwords:
       send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
-      updated: 'Your password was changed successfully. You are now signed in.'
+      updated: 'Your password was changed successfully. You are now logged in.'
     confirmations:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
-      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+      confirmed: 'Your account was successfully confirmed. You are now logged in.'
     registrations:
       signed_up: 'You have signed up successfully. If enabled, a confirmation was sent to your e-mail.'
       updated: 'You updated your account successfully.'
@@ -34,6 +34,6 @@ en:
       confirmation_instructions:
         subject: 'Confirmation instructions'
       reset_password_instructions:
-        subject: 'Reset password instructions'
+        subject: 'UCCN Website - Reset password instructions'
       unlock_instructions:
         subject: 'Unlock Instructions'

@@ -6,7 +6,7 @@ en:
   activerecord:
       attributes:
           user:
-              login: "Login ID"
+              login: "Username"
               first_name: "First Name"
               last_name: "Last Name"
               active: "Is Active?"
