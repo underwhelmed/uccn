@@ -32,7 +32,7 @@
             %a{:href => "#"} Member Directory
           %li
             %a{:href => "#"} My Profile
-          = if current_user.admin?
+          - if current_user.admin?
             %li
               = link_to 'Administration', admin_path
           %li

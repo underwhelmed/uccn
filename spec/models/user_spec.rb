@@ -2,10 +2,6 @@ require 'spec_helper'
 
 describe User do
   
-  it "is valid with valid attributes" do
-    User.new.should be_valid
-  end
-  
   it "is not valid without a login"
   
   it "is not valid without a first name"
@@ -25,7 +21,9 @@ describe User do
     u.last_name = 'Python'
     u.password = 'testing123'
     u.password_confirmation = 'testing123'
-    u.email = 'testing@example.com'    
+    u.email = 'testing@example.com'   
+    u.admin = false
+    u.active = true 
     u.save!
     u.valid?.should == true
     u.admin.should == false

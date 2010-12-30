@@ -47,7 +47,4 @@
         %br
         = f.text_field :email, :class => 'text big'
       %p
-        %label{:for => "user_send_welcome_email"} Send Welcome Email?
-        = check_box_tag(:send_welcome_email)
-      %p
         = f.submit 'Add New User', :class => 'submit mid'

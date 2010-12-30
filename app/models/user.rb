@@ -6,11 +6,17 @@ class User < ActiveRecord::Base
   
   attr_accessible :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :active, :admin
   
-  before_destroy :ensure_an_admin_remains
+  before_destroy :ensure_an_admin_remains, :ensure_user_is_not_admin
 
   def ensure_user_is_not_admin
     if self.admin?
       raise "Can't delete an Administrator"
+    end
+  end
+  
+  def ensure_an_admin_remains
+    if User.count(:conditions => {:active => true, :admin => true}) == 0
+      raise 'No Administrators remain, cannot delete this user'
     end
   end
   
