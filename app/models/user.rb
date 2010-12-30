@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
   
   def name
-     if self.display_name.nil?
+     if self.display_name.nil? || self.display_name.blank?
        self.first_name + ' ' + self.last_name       
      else
        self.display_name
