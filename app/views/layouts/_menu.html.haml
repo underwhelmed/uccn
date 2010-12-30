@@ -36,8 +36,8 @@
             %li
               = link_to 'Administration', admin_path
           %li
-            = link_to 'Logout', destroy_user_session_path, :confirm => 'Are you sure you wish to logout?'
+            = link_to 'Logout', logout_path, :confirm => "Are you sure you wish to logout?"
     - else
       %li
-        = link_to 'Members', new_user_session_path
+        = link_to 'Members', login_path
   %br.clear/

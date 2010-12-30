@@ -27,10 +27,11 @@
                 %li
                   = link_to 'Add New User', new_admin_user_path        
             %li
-              %a{:href => "#"} Calendar          
+              %a{:href => "#"} Calendar              
           %p.user            
-            = link_to "View Website", :root
-        
+            = link_to "View Website", :root     
+            |   
+            = link_to 'View Members Area', :user_root
         = yield
         .footer
           %p.left

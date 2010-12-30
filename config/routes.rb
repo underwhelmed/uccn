@@ -1,5 +1,9 @@
 Uccnrails::Application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    get "/login" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+  end
+  
 
   match 'about' => 'home#about'
   match 'join' => 'home#join'
@@ -37,7 +41,7 @@ Uccnrails::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  #   resources :prducts
 
   # Sample resource route with options:
   #   resources :products do
