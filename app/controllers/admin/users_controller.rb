@@ -12,11 +12,7 @@ class Admin::UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    
-    #these should be moved to the model using the before_validation callback
-    @user.active = true 
-    @user.admin = false
-    
+       
     if @user.save
 # might as well do this manually until I can figure out how to do this correctly
 #      send = params[:send_welcome_email]
