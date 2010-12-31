@@ -10,17 +10,17 @@
       .message.warning{:style => "display: block; "}
         %p No Users to Display
     - else      
-      %table{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+      %table{:width => "99.1%", :border => '1px solid #333;'}
         %thead
           %tr
-            %th.header{:style => "cursor: pointer; "} Name
-            %th.header{:style => "cursor: pointer; "} Address
-            %th.header{:style => "cursor: pointer; "} Phone Number(s)           
-            %th.header{:style => "cursor: pointer; "} Birthday
+            %th.header{:style => "cursor: pointer;padding:5px;text-align:left"} Name
+            %th.header{:style => "cursor: pointer;text-align:left"} Address
+            %th.header{:style => "cursor: pointer;"} Phone Number(s)           
+            %th.header{:style => "cursor: pointer;"} Birthday
         %tbody
           - @users.each do |user| 
-            %tr{ :class => cycle('even', 'odd') }              
-              %td
+            %tr{ :style => cycle('background: #f0f0f0;', 'background: #ffffff;') }              
+              %td{:style => 'padding:5px;'}
                 %strong= user.name
                 = '*' if user.backup_care
                 - if !user.business_name.nil? && !user.business_name.blank?
@@ -38,15 +38,16 @@
                   = user.city + ', ' + user.state + ' ' + user.zip_code
               %td{:style=>"text-align:center"}
                 - if !user.phone_number.blank?
-                  = "Phone: #{number_to_phone(user.phone_number)}"
+                  = "Phone: #{string_to_phone_number(user.phone_number)}"
                 - if !user.cell_number.blank?
                   - if !user.phone_number.blank?
                     %br/
-                  = "Cell: #{number_to_phone(user.cell_number)}"
+                  = "Cell: #{string_to_phone_number(user.cell_number)}"
                 - if !user.fax_number.blank?
                   - if !user.phone_number.blank? || !user.cell_number.blank?
                     %br/
-                  = "Fax: #{number_to_phone(user.fax_number)}"
+                  = "Fax: #{string_to_phone_number(user.fax_number)}"
               %td{:style=>"text-align:center"}
                 - if !user.birthday.nil? 
-                  = user.birthday.strftime("%B %d")           
+                  = user.birthday.strftime("%B %d")  
+    .clear         
