@@ -1,5 +1,5 @@
 class ChangeColumnsToUser < ActiveRecord::Migration
-  def self.up
+  def self.up    
     change_column_default :users, :active, true
     change_column_default :users, :admin, false
     change_column_default :users, :board_member, false

@@ -9,17 +9,19 @@
     - if @users.empty?
       .message.warning{:style => "display: block; "}
         %p No Users to Display
-    - else      
+    - else   
+      %p{:style => 'text-align:right;margin:10px;font-style:italic'}
+        Members with an asterisk (*) are available for backup care
       %table{:width => "99.1%", :border => '1px solid #333;'}
         %thead
-          %tr
+          %tr{:style => 'font-size:1.1em'}
             %th.header{:style => "cursor: pointer;padding:5px;text-align:left"} Name
             %th.header{:style => "cursor: pointer;text-align:left"} Address
             %th.header{:style => "cursor: pointer;"} Phone Number(s)           
             %th.header{:style => "cursor: pointer;"} Birthday
         %tbody
           - @users.each do |user| 
-            %tr{ :style => cycle('background: #f0f0f0;', 'background: #ffffff;') }              
+            %tr{ :style => 'font-size:.9em;' + cycle('background: #f0f0f0;', 'background: #ffffff;') }              
               %td{:style => 'padding:5px;'}
                 %strong= user.name
                 = '*' if user.backup_care
