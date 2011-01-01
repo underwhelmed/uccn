@@ -1,4 +1,15 @@
 - content_for :title do
   Referral Information - UCCN
 
-%h1 Referrals
+%section#header
+  %h1 Referrals
+%section.pages
+  %aside.one_quarter
+    %h2 Resources
+    %ul
+      %li= link_to 'Associations', resources_associations_path
+      %li= link_to 'Food Programs', resources_foodprograms_path
+      %li= link_to 'Referrals', resources_referrals_path
+  %section.three_quarter
+    %h1 Referrals
+  .clear

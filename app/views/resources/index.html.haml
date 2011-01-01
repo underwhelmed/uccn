@@ -1,4 +1,18 @@
 - content_for :title do
   UCCN Resources
 
-%h1 Resources
+%section#header
+  %h1 UCCN Resources
+  %p
+    A Placeholder for more information to describe the resources
+
+%section.pages
+  %aside.one_quarter
+    %h2 Available Resources
+    %ul
+      %li= link_to 'Associations', resources_associations_path
+      %li= link_to 'Food Programs', resources_foodprograms_path
+      %li= link_to 'Referrals', resources_referrals_path
+  %section.three_quarter
+    %h1 Resources
+  .clear
