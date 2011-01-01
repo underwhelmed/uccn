@@ -8,6 +8,7 @@ Uccnrails::Application.routes.draw do
   match 'about' => 'home#about'
   match 'join' => 'home#join'
   match 'contact' => 'home#contact'
+  match 'goals' => 'home#goals'
   match 'calendar' => 'calendar#index'
   match 'resources' => 'resources#index'
   match 'membership' => 'home#join'

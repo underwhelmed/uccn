@@ -12,4 +12,6 @@ class HomeController < ApplicationController
   def contact
   end
   
+  def goals
+  end
 end
