@@ -9,4 +9,7 @@ class HomeController < ApplicationController
   def join
   end
   
+  def contact
+  end
+  
 end
