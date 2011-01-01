@@ -12,17 +12,17 @@
     - else   
       %p{:style => 'text-align:right;margin:10px;font-style:italic'}
         Members with an asterisk (*) are available for backup care
-      %table{:width => "99.1%", :border => '1px solid #333;'}
+      %table.directory
         %thead
           %tr{:style => 'font-size:1.1em'}
-            %th.header{:style => "cursor: pointer;padding:5px;text-align:left"} Name
-            %th.header{:style => "cursor: pointer;text-align:left"} Address
-            %th.header{:style => "cursor: pointer;"} Phone Number(s)           
-            %th.header{:style => "cursor: pointer;"} Birthday
+            %th.header{:style => "text-align:left"} Name
+            %th.header{:style => "text-align:left"} Address
+            %th.header Phone Number(s)           
+            %th.header Birthday
         %tbody
           - @users.each do |user| 
-            %tr{ :style => 'font-size:.9em;' + cycle('background: #f0f0f0;', 'background: #ffffff;') }              
-              %td{:style => 'padding:5px;'}
+            %tr{ :class => cycle('even', 'odd') }              
+              %td
                 %strong= user.name
                 = '*' if user.backup_care
                 - if !user.business_name.nil? && !user.business_name.blank?

@@ -463,6 +463,22 @@ footer ul li{float: left; padding-left: 15px;}
 footer ul li a{padding-right: 15px;}
 footer ul li a:hover{text-decoration: underline;}
 
+/************************ CUSTOM ********************/
+.directory {
+	width: 99.1%;
+	border: 1px solid #333;
+}
+
+.directory th {cursor: pointer;}
+
+.directory th, td {padding:5px;}
+
+.directory tr {font-size:.9em;}
+
+.even {background: #f0f0f0;}
+.odd {background: #ffffff;}
+
+
 
 
 
