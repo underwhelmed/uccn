@@ -61,6 +61,7 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    event-calendar (2.3.2)
     ffi (0.6.3)
       rake (>= 0.8.7)
     gherkin (2.2.9)
@@ -146,6 +147,7 @@ DEPENDENCIES
   cucumber-rails (>= 0.3.2)
   database_cleaner
   devise
+  event-calendar
   haml
   hpricot
   launchy

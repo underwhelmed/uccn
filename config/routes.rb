@@ -1,4 +1,6 @@
 Uccnrails::Application.routes.draw do
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+
   devise_for :users do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"
@@ -9,7 +11,6 @@ Uccnrails::Application.routes.draw do
   match 'join' => 'home#join'
   match 'contact' => 'home#contact'
   match 'goals' => 'home#goals'
-  match 'calendar' => 'calendar#index'
   match 'resources' => 'resources#index'
   match 'membership' => 'home#join'
   match 'resources/associations' => 'resources#associations'
