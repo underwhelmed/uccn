@@ -1,0 +1,29 @@
+- content_for :title do
+  Contact the UCCN
+  
+%section#header
+  %h1 Contact the UCCN
+%section.contact
+  %aside.two_quarter
+    .cform.block
+      .title
+        %h2 Contact Us!
+      .elements
+        #form
+          = form_tag do
+            %p
+              = text_field_tag(:name)
+              = label_tag(:name, "Name *")
+            %p
+              = text_field_tag(:email)
+              = label_tag(:email, "Email *")
+            %p
+              = text_field_tag(:phone)
+              = label_tag(:phone, "Phone")
+            %p.area
+              =text_area_tag(:message)
+            %p.area
+              = submit_tag 'Send', :class => 'btn'
+            .clear
+  .clear
+      

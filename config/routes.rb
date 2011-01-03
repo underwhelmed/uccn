@@ -7,12 +7,12 @@ Uccnrails::Application.routes.draw do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"
   end
-  
 
   match 'about' => 'home#about'
   match 'join' => 'home#join'
-  match 'contact' => 'home#contact'
   match 'goals' => 'home#goals'
+  match 'contact' => 'contact#index'
+  match 'contact/create' => 'contact#create'
   match 'resources' => 'resources#index'
   match 'membership' => 'home#join'
   match 'resources/associations' => 'resources#associations'
@@ -32,6 +32,7 @@ Uccnrails::Application.routes.draw do
   
   namespace "admin" do
     resources :users
+    resources :events
   end
    
   # The priority is based upon order of creation:

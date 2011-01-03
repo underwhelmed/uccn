@@ -9,9 +9,7 @@ class HomeController < ApplicationController
   def join
   end
   
-  def contact
-  end
-  
   def goals
   end
+  
 end
