@@ -15,6 +15,6 @@
       %p
         Date:
         = @event.start_at.strftime("%A, %B #{@event.start_at.day.ordinalize}")
-        - if !@event.all_day?
+        - if !@event.all_day
           = @event.start_at.strftime(" at %l:%M %p")
   .clear

@@ -30,7 +30,10 @@
             %tr{ :class => cycle('even', 'odd') }
               %td  
                 =link_to event.name, edit_admin_event_path(event)
-              %td= event.start_at
+              %td
+                = event.start_at.strftime("%A, %B #{event.start_at.day.ordinalize}")
+                - if !event.all_day
+                  = event.start_at.strftime(" at %l:%M %p")
               %td= event.name
               %td= event.members_only? ? 'Yes' : 'No'
               %td
