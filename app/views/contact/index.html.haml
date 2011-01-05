@@ -10,7 +10,7 @@
         %h2 Contact Us!
       .elements
         #form
-          = form_tag do
+          = form_tag(contact_create_url, :method => :post) do
             %p
               = text_field_tag(:name)
               = label_tag(:name, "Name *")
@@ -21,6 +21,8 @@
               = text_field_tag(:phone)
               = label_tag(:phone, "Phone")
             %p.area
+              = label_tag(:message, "Message")
+              %br/
               =text_area_tag(:message)
             %p.area
               = submit_tag 'Send', :class => 'btn'

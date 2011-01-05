@@ -12,7 +12,8 @@ Uccnrails::Application.routes.draw do
   match 'join' => 'home#join'
   match 'goals' => 'home#goals'
   match 'contact' => 'contact#index'
-  match 'contact/create' => 'contact#create'
+  match 'contact/create', :via => :post
+  match 'contact/success'
   match 'openings' => 'openings#index', :as => 'openings'
   match 'resources' => 'resources#index'
   match 'membership' => 'home#join'

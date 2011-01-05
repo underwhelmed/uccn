@@ -12,3 +12,6 @@ Feature: Contact Form
     And I fill in "Message" with "What's up?"
     And I press "Send"
     Then I should see "Thanks for your feedback!"
+    And "irishpeg@comcast.net" should receive an email
+    When "irishpeg@comcast.net" opens the email with subject "Feedback from the UCCN website"
+    And I should see "What's up?" in the email body
