@@ -11,3 +11,6 @@ en:
               last_name: "Last Name"
               active: "Is Active?"
               admin: "Is Administrator?"
+  notifier: 
+      user_feedback:
+          subject: "Feedback from the UCCN website"
