@@ -8,7 +8,7 @@ describe Notifier do
     it "renders the headers" do
       mail.subject.should eq("Feedback from the UCCN website")
       mail.to.should eq(["irishpeg@comcast.net"])
-      #mail.from.should eq(["from@example.com"])
+      mail.from.should eq(["no-reply@uccn.org"])
     end
 
     it "renders the body" do
