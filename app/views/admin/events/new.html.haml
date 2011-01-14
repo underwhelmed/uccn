@@ -1,0 +1,44 @@
+.block
+  .block_head
+    .bheadl
+    .bheadr
+    %h2 Add a New Event
+    %ul
+      %li.nobg
+        = link_to 'Cancel', admin_events_path
+  .block_content
+    = form_for [:admin, @event] do |f|
+      - if @event.errors.any?
+        .message.errormsg{:style => "display: block; "}
+          %p 
+            There were errors trying to create this event: 
+            %br
+            - @user.errors.full_messages.each do |msg|   
+              *        
+              = msg
+              %br/   
+      - if !notice.nil?
+        .message.errormsg{:style=> 'display:block;'}
+        %p= notice
+      %p
+        = f.label :name 
+        %br
+        = f.text_field :name, :class => 'text big'
+      %p
+        = f.label :description
+        %br
+        = f.text_area :description, :class => 'wysiwyg'  
+      %p
+        = f.label :start_at
+        = f.text_field :start_at, :class => 'text date_picker'
+        = f.check_box :all_day, :style => 'margin-left: 15px'
+        All Day Event
+      %p
+        = f.label :end_at
+        = f.text_field :end_at, :class => 'text date_picker'
+      %p
+        = f.label :members_only 
+        = f.check_box :members_only
+      %p
+        = f.submit 'Create Event', :class => 'submit mid'
+    

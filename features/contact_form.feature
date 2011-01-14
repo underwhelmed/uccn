@@ -6,7 +6,7 @@ Feature: Contact Form
 
   Scenario: Submitting with valid information
     Given I am on the contact page
-    When I fill in "Name" with "Matthias Marschall"
+    When I fill in "Name" with "Pete McDonald"
     And I fill in "Email" with "test@example.com"
     And I fill in "Phone" with "630-555-5555"
     And I fill in "Message" with "What's up?"
