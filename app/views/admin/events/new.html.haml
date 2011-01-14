@@ -13,7 +13,7 @@
           %p 
             There were errors trying to create this event: 
             %br
-            - @user.errors.full_messages.each do |msg|   
+            - @event.errors.full_messages.each do |msg|   
               *        
               = msg
               %br/   
