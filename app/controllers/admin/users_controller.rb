@@ -5,7 +5,10 @@ class Admin::UsersController < AdminController
   end
   
   def new
-     @user = User.new   
+    u = User.new
+    u.all_day = false
+    u.members_only = false  
+    @user = u
   end
   
   def create
