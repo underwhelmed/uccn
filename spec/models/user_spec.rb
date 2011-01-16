@@ -2,17 +2,7 @@ require 'spec_helper'
 
 describe User do
   
-  it "is not valid without a login"
   
-  it "is not valid without a first name"
-  
-  it "is not valid without a last name"
-  
-  it "is not valid without a password"
-  
-  it "is not valid without a password confirmation"
-  
-  it "is not valid without an email address"
   
   it "should set the default value of admin to false" do
     u = User.new

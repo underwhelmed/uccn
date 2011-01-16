@@ -30,13 +30,12 @@
         = f.text_area :description, :class => 'wysiwyg'  
       %p
         = f.label :start_at
-        = f.text_field :start_at, :class => 'text date_picker'
-        = select_time 
+        = f.datetime_select :start_at, :date_separator => ' ', :order => [:month, :day, :year]
         = f.check_box :all_day, :style => 'margin-left: 15px'
         All Day Event
       %p
         = f.label :end_at
-        = f.text_field :end_at, :class => 'text date_picker'
+        = f.datetime_select :end_at, :date_separator => ' ', :order => [:month, :day, :year]
       %p
         = f.label :members_only 
         = f.check_box :members_only
