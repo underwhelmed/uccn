@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   has_event_calendar
   
-  validates_presence_of :name, :description, :start_at, :end_at, :members_only, :all_day
+  validates_presence_of :name, :description, :start_at, :end_at
   
   attr_accessible :name, :description, :start_at, :members_only, :all_day, :end_at
   
@@ -9,6 +9,6 @@ class Event < ActiveRecord::Base
 
   private
     def start_at_and_end_date_valid    
-      errors.add(:start_at, 'Please set a valid end time for this event') 
+      # errors[:base] << "Please set a valid end time for this event" if :end_at < :start_at
     end
 end
