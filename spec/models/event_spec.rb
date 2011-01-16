@@ -32,7 +32,7 @@ describe Event do
     event.errors.include?(:end_at).should be_true
   end
   
-  it "is valid with all information filled in properly" do
+  it "is not valid without a category selected" do
      event = Event.new
       event.name = "Test Name"
       event.description = "Testing this out"
@@ -40,6 +40,26 @@ describe Event do
       event.end_at = DateTime.new(2010, 10, 1, 17, 00)
       event.all_day = false
       event.members_only = false
+      event.event_category_id = c.id
+      event.save
+     event.errors.include?(:event_category_id).should be_true
+  end
+  
+  it "is valid with all information filled in properly" do
+    c = EventCategory.new
+    c.id = 1
+    c.name = "test"
+    c.color = "black"
+    c.save
+    
+     event = Event.new
+      event.name = "Test Name"
+      event.description = "Testing this out"
+      event.start_at = DateTime.new(2010, 10, 1, 13, 00)
+      event.end_at = DateTime.new(2010, 10, 1, 17, 00)
+      event.all_day = false
+      event.members_only = false
+      event.event_category_id = c.id
       event.save
       event.valid?.should be_true    
   end

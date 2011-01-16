@@ -10,17 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110114020705) do
+ActiveRecord::Schema.define(:version => 20110116063303) do
+
+  create_table "event_categories", :force => true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", :force => true do |t|
     t.string   "name"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.boolean  "all_day",      :default => false
-    t.boolean  "members_only", :default => false
+    t.boolean  "all_day",           :default => false
+    t.boolean  "members_only",      :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.integer  "event_category_id"
   end
 
   create_table "users", :force => true do |t|
