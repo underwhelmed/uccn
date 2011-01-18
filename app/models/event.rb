@@ -8,6 +8,14 @@ class Event < ActiveRecord::Base
   attr_accessible :name, :description, :start_at, :members_only, :all_day, :end_at, :event_category_id
   
   validate :start_at_and_end_date_valid
+  
+  def self.event_strips_for_month_for_members(month, member)
+    if (member)
+      self.event_strips_for_month(month)    
+    else
+      self.event_strips_for_month(month, :conditions => 'members_only = 0')
+    end
+  end
 
   private
     def start_at_and_end_date_valid    

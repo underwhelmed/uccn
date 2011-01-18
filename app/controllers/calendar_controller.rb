@@ -6,11 +6,12 @@ class CalendarController < ApplicationController
 
     @shown_month = Date.civil(@year, @month)
 
-    @event_strips = Event.event_strips_for_month(@shown_month)
+    @event_strips = Event.event_strips_for_month_for_members(@shown_month, user_signed_in?)
   end
   
   def event
     @event = Event.find(params[:id])
+  
   end
   
 end
