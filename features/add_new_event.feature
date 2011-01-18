@@ -9,7 +9,6 @@ Feature: Adding a New Event
   Scenario: Adding an event that has an invalid duration and is not set for an all day event should return an error
     Given I am on the Add New Event Page
     And I fill in "Name" with "Testing Event"
-    And I fill in "Description" with "Another Sweet Test"
-    And I press "Create"
-    Then I should be on the Add New Event Page
-    And I should see "Please set a valid end time for this event"
+    And I fill in "Description" with "Another Sweet Test"    
+    And I press "Create Event"
+    Then I should see "Please set a valid end time for this event"

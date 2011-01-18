@@ -11,6 +11,8 @@ class Event < ActiveRecord::Base
 
   private
     def start_at_and_end_date_valid    
-      errors[:base] = "Please set a valid end time for this event" unless !self.start_at.nil? && !self.end_at.nil? && ((self.start_at < self.end_at) || (self.all_day && self.start_at <= self.end_at))
+      if !self.start_at.nil? && !self.end_at.nil?
+        errors[:base] = "Please set a valid end time for this event" unless (self.start_at < self.end_at) || (self.all_day && self.start_at <= self.end_at)
+      end
     end
 end

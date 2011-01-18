@@ -19,7 +19,7 @@ class Admin::EventsController < AdminController
       redirect_to admin_events_url, :notice => "Event was successfully created."
     else
       @categories = EventCategory.all
-      render :action => :new      
+      render :action => "new"
     end
   end
 
