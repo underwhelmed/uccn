@@ -25,6 +25,10 @@
         %br
         = f.text_field :name, :class => 'text big'
       %p
+        Category
+        %br
+        = f.select :event_category_id, @categories.collect { |c| [c.name, c.id ]}
+      %p
         = f.label :description
         %br
         = f.text_area :description, :class => 'wysiwyg'  
@@ -32,7 +36,8 @@
         = f.label :start_at
         = f.datetime_select :start_at, :date_separator => ' ', :order => [:month, :day, :year]
         = f.check_box :all_day, :style => 'margin-left: 15px'
-        All Day Event
+        All Day Event 
+        %em NOTE: If checked, then time is ignored
       %p
         = f.label :end_at
         = f.datetime_select :end_at, :date_separator => ' ', :order => [:month, :day, :year]

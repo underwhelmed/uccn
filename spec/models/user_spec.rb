@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe User do
   
-  
-  
   it "should set the default value of admin to false" do
     u = User.new
     u.login = 'testing'
