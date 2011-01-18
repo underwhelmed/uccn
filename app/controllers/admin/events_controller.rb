@@ -10,16 +10,42 @@ class Admin::EventsController < AdminController
   end
   
   def create
-    @event = Event.new(params[:event])
-    if @event.all_day?
-      @event.start_at = @event.start_at.to_date
-      @event.end_at = @event.end_at.to_date
-    end
+    @event = Event.new(params[:event])   
     if @event.save
       redirect_to admin_events_url, :notice => "Event was successfully created."
     else
       @categories = EventCategory.all
       render :action => "new"
+    end
+  end
+  
+  def edit
+    @categories = EventCategory.all
+    @event = Event.find(params[:id])    
+  end
+  
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(params[:event])
+      redirect_to admin_events_url, :notice => "Event was successfully updated."
+    else
+      @categories = EventCategory.all
+      render :action => "edit"
+    end
+  end
+  
+  def destroy
+    @event = Event.find(params[:id])
+    begin
+      @event.destroy
+      flash[:notice] = "Event #{@event.name} deleted"
+    rescue Exception => e
+      flash[:notice] = e.message
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to(admin_events_url) }
+      format.xml  { head :ok }
     end
   end
 
