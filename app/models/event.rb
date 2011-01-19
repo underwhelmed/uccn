@@ -10,10 +10,10 @@ class Event < ActiveRecord::Base
   validate :start_at_and_end_date_valid
   
   def self.event_strips_for_month_for_members(month, member)
-    if (member)
-      self.event_strips_for_month(month)    
+    if (member == true)
+      self.event_strips_for_month month    
     else
-      self.event_strips_for_month(month, :conditions => 'members_only = 0')
+      self.event_strips_for_month month, :conditions => 'members_only = "f"'
     end
   end
 

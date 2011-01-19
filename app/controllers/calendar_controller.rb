@@ -11,7 +11,7 @@ class CalendarController < ApplicationController
   
   def event
     @event = Event.find(params[:id])
-  
+    redirect_to calendar_path, :notice => 'You are not signed in and cannot view this event' if (!user_signed_in? && @event.members_only)  
   end
   
 end

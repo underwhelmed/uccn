@@ -21,6 +21,8 @@ module NavigationHelpers
       '/login'
     when /the Add New Event Page/i
       '/admin/events/new'
+    when /the Calendar page/i
+      '/calendar/2011/1'
     else
       begin
         page_name =~ /the (.*) page/
