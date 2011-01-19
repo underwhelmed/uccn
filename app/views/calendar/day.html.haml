@@ -15,7 +15,7 @@
       - else
         - @events.each do |event| 
           %p
-            =event.name
+            = link_to event.name, calendar_event_detail_path(event.id)
       %p{:style => "margin-top:10px"}
         =link_to "Return to Calendar", calendar_path
   .clear
