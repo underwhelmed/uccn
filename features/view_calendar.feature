@@ -10,6 +10,6 @@ Feature: Viewing the Calendar
       |Testing12  |Testing this out |2011/1/20 17:00    |2011/1/20 19:00    |true         |false    |1                  |
       |Testing45  |Testing this out |2011/1/23 17:00    |2011/1/23 19:00    |false        |false    |1                  |
     And I am not authenticated
-    And I am on the Calendar page
+    And I am on the Calendar page for 2011/1
     Then I should not see "Testing12"
     And I should see "Testing45"

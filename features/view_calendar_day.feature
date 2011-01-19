@@ -13,5 +13,6 @@ Feature: Viewing the Calendar By Day
     And I am not authenticated
     And I am on the Calendar Day page for 2011/1/20
     Then I should not see "Testing12"
+    And I should see "20, 2011" 
     And I should see "Testing34"
     And I should not see "Testing56"

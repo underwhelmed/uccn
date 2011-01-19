@@ -9,7 +9,7 @@ module NavigationHelpers
     case page_name
 
     when /the home\s?page/
-      '/'
+      root_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
@@ -18,13 +18,13 @@ module NavigationHelpers
     #     user_profile_path(User.find_by_login($1))
 
     when /login/i
-      '/login'
+      login_path
     when /the Add New Event Page/i
-      '/admin/events/new'
-    when /the Calendar page/i
-      '/calendar/2011/1'
-    when /^the Calendar Day page for (.*)$/i
-      '/calendar/$1'
+      new_admin_event_path
+    when /^the Calendar page for (.*)$/i
+      '/calendar/' + $1
+    when /^the Calendar Day page for (.*)$/i      
+      '/calendar/' + $1
     else
       begin
         page_name =~ /the (.*) page/
