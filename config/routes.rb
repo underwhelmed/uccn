@@ -1,5 +1,6 @@
 Uccnrails::Application.routes.draw do
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  match "/calendar/:year/:month/:day", :controller => "calendar", :action => "day"
 
   match 'events/:id' => 'calendar#event'
 
