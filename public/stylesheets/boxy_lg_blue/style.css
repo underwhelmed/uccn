@@ -122,6 +122,7 @@ blockquote {}
 #content section#header{border: 10px solid #ffffff; background: #0065A7; padding: 15px 20px 20px 20px; }
 #content section#header h1{font-size: 24px; padding-bottom: 0px; color: #ffffff; /*text-shadow: 1px 1px 2px #444;*/}
 #content section#header p{width: 700px; font-size: 14px;  /*text-shadow: 1px 1px 1px #444;*/font-family: Georgia, 'Times New Roman', Times, serif; color: #ededed; font-style: italic;}
+#content section#header p a {color:#ededed;}
 
 #content section#slider{border: 10px solid #ffffff; background: #0065A7; padding: 20px 0px; text-align: center;}
 #content section#slider p{text-shadow: 1px 1px 2px #101010; color: #000; font-size: 32px;font-family: 'BebasRegular', Georgia, 'Times New Roman', Times, serif; }
@@ -234,7 +235,7 @@ blockquote {}
 		#content section.blog article footer div{padding: 0px; margin: 0px;}
 		#content section.blog article footer .metas{float: left;  width: 550px; padding-left: 5px;}
 		#content section.blog article footer .coms{float: right; width: 100px; text-align: right; padding-right: 5px;}
-		#content section.blog article p.big{color: #333; font-size: 18px; text-shadow: 1px 1px 2px #bbb; font-family: Georgia, 'Times New Roman', Times, serif;}
+		#content section.blog article p.big{color: #333; font-size: 18px; text-shadow: 1px 1px 2px #bbb; font-family: Georgia, 'Times New Roman', Times, serif;}		
 		#content section.blog article blockquote{background: #f0f2f4; padding: 15px; 
 											font-size: 12px; font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic;}
 		#content section.blog article ul{padding-left: 20px;}

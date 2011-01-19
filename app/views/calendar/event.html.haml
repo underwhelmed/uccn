@@ -2,16 +2,14 @@
   UCCN Event
   
 %section#header
-  %h1 Event Information
+  %h1=@event.name
+  %p
+    = link_to @event.start_at.strftime("%A, %B #{@event.start_at.day.ordinalize}"), :action => :day, :year => @event.start_at.beginning_of_day.year, :month => @event.start_at.beginning_of_day.month, :day => @event.start_at.beginning_of_day.day
+    = @event.start_at.strftime(" at %l:%M %p") if !@event.all_day
 %section.pageboxy.white
   %section.full_width
     .elements
-      %p 
-        Event Information:
-        = @event.name
       %p
-        Date:
-        = @event.start_at.strftime("%A, %B #{@event.start_at.day.ordinalize}")
-        - if !@event.all_day
-          = @event.start_at.strftime(" at %l:%M %p")
+        = raw(@event.description)        
+      %p{:style => "margin-top:20px"}= link_to "Return to Calendar", calendar_path
   .clear
