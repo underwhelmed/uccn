@@ -10,8 +10,9 @@ class CalendarController < ApplicationController
   end
   
   def day
-    @full_date = "January 11, 2011"
-    @events = Event.all
+    date = Date.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
+    @full_date = date.strftime("%A, %B %e, %Y")
+    @events = Event.events_by_date(date, user_signed_in?)
   end
   
   def event

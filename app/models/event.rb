@@ -16,6 +16,17 @@ class Event < ActiveRecord::Base
       self.event_strips_for_month month, :conditions => 'members_only = "f"'
     end
   end
+  
+  def self.events_by_date(date, member)
+    begin_date = date.beginning_of_day.utc
+    end_date = date.end_of_day.utc
+    sql = "((all_day = 't' AND date(start_at) = ?) OR (start_at BETWEEN ? AND ? AND all_day = 'f'))"
+    if (member == true)
+      self.all(:conditions => [sql, date, begin_date, end_date])
+    else
+      self.all(:conditions => [sql + " AND members_only = 'f'", date, begin_date, end_date])
+    end
+  end
 
   private
     def start_at_and_end_date_valid    

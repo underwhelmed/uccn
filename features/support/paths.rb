@@ -23,6 +23,8 @@ module NavigationHelpers
       '/admin/events/new'
     when /the Calendar page/i
       '/calendar/2011/1'
+    when /^the Calendar Day page for (.*)$/i
+      '/calendar/$1'
     else
       begin
         page_name =~ /the (.*) page/

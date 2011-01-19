@@ -9,5 +9,13 @@
 %section.pageboxy.white
   %section.full_width
     .elements
-      
+      - if @events.empty?
+        .message.warning{:style => "display: block; "}
+          %p No Events currently scheduled for today
+      - else
+        - @events.each do |event| 
+          %p
+            =event.name
+      %p{:style => "margin-top:10px"}
+        =link_to "Return to Calendar", calendar_path
   .clear
