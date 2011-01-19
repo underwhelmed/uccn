@@ -1,13 +1,13 @@
 = form_for [:admin, @event] do |f|
   - if @event.errors.any?
     .message.errormsg{:style => "display: block; "}
-    %p 
-      There were errors trying to edit this event: 
-      %br
-      - @event.errors.full_messages.each do |msg|   
-        *        
-        = msg
-        %br/   
+      %p 
+        There were errors trying to save this event: 
+        %br
+        - @event.errors.full_messages.each do |msg|   
+          *        
+          = msg
+          %br/   
     - if !notice.nil?
       .message.errormsg{:style=> 'display:block;'}
       %p= notice

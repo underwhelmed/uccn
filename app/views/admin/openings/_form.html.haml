@@ -1,0 +1,39 @@
+= form_for [:admin, @opening] do |f|
+  - if @opening.errors.any?
+    .message.errormsg{:style => "display: block; "}
+      %p 
+        There were errors trying to save this daycare opening: 
+        %br
+        - @opening.errors.full_messages.each do |msg|   
+          *        
+          = msg
+          %br/   
+    - if !notice.nil?
+      .message.errormsg{:style=> 'display:block;'}
+      %p= notice
+  %p
+    = f.label :name 
+    %br
+    = f.text_field :name, :class => 'text medium'
+  %p
+    = f.label :phone
+    %br
+    = f.text_field :phone, :class => 'text small'  
+  %p
+    = f.label :email 
+    %br
+    = f.text_field :email, :class => 'text medium'
+  %p
+    = f.label :city 
+    %br
+    = f.text_field :city, :class => 'text medium'  
+  %p
+    = f.label :school_district
+    %br
+    = f.text_field :school_district, :class => 'text medium'  
+  %p
+    = f.label :description
+    %br
+    = f.text_area :description, :class => 'wysiwyg'    
+  %p
+    = f.submit :class => 'submit mid'

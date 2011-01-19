@@ -6,5 +6,28 @@
 %section.pageboxy.white
   %section.full_width
     .elements
-      
+      %p 
+        %em Click the opening to edit it's information
+      - if @openings.empty?
+        .message.warning{:style => "display: block; "}
+          %p No Daycare Openings are currently available.  Please check back later
+      - else
+        %table{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+          %thead
+            %tr
+              %th.header{:style => "cursor: pointer; "} City
+              %th.header{:style => "cursor: pointer; "} School District
+              %th.header{:style => "cursor: pointer; "} Name
+              %th.header{:style => "cursor: pointer; "} Phone
+              %td.header{:style => "cursor: pointer; "} Email
+              %td.header{:style => "cursor: pointer; "} Notes
+          %tbody
+            - @openings.each do |opening| 
+              %tr{ :class => cycle('even', 'odd') }
+                %td= opening.city
+                %td= opening.school_district
+                %td= opening.name
+                %td= opening.phone
+                %td= opening.email
+                %td= raw(opening.description)
   .clear

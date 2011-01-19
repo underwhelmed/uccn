@@ -33,6 +33,11 @@
                   = link_to 'Add New Event', new_admin_event_path
                 %li
                   %a{:href => '#'} Manage Event Categories
+            %li
+              = link_to 'Openings', admin_openings_path
+              %ul
+                %li
+                  = link_to 'Add New Opening', new_admin_opening_path
           %p.user            
             = link_to "View Website", :root     
             |   

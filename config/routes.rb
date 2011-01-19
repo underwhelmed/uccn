@@ -36,6 +36,7 @@ Uccnrails::Application.routes.draw do
   namespace "admin" do
     resources :users
     resources :events
+    resources :openings
   end
    
   # The priority is based upon order of creation:
