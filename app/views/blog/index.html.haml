@@ -1,4 +1,33 @@
 - content_for :title do
   UCCN Blog
 
-%h1 Blog
+%section#header
+  %h1 UCCN Blog
+  
+%section.blog
+  #posts
+    - @posts.each do |post|
+      %article
+        .title
+          =link_to post.title, post.url
+          %time{:datetime => post.published_at.strftime("%Y-%m-%d")}
+            =post.published_at.strftime("""%d""")
+            %br/
+            %span=post.published_at.strftime("%b")
+          .clear
+        .elements
+          = raw(post.body)
+          %footer
+            .metas
+              Posted by 
+              =post.author
+              in
+              Categories
+            .coms
+              %a{:href => '#'} 20 Comments
+    .clear
+    = will_paginate @posts, :class => "prefnext", :per_page => 5, :previous_label => "Older", :next_label => "Newer"
+  %aside
+    .rss.block
+      %a{:href => '#'} RSS
+  .clear
