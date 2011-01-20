@@ -19,12 +19,16 @@ module NavigationHelpers
 
     when /login/i
       login_path
+    when /sign_in/i
+      new_user_session_path
     when /the Add New Event Page/i
       new_admin_event_path
     when /^the Calendar page for (.*)$/i
       '/calendar/' + $1
     when /^the Calendar Day page for (.*)$/i      
       '/calendar/' + $1
+    when /the Password Recovery page/i
+      new_user_password_path
     else
       begin
         page_name =~ /the (.*) page/
