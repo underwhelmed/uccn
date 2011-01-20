@@ -41,6 +41,7 @@ Uccnrails::Application.routes.draw do
     resources :users
     resources :events
     resources :openings
+    resources :posts
   end
    
   # The priority is based upon order of creation:

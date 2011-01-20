@@ -1,0 +1,35 @@
+= form_for [:admin, @post] do |f|
+  - if @post.errors.any?
+    .message.errormsg{:style => "display: block; "}
+      %p 
+        There were errors trying to save this blog post: 
+        %br
+        - @post.errors.full_messages.each do |msg|   
+          *        
+          = msg
+          %br/   
+    - if !notice.nil?
+      .message.errormsg{:style=> 'display:block;'}
+      %p= notice
+  %p
+    = f.label :title
+    %br/
+    = f.text_field :title, :class => 'text big'
+  %p
+    = f.label :body
+    %br/
+    = f.text_area :body, :class => 'wysiwyg'
+  %p
+    %label Visibility
+    %br/
+    =select(:post, :members_only, [[ "Public", "false" ], [ "Members Only", "true" ]] )
+  %p
+    %label Status
+    %br/
+    =select(:post, :published, [[ "Published", "true" ], [ "Draft", "false" ]] )
+  %p
+    %label Publish Date
+    %br/
+    = f.datetime_select :published_at, :date_separator => ' ', :order => [:month, :day, :year]
+  %p
+    = f.submit :class => 'submit mid'
