@@ -1,0 +1,43 @@
+- content_for :title do
+  Board of Directors - UCCN
+  
+%section#header
+  %h1 UCCN Leadership
+
+%section.pages
+  %aside.one_quarter
+    %h2 View
+    %ul
+      %li= link_to 'UCCN Officers', members_officers_path
+      %li= link_to 'Board of Directors', members_board_path
+      %li= link_to 'Advisory Board', members_advisory_path
+  %section.three_quarter
+    %h1 Board of Directors
+    %table{:style => "width:100%"}
+      %tbody
+        %tr
+          %td
+            =mail_to "marilynk1@comcast.net", "Marilyn Korzeniowski"
+          %td
+            (630) 985-0799
+        %tr.alt
+          %td
+            =mail_to "somers6@sbcglobal.net", "Janet Somers"
+          %td
+            (630) 910-6534
+        %tr
+          %td
+            =mail_to "cindystrelecky@comcast.net", "Cindy Strelecky"
+          %td
+            (630) 910-1579
+        %tr.alt
+          %td
+            =mail_to "btbbw4@comcast.net", "Tammy Wilson"
+          %td
+            (630) 910-3297
+        %tr
+          %td
+            =mail_to "kmanderfie@aol.com", "Kathy Manderfield"
+          %td
+            (630) 985-3323
+  .clear

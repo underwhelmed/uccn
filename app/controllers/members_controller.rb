@@ -11,4 +11,13 @@ class MembersController < ApplicationController
   def profile
   end
   
+  def officers
+  end
+  
+  def board
+  end
+  
+  def advisory
+  end
+  
 end

@@ -28,6 +28,10 @@ Uccnrails::Application.routes.draw do
   namespace 'members' do
     match 'forum' => 'forum#index'
     match 'directory' => 'members#directory'
+    match 'officers' => 'members#officers'
+    match 'advisory' => 'members#advisory'
+    match 'advisoryboard' => 'members#advisory'
+    match 'board' => 'members#board'
     resources :documents
   end
  
