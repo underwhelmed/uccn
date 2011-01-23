@@ -29,6 +29,8 @@ module NavigationHelpers
       '/calendar/' + $1
     when /the Password Recovery page/i
       new_user_password_path
+    when /the Add New Blog Post/i
+      new_admin_post_path
     else
       begin
         page_name =~ /the (.*) page/
