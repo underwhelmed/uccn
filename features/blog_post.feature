@@ -15,7 +15,7 @@ Feature: Managing Blog Posts
     And I fill in "post_published_at" with "12/25/2008 10:00"
     And I press "Create Post"
     Then I should be on the Edit Posts page 
-    And I should have a post with a slug of "testing-this-out" and a url of "/2008/12/25/testing-this-out"
+    And I should have a post with a slug of "testing-this-out" and a url of "/blog/2008/12/25/testing-this-out"
     
   Scenario: New blog post with no body that is published is not valid
     Given I am on the Add New Blog Post page
