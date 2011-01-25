@@ -22,14 +22,14 @@
   %p
     %label Visibility
     %br/
-    =select(:post, :members_only, [[ "Public", "false" ], [ "Members Only", "true" ]] )
+    = f.select :members_only, [[ "Public", "false" ], [ "Members Only", "true" ]]
   %p
     %label Status
     %br/
-    =select(:post, :published, [[ "Published", "true" ], [ "Draft", "false" ]] )
+    = f.select :published, [[ "Published", "true" ], [ "Draft", "false" ]]
   %p
     %label Publish Date
     %br/
-    = f.datetime_select :published_at, :date_separator => ' ', :order => [:month, :day, :year]
+    = f.text_field :published_at, :class => "text medium"
   %p
     = f.submit :class => 'submit mid'

@@ -98,10 +98,27 @@ $(function () {
 			return false;
 		}
 	});
+	
+	$.extend(DateInput.DEFAULT_OPTS, {
+	  stringToDate: function(string) {
+	    var matches;
+	    if (matches = string.match(/^(\d{2,2})\/(\d{2,2})\/(\d{4,4})$/)) {
+	      return new Date(matches[3], matches[1] - 1, matches[2]);
+	    } else {
+	      return null;
+	    };
+	  },
+
+	  dateToString: function(date) {
+	    var month = (date.getMonth() + 1).toString();
+	    var dom = date.getDate().toString();
+	    return month + "/" + dom + "/" + date.getFullYear();
+	  }
+	});
 
 	// Date picker
 	$('input.date_picker').date_input();
-  
+	
 	// Navigation dropdown fix for IE6
 	if(jQuery.browser.version.substr(0,1) < 7) {
 		$('#header #nav li').hover(

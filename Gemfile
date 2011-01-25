@@ -14,7 +14,6 @@ group :development, :test do
   gem 'email_spec'
   gem "capybara"
   gem "autotest"
-  gem "chronic"
 
   gem 'database_cleaner'
   gem 'launchy'

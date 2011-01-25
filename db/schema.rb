@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(:version => 20110120044421) do
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "slug",                            :null => false
+    t.string   "slug"
     t.string   "title",                           :null => false
     t.datetime "published_at"
     t.string   "excerpt"
-    t.text     "body",                            :null => false
+    t.text     "body"
     t.string   "author"
     t.boolean  "published",    :default => false
     t.boolean  "members_only", :default => false

@@ -31,6 +31,8 @@ module NavigationHelpers
       new_user_password_path
     when /the Add New Blog Post/i
       new_admin_post_path
+    when /the Edit Posts page/i
+      admin_posts_path
     else
       begin
         page_name =~ /the (.*) page/
