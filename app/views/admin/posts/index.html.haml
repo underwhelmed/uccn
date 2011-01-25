@@ -25,7 +25,7 @@
             %th.header{:style => "cursor: pointer; "} Categories
             %th.header{:style => "cursor: pointer; "} Publish
             %th.header{:style => "cursor: pointer; "} Published Date
-            %td.header{:style => "cursor: pointerx; "} Delete
+            %td.header{:style => "cursor: pointerx; "} Options
         %tbody
           - @posts.each do |post| 
             %tr{ :class => cycle('even', 'odd') }
@@ -35,4 +35,5 @@
               %td=post.published? ? 'Published' : 'Draft'
               %td=post.published? ? post.pretty_date : 'N/A'
               %td
+                = link_to image_tag('/images/magnifier.png', :alt=>'View Post'), post.url
                 = link_to image_tag('/images/delete.png', :alt=>'Delete'), admin_post_path(post), :confirm => "Are you sure you want to delete this post?\n\nWARNING: THIS CANNOT BE UNDONE!!!!", :method => :delete

@@ -34,7 +34,7 @@ class Post < ActiveRecord::Base
   end
   
   def url
-    "/#{year}/#{month}/#{day}/#{slug}"
+    "/blog/#{year}/#{month}/#{day}/#{slug}"
   end
   
   private

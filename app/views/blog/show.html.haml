@@ -1,0 +1,31 @@
+- content_for :title do
+  UCCN Blog
+
+%section#header
+  %h1 UCCN Blog
+  
+%section.blog
+  #posts
+    %article
+      .title
+        =@post.title
+        %time{:datetime => @post.published_at.strftime("%Y-%m-%d")}
+          =@post.published_at.strftime("""%d""")
+          %br/
+          %span=@post.published_at.strftime("%b")
+        .clear
+      .elements
+        = raw(@post.body)
+        %footer
+          .metas
+            Posted by 
+            =@post.author
+            in
+            Categories
+          .coms
+            %a{:href => '#'} 20 Comments
+    .clear
+  %aside
+    .rss.block
+      %a{:href => '#'} RSS
+  .clear

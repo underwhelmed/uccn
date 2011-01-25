@@ -5,7 +5,7 @@ class BlogController < ApplicationController
   end
   
   def show
-    @post = Post.find_by_slug(:slug)
+    @post = Post.find_by_slug(params[:slug])
     if !@post
       render "404"
     end
