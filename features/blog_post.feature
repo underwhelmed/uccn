@@ -19,10 +19,18 @@ Feature: Managing Blog Posts
     
   Scenario: New blog post with no body that is published is not valid
     Given I am on the Add New Blog Post page
-    And I fill in "Title" with "Testing this out"
+    And I fill in "Title" with "Testing this out Again"
     And I select "Public" from "post_members_only"
     And I select "Published" from "post_published"
     And I fill in "post_published_at" with "12/25/2008 10:00 AM"
     And I press "Create Post"
     Then I should see "A published post needs to have a body"
-  
+    
+  Scenario: New blog post with no published date is not valid
+    Given I am on the Add New Blog Post page
+    And I fill in "Title" with "Testing this out with an invalid date"
+    And I fill in "Body" with "What's going on fools"
+    And I select "Public" from "post_members_only"
+    And I select "Published" from "post_published"
+    And I press "Create Post"
+    Then I should see "A published post needs to have a published date"

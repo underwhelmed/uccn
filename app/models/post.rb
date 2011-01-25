@@ -3,13 +3,13 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :title
 
-  attr_accessible :title, :members_only, :published, :published_at
+  attr_accessible :title, :body, :members_only, :published, :published_at
   
   before_validation :add_slug
   validate :determine_valid_post
 
   def pretty_date
-    published_at.strftime("%A, %B %d, %Y")
+    published_at.strftime("%A, %B %d, %Y %l:%M %p") if !published_at.nil?
   end
   
   def create_slug(str)
@@ -40,6 +40,7 @@ class Post < ActiveRecord::Base
   private
     def determine_valid_post
       errors[:base] = "A published post needs to have a body" if self.published && (self.body.nil? || self.body.length == 0)
+      errors[:base] = "A published post needs to have a published date" if self.published && (self.published_at.nil?)
     end  
     
     def add_slug
