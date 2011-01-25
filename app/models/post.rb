@@ -41,6 +41,7 @@ class Post < ActiveRecord::Base
     def determine_valid_post
       errors[:base] = "A published post needs to have a body" if self.published && (self.body.nil? || self.body.length == 0)
       errors[:base] = "A published post needs to have a published date" if self.published && (self.published_at.nil?)
+      errors[:base] = "A published post needs to have an author" if self.published && self.author.nil?
     end  
     
     def add_slug

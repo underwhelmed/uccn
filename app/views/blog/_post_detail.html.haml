@@ -1,0 +1,18 @@
+%article
+  .title  
+    %h1=link_to @post.title, @post.url
+    %time{:datetime => @post.published_at.strftime("%Y-%m-%d")}
+      =@post.published_at.strftime("""%d""")
+      %br/
+      %span=@post.published_at.strftime("%b")
+    .clear
+    .elements
+    = raw(@post.body)
+    %footer
+      .metas
+        Posted by 
+        =@post.author
+        in
+        Categories
+      .coms
+        %a{:href => '#'} 20 Comments

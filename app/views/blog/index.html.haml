@@ -9,7 +9,7 @@
     - @posts.each do |post|
       %article
         .title
-          =link_to post.title, post.url
+          %h1=link_to post.title, post.url
           %time{:datetime => post.published_at.strftime("%Y-%m-%d")}
             =post.published_at.strftime("""%d""")
             %br/
