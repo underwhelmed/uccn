@@ -4,6 +4,7 @@
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %title 
       = yield(:title)
+    %link{:rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon'}/
     = stylesheet_link_tag "boxy_lg_blue/style", :media => "all"
     = javascript_include_tag :defaults, "boxy/jquery.scrollTo", "boxy/jquery.animate-colors"
 
@@ -20,66 +21,24 @@
           %p.title UCCN
           %p.slogan United Child Care Network
         = render :partial => 'layouts/menu'
-    #content
-      - if !notice.nil?
-        %p.notice
-          = notice
-      - if !alert.nil? 
-        %p.alert
-          = alert	 
+    #content      
       = yield
-      %section.footertop
-        .one_third.black
-          .title
-            %h2.boxed Upcoming Events
-          .elements            
-            %p This is a placeholder for upcoming events
-          .bottom
-            %a{:href => '#'} Go Here to See the Calendar
-        .one_third.black
-          .title
-            %h2.boxed From the Blog
-          .elements
-            .post
-              %h3
-                %a{:href => '#'} Information on Car Seats
-              %time{:datetime => '2010-04-7'} April 7, 2010
-              %p This is the introduction to the post and can be set inside the post 
-          .bottom
-            %a{:href => '#'} Go to the Blog
-        .one_third.black
-          .title
-            %h2 Get in Touch
-          .elements
-            .citem
-              %h3 Address
-              %p 
-                P.O. Box 130
-                %br/
-                Downers Grove, IL 60515
-            .citem
-              %h3 Phone
-              %p (630) 343-9820
-            %br/
-          .bottom
-            %a{:href => '#'} Contact Us            
-      .clear
+      = yield(:footer)
     %footer
       %div
         %p
-          Copyright © 2010 All Rights Reserved
+          Copyright © 
+          =Time.now.year.to_s
+          All Rights Reserved
         %ul
           %li
-            %a{:href => "#"}> Advertise
+            =link_to "Events", calendar_path
             |
           %li
-            %a{:href => "#"}> Suggestions
+            =link_to "Daycare Openings", openings_path
             |
           %li
-            %a{:href => "#"}> About Us
+            =link_to "Resources", resources_path
             |
           %li
-            %a{:href => "#"}> Terms
-            |
-          %li
-            %a{:href => "#"} Contact Us
+            =link_to "Blog", blog_path

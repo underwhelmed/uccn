@@ -129,8 +129,8 @@ blockquote {}
 		#content section#slider #viewport{width: 950px;overflow: hidden;}
         #content section#slider #container{width: 60000px;height: 350px;overflow: hidden; }
         #content section#slider div.section {width: 950px;float: left;}
-		#content section#slider div.section .left{ width: 350px;float: left; height: 350px; text-align: right; }
-		#content section#slider div.section .right{width: 580px;float: right;padding-left: 20px; height: 350px; text-align: left; }
+		#content section#slider div.section .left{ width: 550px;float: left; height: 350px; text-align: right; }
+		#content section#slider div.section .right{width: 380px;float: right;padding-left: 20px; height: 350px; text-align: left; }
 		#content section#slider div.section .right p{color: #fff; padding-bottom: 10px;}
 		
 #content section#intro{border-top: 1px solid #E1E1E1; border-bottom: 1px solid #E1E1E1; background: #f6f6f6; padding: 15px 20px 15px 20px;}

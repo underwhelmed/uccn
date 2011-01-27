@@ -1,4 +1,44 @@
 - content_for :title do
   United Child Care Network
 
-%h1 Welcome to the UCCN
+= render "slider"
+
+
+
+- content_for :footer do
+  %section.footertop
+    .one_third.black
+      .title
+        %h2.boxed Upcoming Events
+      .elements            
+        %p This is a placeholder for upcoming events
+      .bottom
+        %a{:href => '#'} Go Here to See the Calendar
+    .one_third.black
+      .title
+        %h2.boxed From the Blog
+      .elements
+        .post
+          %h3
+            %a{:href => '#'} Information on Car Seats
+          %time{:datetime => '2010-04-7'} April 7, 2010
+          %p This is the introduction to the post and can be set inside the post 
+      .bottom
+        %a{:href => '#'} Go to the Blog
+    .one_third.black
+      .title
+        %h2 Get in Touch
+      .elements
+        .citem
+          %h3 Address
+          %p 
+            P.O. Box 130
+            %br/
+            Downers Grove, IL 60515
+        .citem
+          %h3 Phone
+          %p (630) 343-9820
+        %br/
+      .bottom
+        %a{:href => '#'} Contact Us            
+  .clear
