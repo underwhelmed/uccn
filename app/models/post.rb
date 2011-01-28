@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   cattr_reader :per_page
+  
+  has_many :categories
 
   validates_presence_of :title
 
