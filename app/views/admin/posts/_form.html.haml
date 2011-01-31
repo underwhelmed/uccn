@@ -11,25 +11,32 @@
     - if !notice.nil?
       .message.errormsg{:style=> 'display:block;'}
       %p= notice
-  %p
-    = f.label :title
-    %br/
-    = f.text_field :title, :class => 'text big'
-  %p
-    = f.label :body
-    %br/
-    = f.text_area :body, :class => 'wysiwyg'
-  %p
-    %label Visibility
-    %br/
-    = f.select :members_only, [[ "Public", "false" ], [ "Members Only", "true" ]]
-  %p
-    %label Status
-    %br/
-    = f.select :published, [[ "Published", "true" ], [ "Draft", "false" ]]
-  %p
-    %label Publish Date
-    %br/
-    = f.text_field :published_at, :class => "text medium"
+  .leftside{:style => 'float:left;width:75%'}
+    %p
+      = f.label :title
+      %br/
+      = f.text_field :title, :class => 'text big'
+    %p
+      = f.label :body
+      %br/
+      = f.text_area :body, :class => 'wysiwyg'
+    %p
+      %label Visibility
+      %br/
+      = f.select :members_only, [[ "Public", "false" ], [ "Members Only", "true" ]]
+    %p
+      %label Status
+      %br/
+      = f.select :published, [[ "Published", "true" ], [ "Draft", "false" ]]
+    %p
+      %label Publish Date
+      %br/
+      = f.text_field :published_at, :class => "text medium"
+  .rightside{:style => 'float:right;width:25%'}
+    %p
+      %label Categories
+    .category_list{:style => 'height:200px;overflow:auto;'}
+      do stuff here
+  .clear
   %p
     = f.submit :class => 'submit mid'

@@ -21,4 +21,5 @@ group :development, :test do
   gem 'hpricot'
   gem 'ruby_parser'
 
+  gem 'capistrano'
 end
