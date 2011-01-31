@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   cattr_reader :per_page
   
-  has_many :categories
+  has_and_belongs_to_many :categories
 
   validates_presence_of :title
 
@@ -9,7 +9,11 @@ class Post < ActiveRecord::Base
   
   before_validation :add_slug
   validate :determine_valid_post
-
+  
+  def has_category(category)
+    false
+  end
+   
   def pretty_date
     published_at.strftime("%A, %B %d, %Y %l:%M %p") if !published_at.nil?
   end

@@ -11,7 +11,7 @@
     - if !notice.nil?
       .message.errormsg{:style=> 'display:block;'}
       %p= notice
-  .leftside{:style => 'float:left;width:75%'}
+  .leftside{:style => 'float:left;width:750px'}
     %p
       = f.label :title
       %br/
@@ -32,11 +32,13 @@
       %label Publish Date
       %br/
       = f.text_field :published_at, :class => "text medium"
-  .rightside{:style => 'float:right;width:25%'}
+  .rightside{:style => 'float:right;width:220px'}
     %p
       %label Categories
-    .category_list{:style => 'height:200px;overflow:auto;'}
-      do stuff here
+    .category_list{:style => 'height:200px;overflow:auto;border: 1px solid #D0D0D0;padding:5px;'}
+      - @categories.each do |c|
+        = check_box_tag "post[category_ids][]", c.id, @post.has_category(c)
+        = c.name
   .clear
   %p
     = f.submit :class => 'submit mid'
