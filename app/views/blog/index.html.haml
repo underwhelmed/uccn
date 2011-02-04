@@ -21,12 +21,12 @@
             .metas
               Posted by 
               =post.author
-              in
-              Categories
+              - if (post.has_categories)
+                =post.categories.collect { |c| c.name }.join(", ")
             .coms
               %a{:href => '#'} 20 Comments
     .clear
-    = will_paginate @posts, :class => "prefnext", :per_page => 5, :previous_label => "Older", :next_label => "Newer"
+    = will_paginate @posts, :class => "prefnext", :per_page => 5, :previous_label => "Newer", :next_label => "Older"
   %aside
     .rss.block
       %a{:href => '#'} RSS
