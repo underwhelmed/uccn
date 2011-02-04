@@ -1,0 +1,9 @@
+%aside
+  .rss.block
+    %a{:href => '#'} RSS
+  .categories.block
+    %h2 Categories
+    %ul
+      - @categories.each do |c|
+        %li
+          %a{:href => '#' }=c.name

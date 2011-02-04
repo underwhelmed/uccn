@@ -19,13 +19,11 @@
         %footer
           .metas
             Posted by 
-            =@post.author
-            in
-            Categories
+            %strong=@post.author
+            - if (@post.has_categories)
+              =@post.categories.collect { |c| c.name }.join(", ")
           .coms
             %a{:href => '#'} 20 Comments
     .clear
-  %aside
-    .rss.block
-      %a{:href => '#'} RSS
+  =render :partial => "blog_side", :locals => {:categories => @categories}
   .clear

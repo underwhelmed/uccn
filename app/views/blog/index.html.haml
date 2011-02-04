@@ -20,14 +20,13 @@
           %footer
             .metas
               Posted by 
-              =post.author
+              %strong=post.author
               - if (post.has_categories)
+                in 
                 =post.categories.collect { |c| c.name }.join(", ")
             .coms
               %a{:href => '#'} 20 Comments
     .clear
     = will_paginate @posts, :class => "prefnext", :per_page => 5, :previous_label => "Newer", :next_label => "Older"
-  %aside
-    .rss.block
-      %a{:href => '#'} RSS
+  =render :partial => "blog_side", :locals => {:categories => @categories}
   .clear
