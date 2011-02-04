@@ -310,7 +310,15 @@ blockquote {}
 			background-repeat: no-repeat;
 			background-position: 0px 4px;
 		}
-		
+/****** Login ******/
+#content section.login{background: #ffffff; padding: 10px 0px 10px 10px; margin-top: 10px;}
+	#content section.login .lform {width:500px;margin:auto;border: 1px solid #191917;padding: 10px 0px 10px 10px;}
+	#content section.login .lform input.txt{background: #efefef; border: 1px solid #191917;font-size: 13px; height: 24px;padding:0px 5px;}
+	#content section.login .lform input.btn{background: #0065A7; border: 1px solid #1a1a1a; font-family: 'BebasRegular', Georgia, 'Times New Roman', Times, serif; font-size: 16px; color: #fff;  width: 70px; padding-bottom: 2px; float: right;  margin-right: 20px;}
+	#content section.login .lform label{color: #191917; font-size: 12px;}
+	#content section.login .lform label span{color: #0065A7; font-weight: bold;}	
+	#content section.login .lform p{padding-bottom:10px;}
+	#content section.login .lform p.error{color:red;font-weight:bold;}
 /****** Pages *****/
 
 #content section.pages{background: #ffffff; padding: 10px 0px 10px 10px; margin-top: 10px;}

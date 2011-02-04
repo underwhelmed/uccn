@@ -10,23 +10,27 @@
 %section#header
   %h1 Login to the Members Area
   
-%section.contact
-  %section.full_page   
-    .cform.block
+%section.login
+  %section.full_page      
+    .lform
+      -if (flash[:alert])
+        %p.error=flash[:alert]
+      %p
+        Please enter your username and password to continue
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
         %p
           = f.label :login
           %br/
-          = f.text_field :login
+          = f.text_field :login, :class => 'txt'
         %p
           = f.label :password
           %br/
-          = f.password_field :password
+          = f.password_field :password, :class => 'txt'
         - if devise_mapping.rememberable?
           %p
             = f.check_box :remember_me
             = f.label :remember_me
-        %p.area= f.submit "Login", :class => 'submit mid'
+        %p.area= f.submit "Login", :class => 'btn'
       %br/
       = render :partial => "devise/shared/links"
   .clear
