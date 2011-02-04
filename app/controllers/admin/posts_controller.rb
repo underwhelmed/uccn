@@ -6,6 +6,7 @@ class Admin::PostsController < AdminController
   
   def new
     @post = Post.new
+    @post.published_at = Time.now
     @categories = Category.all
   end
   
@@ -24,6 +25,7 @@ class Admin::PostsController < AdminController
   end
   
   def update
+    params[:post][:category_ids] ||= []  #added in case all categories were removed
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
       redirect_to admin_posts_url, :notice => "Blog Post was successfully updated."

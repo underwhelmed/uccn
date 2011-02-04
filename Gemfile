@@ -6,6 +6,7 @@ gem 'haml'
 gem 'devise'
 gem 'event-calendar', :require => 'event_calendar'
 gem "will_paginate", "~> 3.0.pre2"
+gem 'simple_form'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0"

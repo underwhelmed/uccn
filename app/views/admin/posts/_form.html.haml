@@ -1,4 +1,4 @@
-= form_for [:admin, @post] do |f|
+= simple_form_for [:admin, @post] do |f|
   - if @post.errors.any?
     .message.errormsg{:style => "display: block; "}
       %p 
@@ -36,10 +36,7 @@
     %p
       %label Categories
     .category_list{:style => 'height:200px;overflow:auto;border: 1px solid #D0D0D0;padding:5px;'}
-      - @categories.each do |c|
-        = check_box_tag "post[category_ids][]", c.id, @post.has_category(c)
-        = c.name
-        %br/
+      =f.association :categories, :as => :check_boxes, :label => false, :input_html => { :style => 'margin-right:5px' } 
   .clear
   %p
     = f.submit :class => 'submit mid'

@@ -985,3 +985,9 @@ a:hover {
 	float: right;
 	text-align: right;
 	}
+	
+.collection_check_boxes
+{
+	display:block;
+}
+}
