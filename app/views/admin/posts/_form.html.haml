@@ -39,6 +39,7 @@
       - @categories.each do |c|
         = check_box_tag "post[category_ids][]", c.id, @post.has_category(c)
         = c.name
+        %br/
   .clear
   %p
     = f.submit :class => 'submit mid'
