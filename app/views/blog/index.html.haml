@@ -2,7 +2,10 @@
   UCCN Blog
 
 %section#header
-  %h1 UCCN Blog
+  %h1 
+    UCCN Blog
+    - if (!@category.nil?)
+      =raw(" - ") + @category.name
   
 %section.blog
   #posts

@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   
   before_validation :add_slug
   validate :determine_valid_post
-  
+
   def has_categories
     self.categories.count > 0
   end

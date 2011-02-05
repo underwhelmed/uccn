@@ -5,5 +5,4 @@
     %h2 Categories
     %ul
       - @categories.each do |c|
-        %li
-          %a{:href => '#' }=c.name
+        %li=link_to c.name, blog_category_path(c.slug)
