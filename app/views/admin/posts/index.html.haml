@@ -23,6 +23,7 @@
             %th.header{:style => "cursor: pointer; "} Title
             %th.header{:style => "cursor: pointer; "} Author
             %th.header{:style => "cursor: pointer; "} Status
+            %th.header{:style => "cursor: pointer; "} Published To
             %th.header{:style => "cursor: pointer; "} Published Date
             %td.header{:style => "cursor: pointerx; "} Options
         %tbody
@@ -30,7 +31,15 @@
             %tr{ :class => cycle('even', 'odd') }
               %td=link_to post.title, edit_admin_post_path(post)
               %td= post.author
-              %td=post.status == 2 ? 'Published' : 'Draft'
+              %td
+                -if (post.status == 2)
+                  -if (post.published_at <= Time.zone.now)
+                    Published
+                  -else
+                    Scheduled
+                -else
+                  Draft
+              %td=post.members_only == true ? 'Members Only' : 'Public'
               %td=post.status == 2 ? post.pretty_date : 'N/A'
               %td
                 = link_to image_tag('/images/magnifier.png', :alt=>'View Post'), post.url

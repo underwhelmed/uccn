@@ -21,7 +21,7 @@ class BlogController < ApplicationController
   
   def show
     @post = Post.find_by_slug(params[:slug])
-    if (!@post.nil? && @post.status == 2 && (!@post.members_only || (user_signed_in? && @post.members_only)) && @post.published_at <= Time.zone.now)
+    if (!@post.nil? && @post.status == 2 && (current_user.admin || ((!@post.members_only || (user_signed_in? && @post.members_only)) && @post.published_at <= Time.zone.now)))
       @categories = Category.find(:all, :order => "name")      
     else
       render "404"
