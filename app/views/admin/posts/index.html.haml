@@ -30,8 +30,8 @@
             %tr{ :class => cycle('even', 'odd') }
               %td=link_to post.title, edit_admin_post_path(post)
               %td= post.author
-              %td=post.published? ? 'Published' : 'Draft'
-              %td=post.published? ? post.pretty_date : 'N/A'
+              %td=post.status == 2 ? 'Published' : 'Draft'
+              %td=post.status == 2 ? post.pretty_date : 'N/A'
               %td
                 = link_to image_tag('/images/magnifier.png', :alt=>'View Post'), post.url
                 = link_to image_tag('/images/delete.png', :alt=>'Delete'), admin_post_path(post), :confirm => "Are you sure you want to delete this post?\n\nWARNING: THIS CANNOT BE UNDONE!!!!", :method => :delete

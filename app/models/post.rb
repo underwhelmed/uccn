@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :title
 
-  attr_accessible :title, :body, :members_only, :published, :published_at, :category_ids
+  attr_accessible :title, :body, :members_only, :status, :published_at, :category_ids
   
   before_validation :add_slug
   validate :determine_valid_post
@@ -53,12 +53,12 @@ class Post < ActiveRecord::Base
   
   private
     def determine_valid_post
-      errors[:base] = "A published post needs to have a body" if self.published && (self.body.nil? || self.body.length == 0)
-      errors[:base] = "A published post needs to have a published date" if self.published && (self.published_at.nil?)
-      errors[:base] = "A published post needs to have an author" if self.published && self.author.nil?
+      errors[:base] = "A published post needs to have a body" if self.status == 2 && (self.body.nil? || self.body.length == 0)
+      errors[:base] = "A published post needs to have a published date" if self.status == 2 && (self.published_at.nil?)
+      errors[:base] = "A published post needs to have an author" if self.status == 2 && self.author.nil?
     end  
     
     def add_slug
-      self.slug = create_slug(self.title) if !self.title.nil? && self.published?
+      self.slug = create_slug(self.title) if !self.title.nil? && self.status == 2
     end  
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110206234816) do
+ActiveRecord::Schema.define(:version => 20110207004134) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(:version => 20110206234816) do
     t.string   "excerpt"
     t.text     "body"
     t.string   "author"
-    t.boolean  "published",    :default => false
     t.boolean  "members_only", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "status"
   end
 
   create_table "users", :force => true do |t|
