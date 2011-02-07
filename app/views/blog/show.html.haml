@@ -23,7 +23,7 @@
             - if (@post.has_categories)
               =@post.categories.collect { |c| c.name }.join(", ")
           .coms
-            %a{:href => '#'} 20 Comments
+            &nbsp;
     .clear
   =render :partial => "blog_side", :locals => {:categories => @categories}
   .clear
