@@ -28,7 +28,7 @@
                 in 
                 =raw(post.categories.collect { |c| link_to c.name, blog_category_path(c.slug) }.join(", "))
             .coms
-              %a{:href => '#'} 20 Comments
+              &nbsp;
     .clear
     = will_paginate @posts, :class => "prefnext", :per_page => 5, :previous_label => "Newer", :next_label => "Older"
   =render :partial => "blog_side", :locals => {:categories => @categories}
