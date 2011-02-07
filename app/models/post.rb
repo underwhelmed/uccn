@@ -10,9 +10,13 @@ class Post < ActiveRecord::Base
   before_validation :add_slug
   validate :determine_valid_post
   
-  #scope :published, lambda { 
-  #   where("posts.published = true and posts.published_at IS NOT NULL AND posts.published_at <= ?", Time.zone.now)
-  #}
+  scope :published, lambda { 
+    published.where("posts.members_only = 0")
+  }
+  
+  scope :published_for_members, lambda {
+    where("posts.status = 2 and posts.published_at IS NOT NULL AND posts.published_at <= ?", Time.zone.now)
+  }
 
   def has_categories
     self.categories.count > 0

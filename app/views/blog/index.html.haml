@@ -26,7 +26,7 @@
               %strong=post.author
               - if (post.has_categories)
                 in 
-                =post.categories.collect { |c| c.name }.join(", ")
+                =raw(post.categories.collect { |c| link_to c.name, blog_category_path(c.slug) }.join(", "))
             .coms
               %a{:href => '#'} 20 Comments
     .clear

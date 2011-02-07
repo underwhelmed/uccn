@@ -12,9 +12,9 @@ class BlogController < ApplicationController
       end
     else
       if (user_signed_in?)
-        @posts = Post.paginate :per_page => 5, :page => params[:page], :order => 'published_at DESC'
+        @posts = Post.published_for_members.paginate :per_page => 5, :page => params[:page], :order => 'published_at DESC'
       else
-        @posts = Post.paginate :per_page => 5, :page => params[:page], :order => 'published_at DESC'
+        @posts = Post.published.paginate :per_page => 5, :page => params[:page], :order => 'published_at DESC'
       end
     end
   end
