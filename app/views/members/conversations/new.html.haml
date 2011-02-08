@@ -1,0 +1,13 @@
+- content_for :title do
+  UCCN Forum
+
+%section#header
+  %h1 UCCN Forum
+%section.pageboxy.white
+  %section.full_width
+    .elements
+      = link_to 'Cancel', members_forum_path, :style => 'float:right'
+      %h2 Create New Post
+      %br/
+      = render 'form'      
+  .clear

@@ -1,0 +1,39 @@
+- title("UCCN Forum")
+
+%section#header
+  %h1 UCCN Members Forum
+%section.pageboxy.white
+  %section.full_width
+    .elements     
+      %p#notice=notice
+      = link_to 'Create new Post', members_forum_new_path
+      %br/
+      %br/
+      - if @conversations.empty?
+        .message.warning{:style => "display: block; "}
+          %p No Forum Threads Available
+      - else
+        %table{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+          %thead
+            %tr
+              %th.header{:style => "text-align:left;"} Title
+              %th.header{:style => "cursor: pointer;width:175px"} Last Updated
+              %th.header{:style => "cursor: pointer;width:72px"} Replies
+              %th.header{:style => "cursor: pointer;width:72px"} Views
+          %tbody
+            - @conversations.each do |c| 
+              %tr{ :class => cycle('even', 'odd')}
+              %td{:style => 'vertical-align:middle'}
+                = link_to c.title, members_forum_post_path(c.id)
+                %br/
+                by 
+                %strong= c.comments.first.user.name #
+              %td{:style => 'font-size:.82em;text-align:right'}
+                = c.comments.last.created_at.strftime("%-w/%-e/%Y %l:%M %p")
+                %br/
+                by 
+                %strong= c.comments.last.user.name
+              %td{:style => 'text-align:center;vertical-align:middle;font-size:.82em'}= c.comments.count
+              %td{:style => 'text-align:center;vertical-align:middle;font-size:.82em'}= c.views
+  .clear
+      

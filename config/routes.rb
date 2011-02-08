@@ -28,7 +28,10 @@ Uccnrails::Application.routes.draw do
   match 'profile' => 'members#profile'
 
   namespace 'members' do
-    match 'forum' => 'forum#index'
+    match 'forum' => 'conversations#index', :via => :get
+    match 'forum' => 'conversations#create', :via => :post
+    match 'forum/new' => 'conversations#new'
+    match 'forum/view/:id/' => 'conversations#show', :as => 'forum_post'
     match 'directory' => 'members#directory'
     match 'officers' => 'members#officers'
     match 'advisory' => 'members#advisory'

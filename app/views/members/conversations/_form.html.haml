@@ -1,0 +1,23 @@
+= form_for [:members, @conversation], :url => members_forum_path do |f|
+  -if @conversation.errors.any?
+    %p
+      = pluralize(@conversation.errors.count, "error") 
+      prohibited this post from being saved:
+      %br/
+      %br/
+      %ul
+        - @conversation.errors.full_messages.each do |msg|
+          %li= msg            
+  %p
+    = f.label :title
+    %br/
+    = f.text_field :title
+
+  = fields_for(@comment) do |cf|
+    %p
+      = cf.label :body
+      %br/
+      = cf.text_area(:body, :size => "60x10")
+
+  %p
+    = f.submit
