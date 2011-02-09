@@ -1,8 +1,8 @@
-= form_for [:admin, @user] do |f|
+= form_for [:admin, @user], :url => profile_url do |f|
   =if @user.errors.any?
     .message.errormsg{:style=> 'display:block;'}
       %p
-        There were errors trying to update this user:
+        There were errors trying to update your profile:
         %br/
         - @user.errors.full_message.each do |msg|
           *
