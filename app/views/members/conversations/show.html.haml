@@ -11,14 +11,22 @@
       %br/      
       - @conversation.comments.each do |c|
         .forum_post{:style => 'border: 1px solid #101010;'}
-          .post_head{:style => 'background-color:#0065A7;color:#EEEEEE;border-bottom: 1px solid #101010;padding:5px;line-height:24px;'}
+          .post_head{:style => 'background-color:#0065A7;color:#EEEEEE;border-bottom: 1px solid #101010;padding:3px;line-height:24px;'}
             .user{:style => 'float:left;clear:right'}=c.user.name
             .datetime{:style => 'float:right'}
               Posted at 
               =c.created_at.strftime("%-w/%-e/%Y %l:%M %p")    
-            &nbsp;        
+            &nbsp; 
+          .post_edit{:style => 'float:right;padding-right:5px;padding-top:5px;'}
+            -if (current_user.admin? || c.user == current_user)       
+              =link_to image_tag("/images/edit.png", :border => 0), :action => :edit, :id => c.id
+            &nbsp;
           .post_body{:style => 'padding: 10px'}
             =c.body
+            -if c.created_at != c.updated_at
+              %span{:style => 'font-size:.8em;color:#A0A0A8;font-style:italic;display:block;margin-top:10px;'}
+                Edited: 
+                =c.updated_at.strftime("%-w/%-e/%Y %l:%M %p")
       %br/
       %br/
       = form_for [:members, @comment], :url => members_forum_reply_url(:id => @conversation.id) do |f|

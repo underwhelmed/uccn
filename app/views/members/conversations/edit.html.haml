@@ -1,0 +1,35 @@
+- title("UCCN Forum")
+
+%section#header
+  %h1 UCCN Forum
+%section.pageboxy.white
+  %section.full_width
+    .elements
+      = link_to 'Cancel', members_forum_post_path(@conversation.id), :style => 'float:right'
+      %h2 Edit Post
+      %br/
+      = form_for [:members, @conversation], :url => members_update_forum_conversation_path(@comment.id) do |f|
+        -if @conversation.errors.any?
+          %p
+            = pluralize(@conversation.errors.count, "error") 
+            prohibited this post from being saved:
+            %br/
+            %br/
+            %ul
+              - @conversation.errors.full_messages.each do |msg|
+                %li= msg
+        -if @comment.start
+          %p
+            = f.label :title
+            %br/
+            = f.text_field :title
+
+        = fields_for(@comment) do |cf|
+          %p
+            = cf.label :body
+            %br/
+            = cf.text_area(:body, :size => "60x10")
+
+        %p
+          = f.submit(:value => "Update Post")
+  .clear

@@ -52,4 +52,24 @@ class Members::ConversationsController < ApplicationController
     end
   end
   
+  # GET /members/forum/edit/:id
+  def edit
+    c = Comment.find(params[:id])
+    @conversation = c.conversation
+    @comment = c
+  end
+  
+  # PUT /members/forum/edit/:id
+  def update
+    @comment = Comment.find(params[:id])    
+    @conversation = @comment.conversation
+
+    if @comment.update_attributes(params[:comment]) && (params[:conversation].nil? || @conversation.update_attributes(params[:conversation]))
+      redirect_to(members_forum_post_path(@conversation.id), :notice => 'Reply was successfully updated') 
+    else
+      render :action => "edit", :id => params[:id] 
+    end
+    
+  end
+  
 end

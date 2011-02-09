@@ -33,6 +33,8 @@ Uccnrails::Application.routes.draw do
     match 'forum/new' => 'conversations#new'
     match 'forum/view/:id/' => 'conversations#show', :as => 'forum_post'
     match 'forum/reply/:id' => 'conversations#save_reply', :via => :post, :as => 'forum_reply'
+    match 'forum/edit/:id/' => 'conversations#edit', :via => :get, :as => 'edit_forum_conversation'
+    match 'forum/edit/:id/' => 'conversations#update', :via => :put, :as => 'update_forum_conversation'
     match 'directory' => 'members#directory'
     match 'officers' => 'members#officers'
     match 'advisory' => 'members#advisory'
