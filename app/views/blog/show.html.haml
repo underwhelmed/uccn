@@ -21,7 +21,8 @@
             Posted by 
             %strong=@post.author
             - if (@post.has_categories)
-              =@post.categories.collect { |c| c.name }.join(", ")
+              in 
+              =raw(@post.categories.collect { |c| link_to c.name, blog_category_path(c.slug) }.join(", "))
           .coms
             &nbsp;
     .clear

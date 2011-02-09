@@ -34,11 +34,7 @@
       .title
         %h2.boxed From the Blog
       .elements
-        .post
-          %h3
-            %a{:href => '#'} Information on Car Seats
-          %time{:datetime => '2010-04-7'} April 7, 2010
-          %p This is the introduction to the post and can be set inside the post 
+        = render 'recent_posts', :locals => {:posts => @posts}
       .bottom
         %a{:href => '#'} Go to the Blog
     .one_third.black
