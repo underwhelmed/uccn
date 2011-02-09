@@ -13,27 +13,27 @@
         .message.warning{:style => "display: block; "}
           %p No Forum Threads Available
       - else
-        %table{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+        %table.forum
           %thead
-            %tr
-              %th.header{:style => "text-align:left;"} Title
-              %th.header{:style => "cursor: pointer;width:175px"} Last Updated
-              %th.header{:style => "cursor: pointer;width:72px"} Replies
-              %th.header{:style => "cursor: pointer;width:72px"} Views
+            %tr{:style => 'background-color:#0065A7;color:#EEEEEE'}
+              %th.header{:style => "text-align:left;padding:5px"} Title
+              %th.header{:style => "cursor: pointer;width:175px;padding:5px;text-align:right"} Last Updated
+              %th.header{:style => "cursor: pointer;width:72px;padding:5px"} Replies
+              %th.header{:style => "cursor: pointer;width:72px;padding:5px"} Views
           %tbody
             - @conversations.each do |c| 
-              %tr{ :class => cycle('even', 'odd')}
-              %td{:style => 'vertical-align:middle'}
+              %tr
+              %td{:style => 'vertical-align:middle;border-bottom: 1px solid #333'}
                 %strong{:style => 'font-size:1.2em'}= link_to c.title, members_forum_post_path(c.id)
                 %br/
                 by 
                 %strong= c.comments.first.user.name #
-              %td{:style => 'font-size:.82em;text-align:right'}
+              %td{:style => 'font-size:.82em;text-align:right;vertical-align:middle;border-bottom: 1px solid #333'}
                 = c.comments.last.created_at.strftime("%-w/%-e/%Y %l:%M %p")
                 %br/
                 by 
                 %strong= c.comments.last.user.name
-              %td{:style => 'text-align:center;vertical-align:middle;font-size:.82em'}= c.comments.count-1
-              %td{:style => 'text-align:center;vertical-align:middle;font-size:.82em'}= c.views
+              %td{:style => 'text-align:center;vertical-align:middle;font-size:.82em;border-bottom: 1px solid #333'}= c.comments.count-1
+              %td{:style => 'text-align:center;vertical-align:middle;font-size:.82em;border-bottom: 1px solid #333'}= c.views
   .clear
       

@@ -2,7 +2,7 @@ class Members::ConversationsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @conversations = Conversation.all
+    @conversations = Conversation.all(:include => :comments, :order => 'comments.updated_at DESC')
   end
   
   def show

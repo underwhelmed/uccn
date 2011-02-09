@@ -477,6 +477,7 @@ footer ul li a:hover{text-decoration: underline;}
 	width: 99.1%;
 	border: 1px solid #333;
 }
+.forum {width:100%;border: 1px solid #333;vertical-align:middle}
 
 .directory th {cursor: pointer;}
 
@@ -486,6 +487,9 @@ footer ul li a:hover{text-decoration: underline;}
 
 .even {background: #f0f0f0;}
 .odd {background: #ffffff;}
+
+
+
 
 
 
