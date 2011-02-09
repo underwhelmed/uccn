@@ -24,7 +24,7 @@
             - @conversations.each do |c| 
               %tr{ :class => cycle('even', 'odd')}
               %td{:style => 'vertical-align:middle'}
-                = link_to c.title, members_forum_post_path(c.id)
+                %strong{:style => 'font-size:1.2em'}= link_to c.title, members_forum_post_path(c.id)
                 %br/
                 by 
                 %strong= c.comments.first.user.name #
@@ -33,7 +33,7 @@
                 %br/
                 by 
                 %strong= c.comments.last.user.name
-              %td{:style => 'text-align:center;vertical-align:middle;font-size:.82em'}= c.comments.count
+              %td{:style => 'text-align:center;vertical-align:middle;font-size:.82em'}= c.comments.count-1
               %td{:style => 'text-align:center;vertical-align:middle;font-size:.82em'}= c.views
   .clear
       

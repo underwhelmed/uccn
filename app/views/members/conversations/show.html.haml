@@ -1,0 +1,38 @@
+- title("UCCN Forum")
+
+%section#header
+  %h1 UCCN Forum
+%section.pageboxy.white
+  %section.full_width
+    .elements
+      = link_to 'Return to Forum Posts', members_forum_path, :style => 'float:right'
+      %p#notice=notice
+      %h2= @conversation.title
+      %br/      
+      - @conversation.comments.each do |c|
+        .forum_post{:style => 'border: 1px solid #101010;'}
+          .post_head{:style => 'background-color:#0065A7;color:#EEEEEE;border-bottom: 1px solid #101010;padding:5px;line-height:24px;'}
+            .user{:style => 'float:left;clear:right'}=c.user.name
+            .datetime{:style => 'float:right'}
+              Posted at 
+              =c.created_at.strftime("%-w/%-e/%Y %l:%M %p")    
+            &nbsp;        
+          .post_body{:style => 'padding: 10px'}
+            =c.body
+      %br/
+      %br/
+      = form_for [:members, @comment], :url => members_forum_reply_url(:id => @conversation.id) do |f|
+        - if @comment.errors.any?
+          %p
+            =pluralize(@comment.errors.count, "error")
+            prohibited this reply from being saved:
+          %ul
+            -@comment.errors.full_messages.each do |msg|
+              %li= msg
+        %p
+          Message
+          %br/
+          =f.text_area :body, :size => "60x10"
+        %p      
+          =f.submit(:value => "Post Reply")
+  .clear  
