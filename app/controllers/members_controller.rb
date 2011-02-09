@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   before_filter :authenticate_user!
-  
+
   def index
   end
   
@@ -9,6 +9,17 @@ class MembersController < ApplicationController
   end
   
   def profile
+    @user = current_user
+    render :layout => "app_admin"
+  end
+  
+  def update_profile
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      redirect_to(profile_path, :notice => "Your profile was successfully updated.") 
+    else
+      render :action => :profile 
+    end
   end
   
   def officers

@@ -1,0 +1,31 @@
+%h1
+  = link_to 'UCCN Admin', admin_path
+%ul#nav
+  %li
+    = link_to 'Users', admin_users_path
+    %ul
+      %li
+        = link_to 'Add New User', new_admin_user_path        
+  %li
+    = link_to 'Events', admin_events_path
+    %ul
+      %li
+        = link_to 'Add New Event', new_admin_event_path
+      %li
+        %a{:href => '#'} Manage Event Categories
+  %li
+    = link_to 'Openings', admin_openings_path
+    %ul
+      %li
+        = link_to 'Add New Opening', new_admin_opening_path
+  %li
+    = link_to 'Blog', admin_posts_path
+    %ul
+      %li= link_to 'Add New Blog Post', new_admin_post_path
+      %li= link_to 'Manage Categories', admin_categories_path
+%p.user            
+  = link_to "View Website", :root     
+  |   
+  = link_to 'View Members Area', :user_root
+  |
+  = link_to 'Logout', logout_path

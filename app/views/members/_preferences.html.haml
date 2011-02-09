@@ -1,0 +1,35 @@
+= form_for [:admin, @user] do |f|
+  -if @user.errors.any?
+    .message.errormsg{:style=> 'display:block;'}
+      %p
+        There were errors trying to update this user:
+        %br/
+        - @user.errors.full_message.each do |msg|
+          *
+          = msg
+          %br/
+  - if !notice.nil?
+    .message.success{:style=> 'display:block;'}
+      %p 
+        = notice
+  %p
+    = f.label :display_name
+    %br/
+    = f.text_field :display_name, :class => 'text medium'
+  %p
+    = f.label :birthday
+    = f.text_field :birthday, :class => 'text date_picker'  
+  %p
+    = f.label :display_address_in_directory
+    = f.check_box :display_address_in_directory
+  %p
+    = f.label :display_phone_in_directory
+    = f.check_box :display_phone_in_directory
+  %p 
+    = f.label :backup_care
+    = f.check_box :backup_care
+  %p
+    = f.label :receive_emails
+    = f.check_box :receive_emails
+  %p
+    = f.submit 'Update', :class => 'submit mid'

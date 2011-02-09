@@ -25,7 +25,8 @@ Uccnrails::Application.routes.draw do
   match '/blog/category/:slug' => 'blog#index', :as => :blog_category
   match '/blog/:year/:month/:day/:slug', :as => :blog_post, :controller => "blog", :action => "show", :constraints => {:year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/}
   match 'members' => 'members#index', :as => 'user_root'
-  match 'profile' => 'members#profile'
+  match 'profile' => 'members#profile', :via => :get
+  match 'profile' => 'members#update_profile', :via => :put
 
   namespace 'members' do
     match 'forum' => 'conversations#index', :via => :get
