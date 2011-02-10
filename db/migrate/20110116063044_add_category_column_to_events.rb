@@ -6,7 +6,7 @@ class AddCategoryColumnToEvents < ActiveRecord::Migration
       t.string :color, :null => false
       t.timestamps
     end
-    EventCategory.create :name => 'Field Trips', :color => '#F9F9F9'
+    #EventCategory.create :name => 'Field Trips', :color => '#F9F9F9'
     add_column :events, :event_category_id, :integer
   end
 
