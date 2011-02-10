@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   validate :determine_valid_post
   
   scope :published, lambda { 
-    published_for_members.where("posts.members_only = 0")
+    published_for_members.where("posts.members_only = false")
   }
   
   scope :published_for_members, lambda {
