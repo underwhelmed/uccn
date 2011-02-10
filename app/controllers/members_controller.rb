@@ -1,4 +1,4 @@
-class MembersController < ApplicationController
+class Members::MembersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
