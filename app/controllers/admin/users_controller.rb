@@ -5,9 +5,7 @@ class Admin::UsersController < AdminController
   end
   
   def new
-    u = User.new
-    u.members_only = false  
-    @user = u
+    @user = User.new
   end
   
   def create
