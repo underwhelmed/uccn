@@ -6,7 +6,6 @@ class Admin::UsersController < AdminController
   
   def new
     u = User.new
-    u.all_day = false
     u.members_only = false  
     @user = u
   end
