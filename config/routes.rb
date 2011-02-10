@@ -27,6 +27,12 @@ Uccnrails::Application.routes.draw do
   match 'members' => 'members#index', :as => 'user_root'
   match 'profile' => 'members#profile', :via => :get
   match 'profile' => 'members#update_profile', :via => :put
+  
+  match '/members/directory' => 'members#directory'
+  match '/members/officers' => 'members#officers'
+  match '/members/advisory' => 'members#advisory'
+  match '/members/advisoryboard' => 'members#advisory'
+  match '/members/board' => 'members#board'
 
   namespace 'members' do
     match 'forum' => 'conversations#index', :via => :get
@@ -36,11 +42,7 @@ Uccnrails::Application.routes.draw do
     match 'forum/reply/:id' => 'conversations#save_reply', :via => :post, :as => 'forum_reply'
     match 'forum/edit/:id/' => 'conversations#edit', :via => :get, :as => 'edit_forum_conversation'
     match 'forum/edit/:id/' => 'conversations#update', :via => :put, :as => 'update_forum_conversation'
-    match 'directory' => 'members#directory'
-    match 'officers' => 'members#officers'
-    match 'advisory' => 'members#advisory'
-    match 'advisoryboard' => 'members#advisory'
-    match 'board' => 'members#board'
+    
     resources :documents
   end
  
