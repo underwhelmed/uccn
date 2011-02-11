@@ -31,4 +31,15 @@ class MembersController < ApplicationController
   def advisory
   end
   
+  def downloads
+    @documents = Document.active
+  end
+  
+  def download
+    doc = Document.find(param[:id])
+    if doc.allow_download
+      redirect_to doc.authenticated_s3_get_url
+    end    
+  end
+  
 end

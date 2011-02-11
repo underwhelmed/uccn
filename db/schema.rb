@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110208171436) do
+ActiveRecord::Schema.define(:version => 20110211211635) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(:version => 20110208171436) do
   end
 
   add_index "conversations", ["user_id"], :name => "index_conversations_on_user_id"
+
+  create_table "documents", :force => true do |t|
+    t.string   "name",              :limit => 100
+    t.string   "description"
+    t.boolean  "allow_download",                   :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
 
   create_table "event_categories", :force => true do |t|
     t.string   "name",       :null => false

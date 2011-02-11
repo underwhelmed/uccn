@@ -1,0 +1,29 @@
+= form_for [:admin, @document], :html => { :multipart => true } do |f|
+  - if @document.errors.any?
+    .message.errormsg{:style => "display: block; "}
+      %p 
+        There were errors trying to save this document: 
+        %br
+        - @document.errors.full_messages.each do |msg|   
+          *        
+          = msg
+          %br/   
+    - if !notice.nil?
+      .message.errormsg{:style=> 'display:block;'}
+      %p= notice
+  %p
+    = f.label :name 
+    %br
+    = f.text_field :name, :class => 'text medium'
+  %p
+    = f.label :description
+    %br
+    = f.text_field :description, :class => 'text big'  
+  %p    
+    = f.label :allow_download
+    = f.check_box :allow_download
+  %p
+    =f.file_field :file
+  %p
+    = f.submit :class => 'submit long'
+    

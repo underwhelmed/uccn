@@ -33,6 +33,9 @@ Uccnrails::Application.routes.draw do
   match '/members/advisory' => 'members#advisory'
   match '/members/advisoryboard' => 'members#advisory'
   match '/members/board' => 'members#board'
+  
+  match '/members/downloads' => 'members#downloads'
+  match '/members/document/:id/:filename' => 'members#download', :via => :get
 
   namespace 'members' do
     match 'forum' => 'conversations#index', :via => :get
@@ -42,8 +45,6 @@ Uccnrails::Application.routes.draw do
     match 'forum/reply/:id' => 'conversations#save_reply', :via => :post, :as => 'forum_reply'
     match 'forum/edit/:id/' => 'conversations#edit', :via => :get, :as => 'edit_forum_conversation'
     match 'forum/edit/:id/' => 'conversations#update', :via => :put, :as => 'update_forum_conversation'
-    
-    resources :documents
   end
  
   match 'admin/' => 'admin#index'
@@ -54,6 +55,7 @@ Uccnrails::Application.routes.draw do
     resources :openings
     resources :posts
     resources :categories
+    resources :documents
   end
    
   # The priority is based upon order of creation:

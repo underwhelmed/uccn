@@ -1,0 +1,23 @@
+- title("UCCN Documents")
+
+%section#header
+  %h1 UCCN Documents for Download
+%section.pageboxy.white
+  %section.full_width
+    .elements
+      %p{:style => 'margin-bottom:15px'} This is where you can find reference material, meeting minutes and agendas that are useful for you.
+      %table.forum
+        %thead
+          %tr{:style => 'background-color:#0065A7;color:#EEEEEE'}
+          %th.header{:style => "text-align:left;padding:5px"} Name
+          %th.header{:style => "text-align:left"} Description
+          %th.header{:style => ""} &nbsp;
+          %th.header{:style => "text-align:left;padding:5px"} Uploaded Date
+        %tbody
+          - @documents.each do |d| 
+            %tr
+            %td=d.name
+            %td=d.description
+            %td=d.file.url
+            %td=d.file.updated_at.strftime("%-m/%-e/%Y %-l:%M %p")
+  .clear
