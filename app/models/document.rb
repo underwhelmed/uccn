@@ -9,9 +9,7 @@ class Document < ActiveRecord::Base
                     :processors => [:noop]
                     
   # http://www.metaskills.net/2009/11/23/authenticated-s3-gets-for-private-objects-using-paperclip/
-
-  #before_validation_on_create :set_random_secret
-  
+ 
   attr_accessible :name, :description, :allow_download, :file
 
   validates_presence_of :name, :description
@@ -28,9 +26,4 @@ class Document < ActiveRecord::Base
     AWS::S3::S3Object.url_for file.path, file.options[:bucket]
   end
 
-  private
-
-    def set_random_secret
-      self.random_secret = ActiveSupport::SecureRandom.hex(8)
-    end
 end
