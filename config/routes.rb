@@ -35,7 +35,7 @@ Uccnrails::Application.routes.draw do
   match '/members/board' => 'members#board'
   
   match '/members/downloads' => 'members#downloads'
-  match '/members/document/:id/:filename' => 'members#download', :via => :get
+  match '/members/documents/:id/:filename' => 'members#download', :via => :get
 
   namespace 'members' do
     match 'forum' => 'conversations#index', :via => :get

@@ -36,7 +36,7 @@ class MembersController < ApplicationController
   end
   
   def download
-    doc = Document.find(param[:id])
+    doc = Document.find(params[:id])
     if doc.allow_download
       redirect_to doc.authenticated_s3_get_url
     end    

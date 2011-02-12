@@ -18,6 +18,6 @@
             %tr
             %td=d.name
             %td=d.description
-            %td=d.file.url
-            %td=d.file.updated_at.strftime("%-m/%-e/%Y %-l:%M %p")
+            %td=link_to "Download", d.attachment_url, :target => "_blank"
+            %td=d.updated_at.strftime("%-m/%-e/%Y %-l:%M %p")
   .clear
