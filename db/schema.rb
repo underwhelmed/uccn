@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110212065614) do
+ActiveRecord::Schema.define(:version => 20110212083844) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(:version => 20110212065614) do
     t.string   "phone_number"
     t.string   "cell_number"
     t.string   "fax_number"
-    t.date     "birthday"
+    t.date     "date_of_birth"
     t.boolean  "board_member",                                :default => false
     t.boolean  "account_active",                              :default => true
     t.boolean  "admin",                                       :default => false
