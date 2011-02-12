@@ -15,11 +15,11 @@
         %p
           = f.label :password
           %br/
-          = f.password_field :password
+          = f.password_field :password, :class => 'txt'
         %p
           = f.label :password_confirmation
           %br/
-          = f.password_field :password_confirmation
+          = f.password_field :password_confirmation, :class => 'txt'
         %p= f.submit "Save", :class => 'btn'      
       %br/
       %p Once you update your password, you will be redirected to the login page to verify your login.      
