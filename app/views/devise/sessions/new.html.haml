@@ -14,6 +14,8 @@
     .lform
       -if (flash[:alert])
         %p.error=flash[:alert]
+      -if (flash[:notice])
+        %p.error=flash[:notice]
       %p
         Please enter your username and password to continue
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
@@ -27,8 +29,8 @@
           = f.password_field :password, :class => 'txt'
         - if devise_mapping.rememberable?
           %p
-            = f.check_box :remember_me
             = f.label :remember_me
+            = f.check_box :remember_me            
         %p.area= f.submit "Login", :class => 'btn'
       %br/
       = render :partial => "devise/shared/links"
