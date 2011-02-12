@@ -9,14 +9,8 @@ class Admin::UsersController < AdminController
   end
   
   def create
-    @user = User.new(params[:user])
-       
+    @user = User.new(params[:user])       
     if @user.save
-# might as well do this manually until I can figure out how to do this correctly
-#      send = params[:send_welcome_email]
-#      if send
-#        UserMailer.welcome_email(@user).deliver
-#      end
       redirect_to(admin_users_url, :notice => "User #{@user.name} was successfully created.")
     else
       render :action => "new", :notice => "Cannot save user"
@@ -28,14 +22,12 @@ class Admin::UsersController < AdminController
   end
   
   def update
-    @user = User.find(params[:id])
-    
+    @user = User.find(params[:id])    
     if @user.update_attributes(params[:user])
       redirect_to(edit_admin_user_path(@user), :notice => "User #{@user.name} was successfully updated.") 
     else
       render :action => :edit 
     end
-
   end
   
   def destroy

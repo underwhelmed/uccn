@@ -5,7 +5,7 @@ class MembersController < ApplicationController
   end
   
   def directory
-    @users = User.where(:active => true, :include_in_directory => true)
+    @users = User.member_directory
   end
   
   def profile
