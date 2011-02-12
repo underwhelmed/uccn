@@ -5,19 +5,29 @@
 %section.pageboxy.white
   %section.full_width
     .elements
-      %p{:style => 'margin-bottom:15px'} This is where you can find reference material, meeting minutes and agendas that are useful for you.
-      %table.forum
+      %p This is where you can find reference material, meeting minutes and agendas that are useful for you.
+      %br/
+      %p To download the document, right click the title and save it to your preferred location.
+      %br/
+      %table
         %thead
           %tr{:style => 'background-color:#0065A7;color:#EEEEEE'}
-          %th.header{:style => "text-align:left;padding:5px"} Name
-          %th.header{:style => "text-align:left"} Description
-          %th.header{:style => ""} &nbsp;
-          %th.header{:style => "text-align:left;padding:5px"} Uploaded Date
+          %th.header{:style => "font-size:1.5em;text-align:left;padding:5px;width:800px"} 
+            %u Document Information          
+          %th.header{:style => "text-align:right;padding:5px;width:125px;"} 
+            %u Uploaded Date
         %tbody
           - @documents.each do |d| 
             %tr
-            %td=d.name
-            %td=d.description
-            %td=link_to "Download", d.attachment_url, :target => "_blank"
-            %td=d.updated_at.strftime("%-m/%-e/%Y %-l:%M %p")
+            %td
+              %strong=link_to d.name, d.attachment_url, :target => "_blank"
+              %br/
+              %span{:style => 'font-size:.82em'}
+                =d.description
+            %td{:style => 'vertical-align:middle;text-align:right'}=d.updated_at.strftime("%-m/%-e/%Y %-l:%M %p")
+      %hr/
+      %p{:style => 'margin-top:15px;font-size:.9em;font-style:italic'} 
+        To be able to view PDF documents, you will have to download and install Adobe Acrobat Reader.  This is a free download and is available from 
+        = link_to "Adobe's website.", "http://www.adobe.com/reader/", :target => "_blank"
+        
   .clear
