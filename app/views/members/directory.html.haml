@@ -50,6 +50,5 @@
                     %br/
                   = "Fax: #{string_to_phone_number(user.fax_number)}"
               %td{:style=>"text-align:center"}
-                - if !user.birthday.nil? 
-                  = user.birthday.strftime("%B %d")  
+                = user.date_of_birth.strftime("%B %-d") unless user.date_of_birth.nil?
     .clear         
