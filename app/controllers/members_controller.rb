@@ -32,12 +32,12 @@ class MembersController < ApplicationController
   end
   
   def downloads
-    @documents = Document.active
+    @documents = Document.active.order("updated_at DESC")
   end
   
   def download
     doc = Document.find(params[:id])
-    if doc.allow_download
+    if current_user.admin? || doc.allow_download
       redirect_to doc.authenticated_s3_get_url
     end    
   end

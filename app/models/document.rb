@@ -17,6 +17,10 @@ class Document < ActiveRecord::Base
   validates_length_of :description, :maximum => 255  
   validates_attachment_presence :file
   
+  scope :active, lambda {
+    find_by_allow_download(:true)
+  }
+  
   def attachment_url
     "/members/#{self.class.name.downcase.pluralize}/#{id}/#{file_file_name}"
   end
