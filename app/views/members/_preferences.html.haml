@@ -18,7 +18,7 @@
     = f.text_field :display_name, :class => 'text medium'
   %p
     = f.label :date_of_birth
-    = f.text_field :date_of_birth, :class => 'text date_picker'  
+    = f.text_field :date_of_birth, :class => 'text date_picker', :value => @user.date_of_birth.strftime("%-m/%-e/%Y") unless @user.date_of_birth.nil?
   %p
     = f.label :display_address_in_directory
     = f.check_box :display_address_in_directory
