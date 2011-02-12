@@ -9,17 +9,17 @@
       -if (flash[:alert])
         %p.error=flash[:alert]
       %p Enter your password and confirm it to change it.        
-     = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
-       = devise_error_messages!
-       = f.hidden_field :reset_password_token
-       %p
-         = f.label :password
-         %br/
-         = f.password_field :password
-       %p
-         = f.label :password_confirmation
-         %br/
-         = f.password_field :password_confirmation
+    = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+      = devise_error_messages!
+      = f.hidden_field :reset_password_token
+      %p
+        = f.label :password
+        %br/
+        = f.password_field :password
+      %p
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation
       %p= f.submit "Save", :class => 'btn'      
     %br/
     %p Once you update your password, you will be redirected to the login page to verify your login.      
