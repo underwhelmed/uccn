@@ -1,0 +1,9 @@
+.title
+  %h2 Forum Activity
+- if @comments.empty?
+  %p No Forum Posts
+- else
+  %ul
+    - @comments.each do |c|
+      %li
+        =c.conversation.title

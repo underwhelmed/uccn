@@ -1,0 +1,9 @@
+.title
+  %h2 Latest Posts
+- if @posts.empty?
+  %p No Blog Posts
+- else
+  %ul
+    - @posts.each do |post|
+      %li
+        =post.title

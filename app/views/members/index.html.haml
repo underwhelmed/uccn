@@ -7,27 +7,27 @@
     .elements
       %h1 Welcome to the UCCN Members Area
       %p.big You can find information on upcoming field trips, interact with other members or just browse documents available for you to download.
-      
+    
     %br/
-    .box.white.one_quarter
+    .box.white.two_quarter
       .contents
-        .title
-          %h2 Forum Activity
-        %p Post Listings
-    .box.white.one_quarter
+        = render "latest_forum_posts", :locals => {:comments => @comments}
+    .box.white.two_quarter
+      .contents
+        = render "latest_blog_posts", :locals => {:posts => @posts}
+    .clear
+    %br/    
+    .box.white.one_third
       .contents
         = render "upcoming_birthdays", :locals => {:birthdays => @birthdays}
-    .box.white.one_quarter
+    .box.white.one_third
       .contents
-        .title
-          %h2 Newest Members
-        %h3 Welcome new members
         = render "new_members", :locals => {:new_members => @new_members}
-    .box.white.one_quarter
+    .box.white.one_third
       .contents 
         = render "upcoming_events", :locals => {:events => @events}
     .clear
-    %br/
+    %br/    
     .elements
       %h2 Here's some more information for you
     
