@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     member_directory.where("date_of_birth is not null").sort_by(&:next_birthday).first(5)
   }
   
+  scope :new_members, lambda {
+    member_directory.order("created_at DESC").limit(5)
+  }
+  
   def active?
     super && (self.account_active? || self.login == 'admin')
   end

@@ -1,0 +1,8 @@
+- if !@new_members.empty?
+  %ul
+    - @new_members.each do |user|
+      %li
+        %strong=user.name
+        ="- #{user.city}, #{user.state}" unless user.city.nil? || user.state.nil?
+        
+  

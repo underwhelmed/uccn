@@ -22,6 +22,7 @@
         .title
           %h2 Newest Members
         %h3 Welcome new members
+        = render "new_members", :locals => {:new_members => @new_members}
     .box.white.one_quarter
       .contents 
         = render "upcoming_events", :locals => {:events => @events}
