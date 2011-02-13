@@ -4,8 +4,7 @@
 %section#header
   %h1 
     UCCN Blog
-    - if (!@category.nil?)
-      =raw(" - ") + @category.name
+    =raw(" - #{@category.name}") unless @category.nil?
   
 %section.blog
   #posts

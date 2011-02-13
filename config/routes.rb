@@ -22,6 +22,7 @@ Uccnrails::Application.routes.draw do
   match 'resources/foodprograms' => 'resources#food_programs'
   match 'resources/referrals' => 'resources#referrals'
   match 'blog' => 'blog#index'
+  match 'blog/rss' => 'blog#rss', :as => :blog_rss
   match '/blog/category/:slug' => 'blog#index', :as => :blog_category
   match '/blog/:year/:month/:day/:slug', :as => :blog_post, :controller => "blog", :action => "show", :constraints => {:year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/}
   match 'members' => 'members#index', :as => 'user_root'

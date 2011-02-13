@@ -2,7 +2,7 @@ class BlogController < ApplicationController
   
   def index
     
-    @categories = Category.find(:all, :order => "name")
+    @categories = Category.find(:all, :order => :name)
     if (!params[:slug].nil?)
       @category = Category.find_by_slug(params[:slug])
       if (user_signed_in?)
@@ -28,6 +28,7 @@ class BlogController < ApplicationController
     end
   end
   
-
+  def rss
+  end
   
 end
