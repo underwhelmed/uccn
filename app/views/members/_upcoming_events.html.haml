@@ -1,0 +1,9 @@
+.title
+  %h2 Events
+- if @events.empty?
+  %p No Upcoming Events
+- else
+  %ul
+    - @events.each do |e|
+      %li
+        =e.name

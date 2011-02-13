@@ -52,6 +52,7 @@ Uccnrails::Application.routes.draw do
   namespace "admin" do
     resources :users
     resources :events
+    resources :event_categories
     resources :openings
     resources :posts
     resources :categories

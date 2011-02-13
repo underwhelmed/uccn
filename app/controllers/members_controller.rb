@@ -3,6 +3,7 @@ class MembersController < ApplicationController
 
   def index
     @birthdays = User.upcoming_birthdays
+    @events = Events.upcoming
   end
   
   def directory

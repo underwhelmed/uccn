@@ -9,19 +9,22 @@
       %p.big You can find information on upcoming field trips, interact with other members or just browse documents available for you to download.
       
     %br/
-    .box.white.one_third
+    .box.white.one_quarter
       .contents
         .title
-          %h2 Latest Forum Posts
+          %h2 Forum Activity
         %p Post Listings
-    .box.white.one_third
+    .box.white.one_quarter
       .contents
         = render "upcoming_birthdays", :locals => {:birthdays => @birthdays}
-    .box.white.one_third
+    .box.white.one_quarter
       .contents
         .title
           %h2 Newest Members
-        %p Please welcome our latest members
+        %h3 Welcome new members
+    .box.white.one_quarter
+      .contents 
+        = render "upcoming_events", :locals => {:events => @events}
     .clear
     %br/
     .elements
