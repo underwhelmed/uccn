@@ -22,7 +22,7 @@
               =link_to image_tag("/images/edit.png", :border => 0), :action => :edit, :id => c.id
             &nbsp;
           .post_body{:style => 'padding: 10px'}
-            =c.body
+            =raw(c.body)
             -if c.created_at != c.updated_at
               %span{:style => 'font-size:.8em;color:#A0A0A8;font-style:italic;display:block;margin-top:10px;'}
                 Edited: 
