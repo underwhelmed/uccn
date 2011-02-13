@@ -1,9 +1,16 @@
 .title
-  %h2 Latest Posts
+  %h2 Latest Blog Posts
 - if @posts.empty?
   %p No Blog Posts
 - else
   %ul
     - @posts.each do |post|
       %li
-        =link_to post.title, post.url
+        %strong=link_to post.title, post.url
+        %br/
+        by
+        %strong=post.author
+        on
+        = post.published_at.strftime("%-m/%-e/%Y %-l:%M %p")
+%br/
+=link_to "View UCCN Blog", blog_path

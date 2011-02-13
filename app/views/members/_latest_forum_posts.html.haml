@@ -6,8 +6,11 @@
   %ul
     - @comments.each do |c|
       %li
-        =link_to c.conversation.title, members_forum_post_path(c.conversation.id)
+        %strong=link_to c.conversation.title, members_forum_post_path(c.conversation.id)
+        %br/
         by 
-        =c.user.name
+        %strong=c.user.name
         on 
         =c.updated_at.strftime("%-m/%-e/%Y %-l:%M %p")
+%br/
+=link_to "View Forums", members_forum_path
