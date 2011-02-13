@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @birthdays = User.upcoming_birthdays
+    @birthdays = User.member_directory.where("date_of_birth is not null").sort_by(&:next_birthday).first(8)
     @events = Event.upcoming
     @new_members = User.new_members
     @comments = Comment.all(:order => "created_at DESC", :limit => 5)

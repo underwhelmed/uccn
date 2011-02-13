@@ -10,9 +10,10 @@ class User < ActiveRecord::Base
   before_destroy :ensure_an_admin_remains, :ensure_user_is_not_admin
   
   def next_birthday
-    year = Date.today.year
+    dt = 9.days.ago
+    year = dt.year
     mmdd = date_of_birth.strftime('%m%d')
-    year += 1 if mmdd < Date.today.strftime('%m%d')
+    year += 1 if mmdd < dt.strftime('%m%d')
     mmdd = '0301' if mmdd == '0229' && !Date.parse("#{year}0101").leap?
     Date.parse("#{year}#{mmdd}")
   end
@@ -20,11 +21,7 @@ class User < ActiveRecord::Base
   scope :member_directory, lambda {
     where(:account_active => true, :include_in_directory => true)
   }
-  
-  scope :upcoming_birthdays, lambda {
-    member_directory.where("date_of_birth is not null").sort_by(&:next_birthday).first(5)
-  }
-  
+    
   scope :new_members, lambda {
     member_directory.order("created_at DESC").limit(5)
   }
