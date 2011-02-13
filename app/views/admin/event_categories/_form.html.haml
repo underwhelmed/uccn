@@ -1,0 +1,30 @@
+- content_for :head do
+  = javascript_include_tag "admin/jquery.ColorPicker"
+  :javascript
+    $(document).ready(function() {
+       $("#event_category_color").attachColorPicker();
+    });
+
+= form_for [:admin, @category] do |f|
+  - if @category.errors.any?
+    .message.errormsg{:style => "display: block; "}
+      %p 
+        There were errors trying to save this event category: 
+        %br
+        - @category.errors.full_messages.each do |msg|   
+          *        
+          = msg
+          %br/   
+    - if !notice.nil?
+      .message.errormsg{:style=> 'display:block;'}
+      %p= notice
+  %p
+    = f.label :name 
+    %br
+    = f.text_field :name, :class => 'text big'
+  %p
+    = f.label :color
+    %br/
+    = f.text_field :color, :class => 'text small'
+  %p
+    = f.submit :class => 'submit long'

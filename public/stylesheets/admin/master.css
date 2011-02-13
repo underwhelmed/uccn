@@ -4,3 +4,32 @@
 @import url("facebox.css");
 @import url("visualize.css");
 @import url("date_input.css");
+
+#ColorPickerDiv 
+{
+    display: block;
+    display: none;
+    position: relative;
+    border: 1px solid #777;
+    background: #fff
+}
+
+#ColorPickerDiv TD.color
+{
+	cursor: pointer;
+	font-size: xx-small;
+	font-family: 'Arial' , 'Microsoft Sans Serif';
+}
+#ColorPickerDiv TD.color label
+{
+	cursor: pointer;
+}
+
+.ColorPickerDivSample
+{
+	margin: 0px 0px 0px 9px;
+	border: solid 1px #000;
+	padding: 5px 12px;	
+	position: relative;
+	cursor: pointer;
+}
