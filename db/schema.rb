@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110212083844) do
+ActiveRecord::Schema.define(:version => 20110213173325) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -129,7 +129,6 @@ ActiveRecord::Schema.define(:version => 20110212083844) do
     t.boolean  "board_member",                                :default => false
     t.boolean  "account_active",                              :default => true
     t.boolean  "admin",                                       :default => false
-    t.datetime "last_login_date"
     t.string   "board_position"
     t.datetime "created_at"
     t.datetime "updated_at"
