@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   validate :start_at_and_end_date_valid
   
   scope :upcoming, lambda {
-    where("start_at <= ?", 1.day.ago)
+    where("start_at >= ?", 1.day.ago)
   }
   
   def self.event_strips_for_month_for_members(month, member)

@@ -6,4 +6,4 @@
   %ul
     - @events.each do |e|
       %li
-        =e.name
+        =link_to e.name, calendar_event_detail_path(e.id)

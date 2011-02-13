@@ -11,7 +11,7 @@
   %p
     = f.label :title
     %br/
-    = f.text_field :title
+    = f.text_field :title, :class => 'txt'
 
   = fields_for(@comment) do |cf|
     %p

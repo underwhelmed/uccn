@@ -6,7 +6,7 @@ class MembersController < ApplicationController
     @events = Event.upcoming
     @new_members = User.new_members
     @comments = Comment.all(:order => "created_at DESC", :limit => 5)
-    @posts = Post.published_for_members.order("published_at DESC")
+    @posts = Post.published_for_members.order("published_at DESC").limit(3)
   end
   
   def directory
