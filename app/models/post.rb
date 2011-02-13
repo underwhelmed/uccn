@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :title
 
-  attr_accessible :title, :excerpt, :body, :members_only, :status, :published_at, :category_ids
+  attr_accessible :title, :excerpt, :body, :members_only, :status, :published_at, :category_ids, :author, :created_at, :updated_at
   
   before_validation :add_slug
   validate :determine_valid_post

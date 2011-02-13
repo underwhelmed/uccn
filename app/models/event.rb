@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   
   validates_presence_of :name, :description, :start_at, :end_at, :event_category_id
   
-  attr_accessible :name, :description, :start_at, :members_only, :all_day, :end_at, :event_category_id
+  attr_accessible :name, :description, :start_at, :members_only, :all_day, :end_at, :event_category_id, :created_at, :updated_at
   
   validate :start_at_and_end_date_valid
   
