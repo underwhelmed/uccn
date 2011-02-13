@@ -29,6 +29,8 @@ class BlogController < ApplicationController
   end
   
   def rss
+    @posts = Post.published.order('published_at DESC').limit(10)
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
   
 end
