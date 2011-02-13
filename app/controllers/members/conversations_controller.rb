@@ -26,7 +26,7 @@ class Members::ConversationsController < ApplicationController
     @conversation = Conversation.new(params[:conversation])
     @conversation.views = 0
     @comment = @conversation.comments.build(params[:comment])
-    @conversation.user_id  = @comment.user_id = current_user.id
+    @conversation.user_id = @comment.user_id = current_user.id
 
     respond_to do |format|
       if @conversation.save
