@@ -1,0 +1,11 @@
+.title
+  %h2 Upcoming Birthdays
+- if @birthdays.empty?
+  %p No Upcoming Birthdays in the next 30 days
+- else
+  %ul
+    - @birthdays.each do |user|
+      %li
+        =user.name
+        \-
+        =user.date_of_birth.strftime("%B %-d")

@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    @birthdays = User.upcoming_birthdays
   end
   
   def directory

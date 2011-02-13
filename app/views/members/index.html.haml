@@ -1,4 +1,29 @@
-- content_for :title do
-  UCCN Members Area
+- title("UCCN Members Area")
 
-%h1 Welcome to the Members Area
+%section#header
+  %h1 UCCN Members Area
+%section.pageboxy.white
+  %section
+    .elements
+      %h1 Welcome to the UCCN Members Area
+      %p.big You can find information on upcoming field trips, interact with other members or just browse documents available for you to download.
+      
+    %br/
+    .box.white.one_third
+      .contents
+        .title
+          %h2 Latest Forum Posts
+        %p Post Listings
+    .box.white.one_third
+      .contents
+        = render "upcoming_birthdays", :locals => {:birthdays => @birthdays}
+    .box.white.one_third
+      .contents
+        .title
+          %h2 Newest Members
+        %p Please welcome our latest members
+    .clear
+    %br/
+    .elements
+      %h2 Here's some more information for you
+    
