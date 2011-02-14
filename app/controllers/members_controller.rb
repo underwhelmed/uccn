@@ -10,7 +10,7 @@ class MembersController < ApplicationController
   end
   
   def directory
-    @users = User.member_directory
+    @users = User.member_directory.order(:last_name)
   end
   
   def profile

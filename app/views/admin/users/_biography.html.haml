@@ -1,12 +1,11 @@
-= form_for [:admin, @user] do |f|
+= form_for [:admin, @user], :html => { :multipart => true } do |f|
   =if @user.errors.any?
     .message.errormsg{:style=> 'display:block;'}
       %p
         There were errors trying to update this user:
         %br/
-        - @user.errors.full_message.each do |msg|
-          *
-          = msg
+        - @user.errors.full_messages.each do |msg|
+          = "* #{msg}"
           %br/
   %p
     = f.label :biography
@@ -14,7 +13,8 @@
   %p.fileupload
     %label Photo:
     %br/
-    %input#fileupload{:type => "file"}/
-    %span#uploadmsg NOTE: The photo will be resized to fit the page
+    =f.file_field :photo
+    %span#uploadmsg NOTE: The photo will be resized to fit the page      
+    = image_tag @user.photo.url(:thumb) unless @user.photo.nil?
   %p
     = f.submit 'Update', :class => 'submit mid'

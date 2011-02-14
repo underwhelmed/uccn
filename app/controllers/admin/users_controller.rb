@@ -22,7 +22,7 @@ class Admin::UsersController < AdminController
   end
   
   def update
-    @user = User.find(params[:id])    
+    @user = User.find(params[:id])       
     if @user.update_attributes(params[:user])
       redirect_to(edit_admin_user_path(@user), :notice => "User #{@user.name} was successfully updated.") 
     else

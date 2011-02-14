@@ -4,7 +4,7 @@
       %p
         There were errors trying to update this user:
         %br/
-        - @user.errors.full_message.each do |msg|
+        - @user.errors.full_messages.each do |msg|
           *
           = msg
           %br/

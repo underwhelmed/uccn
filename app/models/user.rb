@@ -1,11 +1,16 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
-    
+  has_attached_file :photo, 
+                    :storage => :s3, 
+                    :s3_credentials => S3_CREDENTIALS,
+                    :bucket => "uccnws-" + Rails.env,
+                    :path => "/user/photo/:id/:style/:filename"                    
+ 
   validates_uniqueness_of :login
   validates_presence_of :login, :first_name, :last_name 
   validates_date :date_of_birth, :allow_blank => true
   
-  attr_accessible :id, :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :account_active, :admin, :display_name, :date_of_birth, :business_name, :address1, :address2, :city, :state, :zip_code, :phone_number, :cell_number, :fax_number, :board_member, :board_title, :receive_emails, :include_in_directory, :display_address_in_directory, :display_phone_in_directory, :backup_care, :created_at, :updated_at 
+  attr_accessible :id, :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :account_active, :admin, :display_name, :date_of_birth, :business_name, :address1, :address2, :city, :state, :zip_code, :phone_number, :cell_number, :fax_number, :board_member, :board_title, :receive_emails, :include_in_directory, :display_address_in_directory, :display_phone_in_directory, :backup_care, :created_at, :updated_at, :photo, :biography
   
   before_destroy :ensure_an_admin_remains, :ensure_user_is_not_admin
   
