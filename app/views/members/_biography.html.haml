@@ -1,21 +1,25 @@
-= form_for [:admin, @user], :url => profile_url do |f|
+= form_for [:admin, @user], :html => { :multipart => true } do |f|
   =if @user.errors.any?
     .message.errormsg{:style=> 'display:block;'}
       %p
         There were errors trying to update your profile:
         %br/
         - @user.errors.full_messages.each do |msg|
-          *
-          = msg
+          = "* #{msg}"
           %br/
   %p
     = f.label :biography
     = f.text_area :biography, :class => 'wysiwyg'  
-    %p.fileupload
-      =f.label :photo
+  - unless @user.new_record? || !@user.photo?
+    %p
+      =f.label(:delete_photo, 'Delete current photo?')      
+      =f.check_box(:delete_photo)
       %br/
-      =f.file_field :photo
-      %span#uploadmsg NOTE: The photo will be resized to fit the page      
-      = image_tag @user.photo.url(:thumb) unless @user.photo.nil?  
+      = image_tag @user.photo.url(:thumb)
+  %p.fileupload
+    =f.label :photo
+    %br/
+    =f.file_field :photo
+    %span#uploadmsg NOTE: The photo will be resized to fit the page        
   %p
     = f.submit 'Update', :class => 'submit mid'

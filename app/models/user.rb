@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 7.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
   
-  attr_accessible :id, :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :account_active, :admin, :display_name, :date_of_birth, :business_name, :address1, :address2, :city, :state, :zip_code, :phone_number, :cell_number, :fax_number, :board_member, :board_title, :receive_emails, :include_in_directory, :display_address_in_directory, :display_phone_in_directory, :backup_care, :created_at, :updated_at, :photo, :biography
+  attr_accessible :id, :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :account_active, :admin, :display_name, :date_of_birth, :business_name, :address1, :address2, :city, :state, :zip_code, :phone_number, :cell_number, :fax_number, :board_member, :board_title, :receive_emails, :include_in_directory, :display_address_in_directory, :display_phone_in_directory, :backup_care, :created_at, :updated_at, :photo, :biography, :delete_photo
   
   def delete_photo=(value)
     @delete_photo = !value.to_i.zero?
@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 
   before_validation :clear_photo  
   def clear_photo
-    self.photo.clear if delete_photo?
+    self.photo.clear if delete_photo? && !photo.dirty?
   end
   
   before_destroy :ensure_an_admin_remains, :ensure_user_is_not_admin
