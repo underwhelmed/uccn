@@ -13,9 +13,13 @@
         .message.warning{:style => "display: block; "}
           %p No Events currently scheduled for today
       - else
-        - @events.each do |event| 
-          %p
-            = link_to event.name, calendar_event_detail_path(event.id)
+        %ul
+          - @events.each do |event| 
+            %li
+              = link_to event.name, calendar_event_detail_path(event.id)
+              \- 
+              = event.start_at.strftime("%-I:%M %p") unless event.all_day
+              = "All Day" unless !event.all_day
       %p{:style => "margin-top:10px"}
         =link_to "Return to Calendar", calendar_path
   .clear

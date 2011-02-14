@@ -11,24 +11,24 @@ class Event < ActiveRecord::Base
   
   scope :upcoming, lambda {
     where("start_at >= ?", 1.day.ago)
-  }
+  }  
   
   def self.event_strips_for_month_for_members(month, member)
     if (member == true)
       self.event_strips_for_month month    
     else
-      self.event_strips_for_month month, :conditions => 'members_only = "f"'
+      self.event_strips_for_month month, :conditions => ['members_only = ? ', false]
     end
   end
   
   def self.events_by_date(date, member)
     begin_date = date.beginning_of_day.utc
     end_date = date.end_of_day.utc
-    sql = "((all_day = 't' AND date(start_at) = ?) OR (start_at BETWEEN ? AND ? AND all_day = 'f'))"
+    sql = '((all_day = ? AND DATE(start_at) = ?) OR (start_at BETWEEN ? AND ? AND all_day = ?))'
     if (member == true)
-      self.all(:conditions => [sql, date, begin_date, end_date])
+      self.all(:conditions => [sql, true, date, begin_date, end_date, false])
     else
-      self.all(:conditions => [sql + " AND members_only = 'f'", date, begin_date, end_date])
+      self.all(:conditions => [sql + ' AND members_only = ?', true, date, begin_date, end_date, false, false])
     end
   end
 
