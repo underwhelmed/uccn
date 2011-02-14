@@ -417,7 +417,7 @@
                 width : ( newX > 0 ) ? ( newX ).toString() + 'px' : '100%'
             }).addClass('wysiwyg')
                 .append(panel)
-                .append( $('<div><!-- --></div>').css({ clear : 'both' }) )
+                //.append( $('<div><!-- --></div>').css({ clear : 'both' }) )
                 .append(editor)
 		;
 
