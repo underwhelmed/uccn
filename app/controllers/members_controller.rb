@@ -3,7 +3,7 @@ class MembersController < ApplicationController
 
   def index
     @birthdays = User.member_directory.where("date_of_birth is not null").sort_by(&:next_birthday).first(8)
-    @events = Event.upcoming
+    @events = Event.upcoming_for_members
     @new_members = User.new_members
     @comments = Comment.all(:order => "created_at DESC", :limit => 5)
     @posts = Post.published_for_members.order("published_at DESC").limit(5)

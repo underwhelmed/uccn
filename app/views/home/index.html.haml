@@ -27,7 +27,7 @@
       .title
         %h2.boxed Upcoming Events
       .elements            
-        %p This is a placeholder for upcoming events
+        =render 'upcoming_events', :locals => {:events => @events}
       .bottom
         %a{:href => '#'} Go Here to See the Calendar
     .one_third.black
