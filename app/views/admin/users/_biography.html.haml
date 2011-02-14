@@ -11,10 +11,13 @@
     = f.label :biography
     = f.text_area :biography, :class => 'wysiwyg'  
   %p.fileupload
-    %label Photo:
+    =f.label :photo
     %br/
     =f.file_field :photo
     %span#uploadmsg NOTE: The photo will be resized to fit the page      
-    = image_tag @user.photo.url(:thumb) unless @user.photo.nil?
+  - unless @user.new_record? || !@user.photo?
+    %p
+      =f.label(:delete_photo, 'Delete photo')      
+      = f.check_box(:delete_photo)
   %p
     = f.submit 'Update', :class => 'submit mid'
