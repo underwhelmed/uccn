@@ -1,5 +1,15 @@
 - title("UCCN Forum")
 
+- content_for :top_head do
+  = stylesheet_link_tag "admin/jquery.wysiwyg"
+  
+- content_for :head do
+  = javascript_include_tag "admin/jquery.wysiwyg"
+  :javascript
+    $(function() {
+        $('.wysiwyg').wysiwyg({css: "/stylesheets/admin/wysiwyg.css"});
+    });
+
 %section#header
   %h1 UCCN Forum
 %section.pageboxy.white
@@ -15,7 +25,7 @@
             .user{:style => 'float:left;clear:right'}=c.user.name
             .datetime{:style => 'float:right'}
               Posted at 
-              =c.created_at.strftime("%-w/%-e/%Y %l:%M %p")    
+              =c.created_at.strftime("%-m/%-e/%Y %l:%M %p")    
             &nbsp; 
           .post_edit{:style => 'float:right;padding-right:5px;padding-top:5px;'}
             -if (current_user.admin? || c.user == current_user)       
@@ -26,7 +36,7 @@
             -if c.created_at != c.updated_at
               %span{:style => 'font-size:.8em;color:#A0A0A8;font-style:italic;display:block;margin-top:10px;'}
                 Edited: 
-                =c.updated_at.strftime("%-w/%-e/%Y %l:%M %p")
+                =c.updated_at.strftime("%-m/%-e/%Y %l:%M %p")
       %br/
       %br/
       = form_for [:members, @comment], :url => members_forum_reply_url(:id => @conversation.id) do |f|
@@ -38,9 +48,9 @@
             -@comment.errors.full_messages.each do |msg|
               %li= msg
         %p
-          Message
+          Add a Reply
           %br/
-          =f.text_area :body, :size => "60x10"
-        %p      
-          =f.submit(:value => "Post Reply")
+          =f.text_area :body, :class => 'wysiwyg'
+        %p{:style => 'margin-top:15px'}      
+          =f.submit :value => "Post Reply"
   .clear  

@@ -1,3 +1,13 @@
+- content_for :top_head do
+  = stylesheet_link_tag "admin/jquery.wysiwyg"
+  
+- content_for :head do
+  = javascript_include_tag "admin/jquery.wysiwyg"
+  :javascript
+    $(function() {
+        $('.wysiwyg').wysiwyg({css: "/stylesheets/admin/wysiwyg.css"});
+    });  
+
 = form_for [:members, @conversation], :url => members_forum_path do |f|
   -if @conversation.errors.any?
     %p
@@ -7,7 +17,7 @@
       %br/
       %ul
         - @conversation.errors.full_messages.each do |msg|
-          %li= msg            
+          %li= msg
   %p
     = f.label :title
     %br/
@@ -17,7 +27,6 @@
     %p
       = cf.label :body
       %br/
-      = cf.text_area(:body, :size => "60x10")
-
-  %p
+      = cf.text_area :body, :class => 'wysiwyg'
+  %p{:style => 'margin-top:15px'}
     = f.submit

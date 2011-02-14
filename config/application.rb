@@ -17,6 +17,10 @@ module Uccnrails
           raw %(<span class="field_with_errors">#{html_tag}</span>)
         end
 
+    # Added for will_paginate custom link renderer
+    # http://thewebfellas.com/blog/2010/8/22/revisited-roll-your-own-pagination-links-with-will_paginate-and-rails-3
+    # config.autoload_paths += %W(#{config.root}/lib)
+    
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 

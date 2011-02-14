@@ -2,7 +2,7 @@ class Members::ConversationsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @conversations = Conversation.all(:include => :comments, :order => 'comments.updated_at DESC')
+    @conversations = Conversation.all(:include => :comments, :order => 'comments.updated_at DESC').paginate :per_page => 10, :page => params[:page]
   end
   
   def show

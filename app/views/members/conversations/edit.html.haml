@@ -1,5 +1,15 @@
 - title("UCCN Forum")
 
+- content_for :top_head do
+  = stylesheet_link_tag "admin/jquery.wysiwyg"
+  
+- content_for :head do
+  = javascript_include_tag "admin/jquery.wysiwyg"
+  :javascript
+    $(function() {
+        $('.wysiwyg').wysiwyg({css: "/stylesheets/admin/wysiwyg.css"});
+    });
+
 %section#header
   %h1 UCCN Forum
 %section.pageboxy.white
@@ -28,8 +38,7 @@
           %p
             = cf.label :body
             %br/
-            = cf.text_area(:body, :size => "60x10")
-
-        %p
+            = cf.text_area :body, :class => 'wysiwyg'
+        %p{:style => 'margin-top:15px'}
           = f.submit(:value => "Update Post")
   .clear
