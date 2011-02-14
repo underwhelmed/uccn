@@ -34,6 +34,8 @@ Uccnrails::Application.routes.draw do
   match '/members/advisory' => 'members#advisory'
   match '/members/advisoryboard' => 'members#advisory'
   match '/members/board' => 'members#board'
+  match '/members/profiles' => 'members#profiles'
+  match '/members/profiles/:id' => 'members#showprofile', :as => 'show_member_profile'
   
   match '/members/downloads' => 'members#downloads'
   match '/members/documents/:id/:filename' => 'members#download', :via => :get

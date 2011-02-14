@@ -43,11 +43,15 @@ class User < ActiveRecord::Base
   end
   
   scope :member_directory, lambda {
-    where(:account_active => true, :include_in_directory => true)
+    where(["users.account_active = ? and users.include_in_directory = ?", true, true])
   }
     
   scope :new_members, lambda {
     member_directory.order("created_at DESC").limit(5)
+  }
+  
+  scope :with_profile, lambda {
+    where(["users.account_active = ? and users.biography IS NOT NULL", true])
   }
   
   def active?

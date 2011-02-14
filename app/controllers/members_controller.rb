@@ -47,4 +47,12 @@ class MembersController < ApplicationController
     end    
   end
   
+  def profiles
+    @users = User.with_profile
+  end
+  
+  def showprofile
+    @user = User.find(params[:id])
+  end
+  
 end

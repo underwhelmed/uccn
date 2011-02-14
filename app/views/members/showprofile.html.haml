@@ -1,0 +1,11 @@
+- title ("Meet the Member - #{@user.name}")
+
+%section#header
+  %h1="Meet the Members - #{@user.name}"    
+%section.main
+  %section.full_width
+    %p{:style => 'text-align:right;margin:10px;'}=link_to "Return to Member List", members_profiles_path
+    =image_tag @user.photo.url unless !@user.photo?
+    .info=@user.name
+    .profile=raw(@user.biography)
+    
