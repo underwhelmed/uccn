@@ -27,7 +27,11 @@
         %p
           Copyright © 
           =Time.now.year.to_s
-          All Rights Reserved
+          All Rights Reserved        
+          |
+          =link_to "Terms of Use", terms_path
+          |
+          =link_to "Privacy Policy", privacy_path
         %ul
           %li
             =link_to "Events", calendar_path
@@ -40,3 +44,4 @@
             |
           %li
             =link_to "Blog", blog_path
+     

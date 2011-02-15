@@ -9,6 +9,8 @@ Uccnrails::Application.routes.draw do
     get "/logout" => "devise/sessions#destroy"
   end
 
+  match 'terms' => 'home#terms_of_use', :as => 'terms'
+  match 'privacy' => 'home#privacy_policy', :as => 'privacy'
   match 'about' => 'home#about'
   match 'join' => 'home#join'
   match 'goals' => 'home#goals'
