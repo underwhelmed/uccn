@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   before_filter :authenticate_user!
+  caches_page :directory
 
   def index
     @birthdays = User.member_directory.where("date_of_birth is not null").sort_by(&:next_birthday).first(8)
