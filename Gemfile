@@ -12,6 +12,8 @@ gem 'aws-s3'
 gem 'tlsmail'
 gem 'validates_timeliness', '~> 3.0.2'
 
+gem 'pdfkit'
+
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0"
   gem "cucumber-rails", ">= 0.3.2"

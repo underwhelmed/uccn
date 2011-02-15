@@ -92,6 +92,7 @@ GEM
     paperclip (2.3.8)
       activerecord
       activesupport
+    pdfkit (0.5.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -174,6 +175,7 @@ DEPENDENCIES
   hpricot
   launchy
   paperclip (~> 2.3)
+  pdfkit
   rails (= 3.0.4)
   rspec-rails (>= 2.0.0)
   ruby_parser

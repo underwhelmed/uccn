@@ -5,7 +5,8 @@
     %title= yield(:title)
     %link{:rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon'}/
     = yield(:top_head)
-    = stylesheet_link_tag "boxy_lg_blue/style", :media => "all"
+    = stylesheet_link_tag "boxy_lg_blue/style", :media => "screen"
+    = stylesheet_link_tag "boxy_lg_blue/print", :media => "print"
     = javascript_include_tag :defaults, "boxy/jquery.scrollTo", "boxy/jquery.animate-colors"
     = yield(:head)    
     /[if IE]
@@ -23,7 +24,7 @@
       = yield
       = yield(:footer)
       
-      %section.pageboxy.white      
+      %section.pageboxy.white.legal     
         .elements
           %blockquote{:style => 'text-align:center;font-size:.82em'}
             UCCN Inc., does not have personal knowledge regarding qualifications of these providers and is not referring these providers to anyone.

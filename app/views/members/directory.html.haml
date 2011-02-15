@@ -8,9 +8,9 @@
       .message.warning{:style => "display: block; "}
         %p No Users to Display
     - else      
-      %p{:style => 'text-align:right;margin:10px;'}
-        Download the Directory as a PDF  
-        =image_tag '../images/pdfIcon16x16.gif', :style => 'vertical-align:text-bottom'
+      %p.download{:style => 'text-align:right;margin:10px;'}
+        =link_to "Download the Directory as a PDF", members_directory_path(:format => :pdf)
+        =image_tag '../images/pdfIcon16x16.gif', :style => 'vertical-align:text-bottom' 
       %p{:style => 'text-align:right;margin:10px;font-style:italic;font-size:.85em'}
         Members with an asterisk (*) are available for backup care
       %table.directory

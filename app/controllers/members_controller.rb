@@ -11,6 +11,13 @@ class MembersController < ApplicationController
   
   def directory
     @users = User.member_directory.order(:last_name)
+    respond_to do |format|
+      format.html
+      format.pdf { 
+        p = PDFKit.new(members_directory_url, :print_media_type => true)
+        send_data(p.to_pdf)
+      }
+     end
   end
   
   def profile
