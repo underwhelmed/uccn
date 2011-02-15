@@ -1,15 +1,31 @@
 - title ("Meet the Members")
 
 %section#header
-  %h1 Meet Members of the UCCN
-    
-%section.main
-  %section.full_width
-    - if @users.empty?
-      .message.warning{:style => "display: block; "}
-        %p No Profiles to Display
-    - else   
-      - @users.each do |u|
-        .info
-          =link_to u.name, show_member_profile_path(u.id)
-          =image_tag u.photo.url(:thumb) unless !u.photo?
+  %h1 Meet Members of the UCCN    
+%section.pageboxy.white
+  %section
+    .elements
+      %h1 Learn More about the members of the UCCN
+      %p.big What makes other members tick?  Want to see how others work/play?
+    %br/
+    .box.white.three_quarter
+      .contents
+        - if @users.empty?
+          .message.warning{:style => "display: block; "}
+          %p No Profiles to Display.
+        - else   
+          - @users.each do |u|
+            .info{:style => 'padding:15px'}
+              =image_tag u.photo.url(:thumb), :style => 'vertical-align:middle;padding-right:10px' unless !u.photo?
+              =image_tag '../images/anon.png', :style => 'vertical-align:middle;padding-right:10px' unless u.photo?
+              =link_to u.name, show_member_profile_path(u.id)
+    .box.white.one_quarter
+      .contents       
+        .title
+          %h2 Add your story
+        %p Did you know that you can add your own "Meet the Members"?
+        %br/
+        %p
+          If you go to your 
+          =link_to "Profile", profile_path
+    .clear

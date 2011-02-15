@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
                     :s3_credentials => S3_CREDENTIALS,
                     :bucket => "uccnws-" + Rails.env,
                     :path => ":id/:style/:filename",
-                    :styles => { :original => '400x400>', :thumb => '50x50'}
+                    :styles => { :original => '400x400>', :thumb => '72x72'}
  
   validates_uniqueness_of :login
   validates_presence_of :login, :first_name, :last_name 

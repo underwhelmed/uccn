@@ -4,8 +4,11 @@
   %h1="Meet the Members - #{@user.name}"    
 %section.main
   %section.full_width
-    %p{:style => 'text-align:right;margin:10px;'}=link_to "Return to Member List", members_profiles_path
-    =image_tag @user.photo.url unless !@user.photo?
-    .info=@user.name
-    .profile=raw(@user.biography)
+    .profile
+      .image{:style => 'float:right;padding:0px 15px'}
+        =image_tag @user.photo.url unless !@user.photo?
+        =image_tag '../images/anon_big.png' unless @user.photo?
+      =raw(@user.biography)
+    %p{:style => 'text-align:right;margin:15px;'}=link_to "Return to Meet the Members", members_profiles_path
+
     
