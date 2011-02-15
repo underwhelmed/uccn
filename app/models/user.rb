@@ -42,6 +42,9 @@ class User < ActiveRecord::Base
     Date.parse("#{year}#{mmdd}")
   end
   
+  scope :board, lambda {
+    where(["users.board_member = ? and users.account_active = ?", true, true])
+  }
   scope :member_directory, lambda {
     where(["users.account_active = ? and users.include_in_directory = ?", true, true])
   }

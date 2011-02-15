@@ -31,6 +31,7 @@ class MembersController < ApplicationController
   end
   
   def board
+    @users = User.board
   end
   
   def advisory

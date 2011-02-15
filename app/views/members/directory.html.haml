@@ -30,24 +30,30 @@
                 %br/
                 = mail_to user.email
               %td
-                = user.address1
-                - if !user.address2.blank?
-                  %br/
-                  = user.address2
-                - if !user.city.blank? && !user.state.blank? && !user.zip_code.blank?
-                  %br/
-                  = user.city + ', ' + user.state + ' ' + user.zip_code
+                -if user.display_address_in_directory
+                  = user.address1
+                  - if !user.address2.blank?
+                    %br/
+                    = user.address2
+                    - if !user.city.blank? && !user.state.blank? && !user.zip_code.blank?
+                    %br/
+                    = user.city + ', ' + user.state + ' ' + user.zip_code
+                -else
+                  Not Published
               %td{:style=>"text-align:center"}
-                - if !user.phone_number.blank?
-                  = "Phone: #{string_to_phone_number(user.phone_number)}"
-                - if !user.cell_number.blank?
+                - if user.display_phone_in_directory
                   - if !user.phone_number.blank?
-                    %br/
-                  = "Cell: #{string_to_phone_number(user.cell_number)}"
-                - if !user.fax_number.blank?
-                  - if !user.phone_number.blank? || !user.cell_number.blank?
-                    %br/
-                  = "Fax: #{string_to_phone_number(user.fax_number)}"
+                    = "Phone: #{string_to_phone_number(user.phone_number)}"
+                  - if !user.cell_number.blank?
+                    - if !user.phone_number.blank?
+                      %br/
+                    = "Cell: #{string_to_phone_number(user.cell_number)}"
+                  - if !user.fax_number.blank?
+                    - if !user.phone_number.blank? || !user.cell_number.blank?
+                      %br/
+                    = "Fax: #{string_to_phone_number(user.fax_number)}"
+                -else
+                  Not Published
               %td{:style=>"text-align:center"}
                 = user.date_of_birth.strftime("%B %-d") unless user.date_of_birth.nil?
     .clear         
