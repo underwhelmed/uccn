@@ -22,12 +22,20 @@
     #content      
       = yield
       = yield(:footer)
+      
+      %section.pageboxy.white      
+        .elements
+          %blockquote{:style => 'text-align:center;font-size:.82em'}
+            UCCN Inc., does not have personal knowledge regarding qualifications of these providers and is not referring these providers to anyone.
+            %br/
+            %br/
+            No part of this website may be reproduced, transmitted or distributed in any form for compensation of any kind, without prior written permission of the author.
     %footer
       %div
         %p
           Copyright © 
           =Time.now.year.to_s
-          All Rights Reserved        
+          United Child Care Network, Inc.; All Rights Reserved        
           |
           =link_to "Terms of Use", terms_path
           |
