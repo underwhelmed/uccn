@@ -15,7 +15,7 @@ class MembersController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf { 
-        p = PDFKit.new(members_directory_url, :print_media_type => true)
+        p = PDFKit.new(members_directory_url)
         send_data(p.to_pdf)
       }
      end

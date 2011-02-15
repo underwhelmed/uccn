@@ -8,11 +8,11 @@
       .message.warning{:style => "display: block; "}
         %p No Users to Display
     - else      
-      %p.download{:style => 'text-align:right;margin:10px;'}
-        =link_to "Download the Directory as a PDF", members_directory_path(:format => :pdf)
-        =image_tag '../images/pdfIcon16x16.gif', :style => 'vertical-align:text-bottom' 
-      %p{:style => 'text-align:right;margin:10px;font-style:italic;font-size:.85em'}
+      %p.alignright{:style => 'text-align:right;margin:10px;font-style:italic;font-size:.85em'}
         Members with an asterisk (*) are available for backup care
+      %p.download{:style => 'margin:10px;'}
+        =image_tag '../images/pdfIcon16x16.gif', :style => 'vertical-align:text-bottom' 
+        =link_to "Download the Directory as a PDF", members_directory_path(:format => :pdf)            
       %table.directory
         %thead
           %tr{:style => 'font-size:1.1em'}
@@ -23,7 +23,7 @@
         %tbody
           - @users.each do |user| 
             %tr{ :class => cycle('even', 'odd') }              
-              %td
+              %td{:style => 'white-space: nowrap;'}
                 %strong= user.name
                 = '*' if user.backup_care
                 - if !user.business_name.nil? && !user.business_name.blank?
@@ -31,7 +31,7 @@
                   = user.business_name
                 %br/
                 = mail_to user.email
-              %td
+              %td{:style => 'white-space: nowrap;'}
                 -if user.display_address_in_directory
                   = user.address1
                   - if !user.address2.blank?
@@ -42,7 +42,7 @@
                     = user.city + ', ' + user.state + ' ' + user.zip_code
                 -else
                   Not Published
-              %td{:style=>"text-align:center"}
+              %td{:style=>"text-align:center;white-space: nowrap"}
                 - if user.display_phone_in_directory
                   - if !user.phone_number.blank?
                     = "Phone: #{string_to_phone_number(user.phone_number)}"
@@ -56,6 +56,6 @@
                     = "Fax: #{string_to_phone_number(user.fax_number)}"
                 -else
                   Not Published
-              %td{:style=>"text-align:center"}
+              %td{:style=>"text-align:center;white-space: nowrap"}
                 = user.date_of_birth.strftime("%B %-d") unless user.date_of_birth.nil?
     .clear         
