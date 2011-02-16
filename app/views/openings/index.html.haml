@@ -1,33 +1,45 @@
-- content_for :title do
-  Daycare Openings - UCCN
+- title("Daycare Openings - UCCN")
+
+- content_for :head do
+  %style
+    \.elements p {margin-bottom:10px;}
   
 %section#header
   %h1 Daycare Openings
 %section.pageboxy.white
   %section.full_width
     .elements
-      %p 
-        %em Click the opening to edit it's information
+      .alignleft{:style => 'width:600px'}
+        %p 
+          Are you a parent looking for daycare for your child or children? You can look here to find providers in the   UCCN's coverage area to find a suitable match! Finding a daycare provider can be a very trying task. As a parent, you want to have the peace of mind that your child is in good hands. 
+        %p
+          United Child Care Network does not endorse any particular provider. They are all members of the UCCN and have opportunity to fulfill their required training hours through our organization.
+        %br/
+        %br/
+        %p{:style => 'text-align:center'}
+          %em This page will be updated periodically with updated listings for the area
+      .alignright{:style => 'margin-right:10px'}
+        =image_tag "../images/family_sitting.jpg", :alt => "Family"
+      .clear
       - if @openings.empty?
         .message.warning{:style => "display: block; "}
           %p No Daycare Openings are currently available.  Please check back later
       - else
-        %table{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
-          %thead
-            %tr
-              %th.header{:style => "cursor: pointer; "} City
-              %th.header{:style => "cursor: pointer; "} School District
-              %th.header{:style => "cursor: pointer; "} Name
-              %th.header{:style => "cursor: pointer; "} Phone
-              %td.header{:style => "cursor: pointer; "} Email
-              %td.header{:style => "cursor: pointer; "} Notes
-          %tbody
-            - @openings.each do |opening| 
-              %tr{ :class => cycle('even', 'odd') }
-                %td= opening.city
-                %td= opening.school_district
-                %td= opening.name
-                %td= opening.phone
-                %td= opening.email
-                %td= raw(opening.description)
+        %hr/
+        - @openings.each do |opening| 
+          .openings{:style => 'padding:10px'}
+            .alignleft{:style => 'width:35%;padding-right:10px'}
+              = "City: #{opening.city}" unless opening.city.nil?
+              %br/
+              = "School District: #{opening.school_district}" unless opening.school_district.nil?
+              %br/
+              = "Name: #{opening.name}" unless opening.name.nil?
+              %br/
+              = "Phone: #{opening.phone}" unless opening.phone.nil?
+              %br/
+              =mail_to opening.email, opening.email unless opening.email.nil?
+            .alignright{:style => 'width:63%'}
+              =raw(opening.description)
+            .clear
+          %hr/
   .clear
