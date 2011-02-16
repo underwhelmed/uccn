@@ -142,7 +142,6 @@ GEM
     term-ansicolor (1.0.5)
     thor (0.14.6)
     timeliness (0.3.3)
-    tlsmail (0.0.1)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.24)
@@ -181,7 +180,6 @@ DEPENDENCIES
   ruby_parser
   simple_form
   sqlite3-ruby
-  tlsmail
   validates_timeliness (~> 3.0.2)
   webrat (>= 0.7.2)
   will_paginate (~> 3.0.pre2)

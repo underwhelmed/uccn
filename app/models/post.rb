@@ -7,8 +7,9 @@ class Post < ActiveRecord::Base
 
   attr_accessible :title, :excerpt, :body, :members_only, :status, :published_at, :category_ids, :author, :created_at, :updated_at
   
-  before_validation :add_slug
+  before_validation :add_slug, :set_published
   validate :determine_valid_post
+  validates_date :published_at, :allow_blank => true
   
   scope :published, lambda { 
     published_for_members.where(:members_only => false)
@@ -65,4 +66,8 @@ class Post < ActiveRecord::Base
     def add_slug
       self.slug = create_slug(self.title) if !self.title.nil? && self.status == 2
     end  
+    
+    def set_published
+      self.published_at = nil if self.status != 2
+    end
 end

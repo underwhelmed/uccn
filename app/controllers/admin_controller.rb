@@ -7,8 +7,30 @@ class AdminController < ApplicationController
     
   end
   
-  def validate_admin 
-    redirect_to root_path if current_user.nil? or !current_user.admin 
+  def email
+    
+  end  
+  
+  def send_email
+    if params[:subject].empty? or params[:body].empty?
+      flash[:notice] = "Please enter a Subject and Body for this email"
+      render 'email'
+    else
+      User.for_email_blast.each do |u|
+        Notifier.send_member_emails(u.email, params[:subject], params[:body]).deliver
+      end
+      flash[:notice] = "Your emails were successfully sent"
+      redirect_to :action => :email_sent
+    end
   end
+  
+  def email_sent
+  end
+  
+  private
+  
+    def validate_admin 
+      redirect_to root_path, :notice => 'You are not authorized to view this page' if current_user.nil? or !current_user.account_active or !current_user.admin 
+    end
   
 end

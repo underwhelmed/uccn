@@ -36,7 +36,7 @@
     %p
       %label Publish Date
       %br/
-      = f.text_field :published_at, :class => "text medium"
+      = f.text_field :published_at, :value => (@post.published_at.nil? ? '' : @post.published_at.strftime("%-m/%-e/%Y %-w:%M %p")), :class => "text medium"
   .rightside{:style => 'float:right;width:220px'}
     %p
       %label Categories

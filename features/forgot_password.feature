@@ -10,7 +10,7 @@ Feature: Retrieving the User's Password
     When I follow "Password Recovery page"
     Then I should be on the Password Recovery page
     When I fill in "Email" with "testing@example.com"
-    And I press "Send me reset password instructions"
+    And I press "Send"
     Then I should be on the sign_in page
     And I should see "You will receive an email with instructions about how to reset your password in a few minutes."
     And "testing@example.com" should receive an email

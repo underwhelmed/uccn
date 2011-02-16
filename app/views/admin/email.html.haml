@@ -1,0 +1,22 @@
+.block
+  .block_head
+    .bheadl
+    .bheadr
+    %h2 Send Email to Members
+  .block_content
+    - if !notice.nil?
+      .message.errormsg{:style=> 'display:block;'}
+        %p= notice
+    = form_tag admin_send_email_path, :method => :post, :html => { :multipart => true } do
+      %p
+        %label Subject
+        %br
+        = text_field_tag :subject, nil, :class => 'text big'
+      %p
+        %label Body
+        %br
+        = text_area_tag :body, nil, :class => 'wysiwyg'
+      %p
+        = submit_tag "Send Email", :class => 'submit long', :confirm => "Please press OK to send this email"
+        %span#uploadmsg This email will be sent to all active members. Please be patient after pressing this button as it may take a while to process each email
+    

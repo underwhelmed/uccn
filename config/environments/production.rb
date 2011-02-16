@@ -13,20 +13,18 @@ Uccnrails::Application.configure do
 
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
-
-  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+  
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
   ActionMailer::Base.raise_delivery_errors = true
   ActionMailer::Base.smtp_settings = {
-    :enable_starttls_auto => true,  
-    :address            => 'smtp.gmail.com',
-    :port               => 587,
-    :tls                => true,
-    :domain             => 'uccn.org', 
-    :authentication     => :plain,
-    :user_name          => 'no-reply@uccn.org',
-    :password           => ENV['NO_REPLY_EMAIL_PASSWORD']
+    :address              => 'smtp.gmail.com',
+    :port                 => 587,
+    :domain               => 'uccn.org', 
+    :user_name            => 'no-reply@uccn.org',
+    :password             => ENV['NO_REPLY_EMAIL_PASSWORD'],
+    :authentication       => :plain,
+    :enable_starttls_auto => true
   }    
   
   config.action_mailer.default_url_options = { :host => 'uccn.org' }

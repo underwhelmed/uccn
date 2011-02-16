@@ -53,6 +53,9 @@ Uccnrails::Application.routes.draw do
   end
  
   match 'admin/' => 'admin#index'
+  match 'admin/email' => 'admin#email', :as => 'admin_email'
+  match 'admin/send_email' => 'admin#send_email', :via => :post, :as =>'admin_send_email'
+  match 'admin/email/success' => 'admin#email_sent'
   
   namespace "admin" do
     resources :users

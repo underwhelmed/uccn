@@ -11,7 +11,7 @@ describe User do
     u.password_confirmation = 'testing123'
     u.email = 'testing@example.com'   
     u.admin = false
-    u.active = true 
+    u.account_active = true 
     u.save!
     u.valid?.should == true
     u.admin.should == false

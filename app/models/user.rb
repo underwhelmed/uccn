@@ -57,6 +57,10 @@ class User < ActiveRecord::Base
     where(["users.account_active = ? and users.biography IS NOT NULL", true])
   }
   
+  scope :for_email_blast, lambda {
+    where(["users.account_active = ? and users.receive_emails = ?", true, true])
+  }
+  
   def active?
     super && (self.account_active? || self.login == 'admin')
   end
