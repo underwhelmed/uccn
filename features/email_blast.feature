@@ -18,4 +18,12 @@ Feature: Email Blast
     When "test_user@example.com" opens the email with subject "Peter Griffin"
     And I should see "This is a test" in the email body
     
+  Scenario: Submitting with valid information will not send email to user set to not receive emails    
+    Given "test_user" is set to not receive emails
+    And I am on the send email page
+    When I fill in "Subject" with "Peter Griffin"
+    And I fill in "Body" with "This is a test"
+    And I press "Send Email"
+    Then I should see "Your emails were successfully sent"
+    And "test_user@example.com" should have no emails
   

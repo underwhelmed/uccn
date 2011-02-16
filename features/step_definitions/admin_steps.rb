@@ -5,6 +5,7 @@ end
 Given /^I have one\s+user "([^\"]*)" with password "([^\"]*)" and login "([^\"]*)"$/ do |email, password, login|
   User.new(:email => email,
            :login => login,
+           :account_active => true,
            :first_name => "Testing",
            :last_name => "User",
            :password => password,
@@ -15,6 +16,7 @@ Given /^I have one\s+admin "([^\"]*)" with password "([^\"]*)" and login "([^\"]
   User.new(:email => email,
            :login => login,
            :admin => true,
+           :account_active => true,
            :first_name => "Administrator",
            :last_name => "Account",
            :password => password,

@@ -12,7 +12,8 @@ class AdminController < ApplicationController
   end  
   
   def send_email
-    if params[:subject].empty? or params[:body].empty?
+    logger.info "Email body: #{params[:body]}"
+    if params[:subject].empty? || params[:body].empty?
       flash[:notice] = "Please enter a Subject and Body for this email"
       render 'email'
     else

@@ -8,12 +8,11 @@ class Notifier < ActionMailer::Base
   #
   def user_feedback(message)
     @greeting = message
-
     mail :to => "irishpeg@comcast.net"
   end
   
-  def send_member_emails(to, reply_to, subject, body)
-    @body = body
+  def send_member_emails(to, subject, reply_to, body)
+    @message = body
     mail :to => to, :subject => subject, :reply_to => reply_to
   end
 end
