@@ -21,7 +21,9 @@ class Admin::PostsController < AdminController
   end
   
   def edit
-    @post = Post.find(params[:id])    
+    @post = Post.find(params[:id])
+    @post.published_at = Time.now unless !@post.published_at.nil?
+    @post
   end
   
   def update

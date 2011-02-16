@@ -12,8 +12,8 @@ class Notifier < ActionMailer::Base
     mail :to => "irishpeg@comcast.net"
   end
   
-  def send_member_emails(to, subject, body)
+  def send_member_emails(to, reply_to, subject, body)
     @body = body
-    mail :to => to, :subject => subject
+    mail :to => to, :subject => subject, :reply_to => reply_to
   end
 end

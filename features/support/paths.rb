@@ -33,6 +33,8 @@ module NavigationHelpers
       new_admin_post_path
     when /the Edit Posts page/i
       admin_posts_path
+    when /the send email page/i
+      admin_email_path
     else
       begin
         page_name =~ /the (.*) page/

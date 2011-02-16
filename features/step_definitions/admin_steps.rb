@@ -45,4 +45,11 @@ Given /^I am signed in as an administrator$/ do
   And %{I press "Login"}
 end
 
+Given /^"([^"]*)" is set to not receive emails$/ do |login|
+  u = User.find_by_login(login)
+  u.receive_emails = false
+  u.save!
+end
+
+
 
