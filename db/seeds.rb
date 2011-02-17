@@ -5,5 +5,3 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-
-require File.expand_path('../uccn_migration.rb', __FILE__)
