@@ -1,8 +1,12 @@
-- @events.each do |event|
-  %div{:class => event.id == @events.last.id ? "post last" : "post"}
-    %h3
-      =link_to event.name, calendar_event_detail_path(event.id)    
-    %p
-      = event.start_at.strftime("%A, %b %-d, %Y")
-      = " at " + event.start_at.strftime("%-I:%M %p") unless event.all_day
-      = "All Day" unless !event.all_day
+- if !@events.empty?
+  - @events.each do |event|
+    %div{:class => event.id == @events.last.id ? "post last" : "post"}
+      %h3
+        =link_to event.name, calendar_event_detail_path(event.id)    
+      %p
+        = event.start_at.strftime("%A, %b %-d, %Y")
+        = " at " + event.start_at.strftime("%-I:%M %p") unless event.all_day
+        = "All Day" unless !event.all_day
+- else
+  %div{:class => "last post"}
+    %h3 No Events Currently Scheduled

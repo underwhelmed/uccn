@@ -1,7 +1,7 @@
 - @posts.each do |post|
   %div{:class => post.id == @posts.last.id ? "post last" : "post"}
-    %h3
-      =link_to post.title, post.url
+    %h3=link_to post.title, post.url
+    %br/
     %time{:datetime => post.published_at.strftime("%Y-%m-%-e")}
       =post.published_at.strftime("%B %-e, %Y")
     %p=post.excerpt

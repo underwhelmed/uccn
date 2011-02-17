@@ -29,17 +29,17 @@
       .elements            
         =render 'upcoming_events', :locals => {:events => @events}
       .bottom
-        %a{:href => '#'} Go Here to See the Calendar
+        =link_to "Go Here to See the Calendar", calendar_path
     .one_third.black
       .title
         %h2.boxed From the Blog
       .elements
         = render 'recent_posts', :locals => {:posts => @posts}
       .bottom
-        %a{:href => '#'} Go to the Blog
+        =link_to "Go to the Blog", blog_path
     .one_third.black
       .title
-        %h2 Get in Touch
+        %h2.boxed Get in Touch
       .elements
         .citem
           %h3 Address
@@ -52,5 +52,5 @@
           %p (630) 343-9820
         %br/
       .bottom
-        %a{:href => '#'} Contact Us            
+        =link_to "Contact Us", contact_path            
   .clear
