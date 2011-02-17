@@ -37,9 +37,9 @@
                   - if !user.address2.blank?
                     %br/
                     = user.address2
-                    - if !user.city.blank? && !user.state.blank? && !user.zip_code.blank?
+                  - if !user.city.blank? && !user.state.blank? && !user.zip_code.blank?
                     %br/
-                    = user.city + ', ' + user.state + ' ' + user.zip_code
+                    = user.city + ', ' + user.state + ' ' + user.zip_code                  
                 -else
                   Not Published
               %td{:style=>"text-align:center;white-space: nowrap"}
