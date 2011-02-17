@@ -18,7 +18,7 @@ class Document < ActiveRecord::Base
   validates_attachment_presence :file
   
   scope :active, lambda {
-    where("documents.all_download = ?", :true)
+    where("documents.allow_download = ?", :true)
   }
   
   def attachment_url
