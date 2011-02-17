@@ -29,9 +29,9 @@
                 - if !user.business_name.nil? && !user.business_name.blank?
                   %br/
                   = user.business_name
-                - if user.board_member && !user.board_name.nil?
+                - if !user.board_member.nil? && user.board_member && !user.board_title.nil? && !user.board_title.empty?
                   %br/
-                  %strong= user.board_name
+                  %strong= user.board_title
                 %br/
                 = mail_to user.email
               %td{:style => 'white-space: nowrap;'}
