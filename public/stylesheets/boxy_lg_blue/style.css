@@ -30,9 +30,9 @@ h3 { font-size: 14px;}
 
 h1, h2, h3 { font-family: 'BebasRegular', Georgia, 'Times New Roman', Times, serif; }
 
-h1 {word-spacing:2px; padding-bottom: 15px;}
-h2 {word-spacing:1.5px; padding-bottom: 10px;}
-h3 {word-spacing:1px; padding-bottom: 5px;}
+h1 {word-spacing:2px; letter-spacing:1px; padding-bottom: 15px;}
+h2 {word-spacing:1.5px; letter-spacing:1px;padding-bottom: 10px;}
+h3 {word-spacing:1px; letter-spacing:1px;padding-bottom: 5px;}
 
 hr { border: 0 solid #e1e1e1; border-top-width: 1px; clear: both; height: 0; margin-top: 15px; padding-bottom: 10px;}
 ol { list-style: decimal; }
@@ -60,11 +60,11 @@ blockquote {}
 
 
 /****** Nav ******/
-#top{height: 60px; background: #222; margin-bottom: 20px; border-bottom: 1px solid #E1E1E1;}
+#top{height: 60px; background: #222; margin-bottom: 20px; border-bottom: 1px solid #E1E1E1;letter-spacing:1px;word-spacing:2px;}
 #top #logo{position: absolute; width: 50%;}
 #top #logo img{float: left;}
 #top #logo p.title{padding-top: 3px;font-size: 24px; color: #ffffff; font-family: 'BebasRegular', Georgia, 'Times New Roman', Times, serif; }
-#top #logo p.slogan{font-size: 14px; color: #9d9d9d; font-family: 'BebasRegular', Georgia, 'Times New Roman', Times, serif; }
+#top #logo p.slogan{font-size: 14px; color: #9d9d9d; font-family: 'BebasRegular', Georgia, 'Times New Roman', Times, serif;}
 #topwrapper{width: 970px; margin: 0 auto;}
 #topwrapper #logo{float: left;}
 #topwrapper nav{float: right; margin-top: 20px;}
@@ -118,7 +118,8 @@ blockquote {}
 	
 	
 /****** Content ******/
-#content { 	width: 970px; margin: 0 auto; border: 1px solid #E1E1E1;}
+#content {width: 970px; margin: 0 auto; border: 1px solid #E1E1E1;}
+#content {margin-bottom:10px;}
 #content section#header{border: 10px solid #ffffff; background: #0065A7; padding: 15px 20px 20px 20px; }
 #content section#header h1{font-size: 24px; padding-bottom: 0px; color: #ffffff; /*text-shadow: 1px 1px 2px #444;*/}
 #content section#header p{width: 700px; font-size: 14px;  /*text-shadow: 1px 1px 1px #444;*/font-family: Georgia, 'Times New Roman', Times, serif; color: #ededed; font-style: italic;}
