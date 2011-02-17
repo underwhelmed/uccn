@@ -46,7 +46,7 @@ class MembersController < ApplicationController
   end
   
   def downloads
-    @documents = Document.active.order("updated_at DESC")
+    @documents = Document.active.order("documents.updated_at DESC")
   end
   
   def download
