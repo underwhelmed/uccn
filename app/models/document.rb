@@ -27,6 +27,7 @@ class Document < ActiveRecord::Base
 
   def authenticated_s3_get_url(options={})
     options.reverse_merge! :use_ssl => true
+    logger.info :bucket.to_s
     AWS::S3::S3Object.url_for file.path, file.options[:bucket]
   end
 
