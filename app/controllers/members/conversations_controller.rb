@@ -36,7 +36,8 @@ class Members::ConversationsController < ApplicationController
         User.for_forum_notification.each do |u|
           Notifier.send_member_new_forum_post(u, @conversation).deliver unless @comment.user_id = u.id
         end        
-        format.html { redirect_to(members_forum_path, :success => 'Your Post was successfully created') }
+        flash[:success] = 'Your Post was successfully created'
+        format.html {redirect_to members_forum_path  }
       else
         format.html { render :action => "new" }
       end
@@ -51,7 +52,8 @@ class Members::ConversationsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(members_forum_post_path(@conversation.id), :success => 'Reply was successfully posted') }
+        flash[:success] = 'Reply was successfully posted'
+        format.html { redirect_to members_forum_post_path(@conversation.id)  }
       else
         format.html { render :action => "show", :id => @conversation.id }
       end
@@ -71,7 +73,8 @@ class Members::ConversationsController < ApplicationController
     @conversation = @comment.conversation
 
     if @comment.update_attributes(params[:comment]) && (params[:conversation].nil? || @conversation.update_attributes(params[:conversation]))
-      redirect_to(members_forum_post_path(@conversation.id), :success => 'Reply was successfully updated') 
+      flash[:success] = 'Reply was successfully updated'
+      redirect_to members_forum_post_path(@conversation.id) 
     else
       render :action => "edit", :id => params[:id] 
     end

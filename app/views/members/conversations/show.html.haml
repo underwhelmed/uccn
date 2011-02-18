@@ -15,12 +15,15 @@
 %section.pageboxy.white
   %section.full_width
     .elements
+      - [:notice, :error, :success].each do |key|
+        - unless flash[key].blank?
+          %div{:class => "message #{key}"}          
+            %p=flash[key]
       %div{:style => 'float:right;text-align:right'}
         = link_to 'Return to Forum Posts', members_forum_path
         -if (current_user.admin?)
           %br/
           =link_to "Delete this Post", members_delete_forum_post_path(@conversation), :confirm => "Are you sure you want to delete this post?\n\nWARNING: THIS CANNOT BE UNDONE!!!!", :method => :delete
-      %p#notice=notice
       %h2= @conversation.title
       %br/      
       - @conversation.comments.each do |c|
