@@ -1,5 +1,5 @@
 class Conversation < ActiveRecord::Base
-  has_many :comments
+  has_many :comments, :dependent => :delete_all
   belongs_to :user
   validates_presence_of :title
   

@@ -87,7 +87,7 @@ class Members::ConversationsController < ApplicationController
     else
       begin
         @comment.destroy
-        flash[:success] = "Comment deleted"
+        flash[:success] = "Comment successfully deleted"
       rescue Exception => e
         flash[:error] = e.message
       end
@@ -100,9 +100,9 @@ class Members::ConversationsController < ApplicationController
   
   def destroy
     @conversation = Conversation.find(params[:id])
-    begin
+    begin      
       @conversation.destroy
-      flash[:success] = "Post deleted"
+      flash[:success] = "Post successfully deleted"
     rescue Exception => e
       flash[:error] = e.message
     end
