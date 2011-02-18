@@ -5,11 +5,11 @@
   %body
     %p 
       Greetings 
-      =@user.name,
+      = @user.name
     %p
-      =@conversation.comments.first.user.name
-      has posted a new forum topic to the UCCN messageboard. 
-    %p= link_to @conversation.title, members_forum_post_path(c.id)
+      = @conversation.comments.first.user.name
+      has posted a new forum topic to the UCCN forums. 
+    %p= link_to @conversation.title, members_forum_post_path(@conversation.id)
     %hr/
     %p 
       You received this message because you requested to receive an email on new forum posts.  If you no longer wish to receive these notifications, you can go to

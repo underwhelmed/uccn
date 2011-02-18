@@ -21,8 +21,9 @@
   %p
     = f.label :title
     %br/
-    = f.text_field :title, :class => 'txt'
-
+    = f.text_field :title, :class => 'txt', :style => 'width:400px'
+    %br/
+    %br/
   = fields_for(@comment) do |cf|
     %p
       = cf.label :body
