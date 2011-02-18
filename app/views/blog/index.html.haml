@@ -1,5 +1,8 @@
 - title("UCCN Blog")
 
+- content_for :head do
+  =auto_discovery_link_tag :rss, blog_rss_path, :title => 'UCCN Blog'
+
 %section#header
   %h1 
     UCCN Blog
