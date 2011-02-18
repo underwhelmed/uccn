@@ -5,7 +5,10 @@
 %section.pageboxy.white
   %section.full_width
     .elements    
-      %p#notice=notice
+      - [:notice, :error, :success].each do |key|
+        - unless flash[key].blank?
+          %div{:class => "message #{key}"}          
+            %p=flash[key]
       = link_to 'Create new Post', members_forum_new_path
       %br/
       %br/

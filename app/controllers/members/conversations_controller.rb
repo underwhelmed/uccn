@@ -12,7 +12,7 @@ class Members::ConversationsController < ApplicationController
     @conversation    
     @comment = Comment.new
   rescue ActiveRecord::RecordNotFound
-    flash[:notice] = "Cannot find forum post"
+    flash[:error] = "Cannot find forum post"
     redirect_to :action => :index
   end
   
@@ -36,7 +36,7 @@ class Members::ConversationsController < ApplicationController
         User.for_forum_notification.each do |u|
           Notifier.send_member_new_forum_post(u, @conversation).deliver unless @comment.user_id = u.id
         end        
-        format.html { redirect_to(members_forum_path, :notice => 'Your Post was successfully created') }
+        format.html { redirect_to(members_forum_path, :success => 'Your Post was successfully created') }
       else
         format.html { render :action => "new" }
       end
@@ -51,7 +51,7 @@ class Members::ConversationsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(members_forum_post_path(@conversation.id), :notice => 'Reply was successfully posted') }
+        format.html { redirect_to(members_forum_post_path(@conversation.id), :success => 'Reply was successfully posted') }
       else
         format.html { render :action => "show", :id => @conversation.id }
       end
@@ -71,7 +71,7 @@ class Members::ConversationsController < ApplicationController
     @conversation = @comment.conversation
 
     if @comment.update_attributes(params[:comment]) && (params[:conversation].nil? || @conversation.update_attributes(params[:conversation]))
-      redirect_to(members_forum_post_path(@conversation.id), :notice => 'Reply was successfully updated') 
+      redirect_to(members_forum_post_path(@conversation.id), :success => 'Reply was successfully updated') 
     else
       render :action => "edit", :id => params[:id] 
     end
@@ -80,13 +80,13 @@ class Members::ConversationsController < ApplicationController
   def destroy_comment
     @comment = Comment.find(params[:id])
     if @comment == @comment.conversation.comments.first
-      flash[:notice] = "You cannot delete the first comment in the thread without deleting the entire thread"
+      flash[:warning] = "You cannot delete the first comment in the thread without deleting the entire thread"
     else
       begin
         @comment.destroy
-        flash[:notice] = "Comment deleted"
+        flash[:success] = "Comment deleted"
       rescue Exception => e
-        flash[:notice] = e.message
+        flash[:error] = e.message
       end
     end        
     respond_to do |format|
@@ -99,9 +99,9 @@ class Members::ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
     begin
       @conversation.destroy
-      flash[:notice] = "Post deleted"
+      flash[:success] = "Post deleted"
     rescue Exception => e
-      flash[:notice] = e.message
+      flash[:error] = e.message
     end
     respond_to do |format|
       format.html { redirect_to( members_forum_path) }

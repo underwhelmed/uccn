@@ -489,3 +489,22 @@ footer ul li a:hover{text-decoration: underline;}
 
 .even {background: #f0f0f0;}
 .odd {background: #ffffff;}
+
+.message {
+	margin-bottom:10px; padding-left:35px; padding-top:11px; padding-bottom:10px;	
+}
+.success {
+	border: 1px solid #bfde84;
+	background: #edfbd8 url(../../images/admin/success.gif) 12px 12px no-repeat;
+	color: #508600;
+}
+.error {
+	border: 1px solid #e9c59b;
+	background: #ffecce url(../../images/admin/error.gif) 12px 12px no-repeat;
+	color: #e3302c;
+}
+.warning {
+	border: 1px solid #e5e181;
+	background: #fefde2 url(../../images/admin/warning.gif) 12px 12px no-repeat;
+	color: #666;
+}
