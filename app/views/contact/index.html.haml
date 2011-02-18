@@ -9,6 +9,7 @@
         %h2 Contact Us!
       .elements
         #form
+          %p{:style => 'text-align:right;font-style:italic;font-size:.8em'} Fields with (*) are required
           = form_tag(contact_create_url, :method => :post) do
             %p
               = text_field_tag(:name)
@@ -22,9 +23,26 @@
             %p.area
               = label_tag(:message, "Message *")
               %br/
-              =text_area_tag(:message)
+              =text_area_tag(:message, '', :size => "60x8")
             %p.area
               = submit_tag 'Send', :class => 'btn'
-            .clear
+    .info.block
+      %h2 Get in Touch
+      .elements
+        %h3 Address
+        %p 
+          P.O. Box 130 
+          %br/
+          Downers Grove, IL 60515
+        %h3 Phone
+        %p (630) 343-9820)
+  .map.two_quarter
+    .elements
+      %h2 Questions? Comments? Suggestions?
+      %p We take them all!
+      %br/
+      %p Fill out this handy form on the left and press send and our website will notify us immediately.
+      %br/
+      =image_tag '../images/question_box.png'
   .clear
       
