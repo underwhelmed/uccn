@@ -50,6 +50,8 @@ Uccnrails::Application.routes.draw do
     match 'forum/reply/:id' => 'conversations#save_reply', :via => :post, :as => 'forum_reply'
     match 'forum/edit/:id/' => 'conversations#edit', :via => :get, :as => 'edit_forum_conversation'
     match 'forum/edit/:id/' => 'conversations#update', :via => :put, :as => 'update_forum_conversation'
+    match 'forum/delete/:id' => 'conversations#destroy', :via => :delete, :as => 'delete_forum_post'
+    match 'forum/comment/delete/:id' => "conversations#destroy_comment", :via => :delete, :as => 'delete_comment'
   end
  
   match 'admin/' => 'admin#index'

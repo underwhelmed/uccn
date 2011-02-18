@@ -11,6 +11,9 @@ class Members::ConversationsController < ApplicationController
     @conversation.save
     @conversation    
     @comment = Comment.new
+  rescue ActiveRecord::RecordNotFound
+    flash[:notice] = "Cannot find forum post"
+    redirect_to :action => :index
   end
   
   def new
@@ -72,7 +75,38 @@ class Members::ConversationsController < ApplicationController
     else
       render :action => "edit", :id => params[:id] 
     end
-    
+  end
+  
+  def destroy_comment
+    @comment = Comment.find(params[:id])
+    if @comment == @comment.conversation.comments.first
+      flash[:notice] = "You cannot delete the first comment in the thread without deleting the entire thread"
+    else
+      begin
+        @comment.destroy
+        flash[:notice] = "Comment deleted"
+      rescue Exception => e
+        flash[:notice] = e.message
+      end
+    end        
+    respond_to do |format|
+      format.html { redirect_to( members_forum_post_path(@comment.conversation.id)) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  def destroy
+    @conversation = Conversation.find(params[:id])
+    begin
+      @conversation.destroy
+      flash[:notice] = "Post deleted"
+    rescue Exception => e
+      flash[:notice] = e.message
+    end
+    respond_to do |format|
+      format.html { redirect_to( members_forum_path) }
+      format.xml  { head :ok }
+    end
   end
   
 end

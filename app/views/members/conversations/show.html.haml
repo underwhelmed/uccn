@@ -15,7 +15,11 @@
 %section.pageboxy.white
   %section.full_width
     .elements
-      = link_to 'Return to Forum Posts', members_forum_path, :style => 'float:right'
+      %div{:style => 'float:right;text-align:right'}
+        = link_to 'Return to Forum Posts', members_forum_path
+        -if (current_user.admin?)
+          %br/
+          =link_to "Delete this Post", members_delete_forum_post_path(@conversation), :confirm => "Are you sure you want to delete this post?\n\nWARNING: THIS CANNOT BE UNDONE!!!!", :method => :delete
       %p#notice=notice
       %h2= @conversation.title
       %br/      
@@ -29,7 +33,9 @@
             &nbsp; 
           .post_edit{:style => 'float:right;padding-right:5px;padding-top:5px;'}
             -if (current_user.admin? || c.user == current_user)       
-              =link_to image_tag("/images/edit.png", :border => 0), :action => :edit, :id => c.id
+              =link_to image_tag("../../../images/edit.png", :border => 0), :action => :edit, :id => c.id            
+            -if (current_user.admin? && c.conversation.comments.first != c)
+              =link_to image_tag('../../../images/delete.png', :alt=>'Delete'), members_delete_comment_path(c), :confirm => "Are you sure you want to delete this comment?\n\nWARNING: THIS CANNOT BE UNDONE!!!!", :method => :delete
             &nbsp;
           .post_body{:style => 'padding: 10px'}
             =raw(c.body)
