@@ -503,7 +503,7 @@ footer ul li a:hover{text-decoration: underline;}
 	background: #ffecce url(../../images/admin/error.gif) 12px 12px no-repeat;
 	color: #e3302c;
 }
-.warning {
+.notice {
 	border: 1px solid #e5e181;
 	background: #fefde2 url(../../images/admin/warning.gif) 12px 12px no-repeat;
 	color: #666;
