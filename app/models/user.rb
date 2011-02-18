@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 7.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
   
-  attr_accessible :id, :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :account_active, :admin, :display_name, :date_of_birth, :business_name, :address1, :address2, :city, :state, :zip_code, :phone_number, :cell_number, :fax_number, :board_member, :board_title, :receive_emails, :include_in_directory, :display_address_in_directory, :display_phone_in_directory, :backup_care, :created_at, :updated_at, :photo, :biography, :delete_photo
+  attr_accessible :id, :login, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :account_active, :admin, :display_name, :date_of_birth, :business_name, :address1, :address2, :city, :state, :zip_code, :phone_number, :cell_number, :fax_number, :board_member, :board_title, :receive_emails, :include_in_directory, :display_address_in_directory, :display_phone_in_directory, :backup_care, :created_at, :updated_at, :photo, :biography, :delete_photo, :notify_on_new_post
   
   def delete_photo=(value)
     @delete_photo = !value.to_i.zero?
@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
   
   scope :for_email_blast, lambda {
     where(["users.account_active = ? and users.receive_emails = ?", true, true])
+  }
+  
+  scope :for_forum_notification, lambda {
+    for_email_blast.where("users.notify_on_new_post = ?", true)
   }
   
   def active?

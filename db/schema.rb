@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110214044249) do
+ActiveRecord::Schema.define(:version => 20110218180953) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(:version => 20110214044249) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.boolean  "notify_on_new_post",                          :default => false, :null => false
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

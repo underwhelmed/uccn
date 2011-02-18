@@ -15,4 +15,11 @@ class Notifier < ActionMailer::Base
     @message = body
     mail :to => to, :subject => subject, :reply_to => reply_to
   end
+  
+  def send_member_new_forum_post(user, conversation)
+    @user = user
+    @conversation = conversation
+    mail :to => u.email, :subject => "New UCCN Forum Post"
+  end
+  
 end

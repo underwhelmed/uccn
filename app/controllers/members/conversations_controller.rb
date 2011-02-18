@@ -29,7 +29,10 @@ class Members::ConversationsController < ApplicationController
     @conversation.user_id = @comment.user_id = current_user.id
 
     respond_to do |format|
-      if @conversation.save
+      if @conversation.save      
+        User.for_forum_notification.each do |u|
+          Notifier.send_member_new_forum_post(u, @conversation).deliver
+        end        
         format.html { redirect_to(members_forum_path, :notice => 'Your Post was successfully created') }
       else
         format.html { render :action => "new" }

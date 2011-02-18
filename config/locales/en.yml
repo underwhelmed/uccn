@@ -11,6 +11,7 @@ en:
               last_name: "Last Name"
               active: "Is Active?"
               admin: "Is Administrator?"
+              notify_on_new_post: "Notify via email when new forum post is created?"
   notifier: 
       user_feedback:
           subject: "Feedback from the UCCN website"
