@@ -9,9 +9,9 @@
     %p
       = @conversation.comments.first.user.name
       has posted a new forum topic to the UCCN forums. 
-    %p= link_to @conversation.title, members_forum_post_path(@conversation.id)
+    %p= link_to @conversation.title, members_forum_post_url(@conversation.id)
     %hr/
     %p 
       You received this message because you requested to receive an email on new forum posts.  If you no longer wish to receive these notifications, you can go to
-      =link_to "your profile", profile_path
+      =link_to "your profile", profile_url
       , click on the "Website Settings" tab, uncheck "Notify via email when new forum post is created?" and click save.  You will then no longer be subscribed to new forum posts.
