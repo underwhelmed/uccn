@@ -18,7 +18,7 @@ class AdminController < ApplicationController
       render 'email'
     else
       User.for_email_blast.each do |u|
-        Notifier.send_member_emails(u.email, params[:subject], current_user.email, params[:body]).deliver
+        Notifier.delay.send_member_emails(u.email, params[:subject], current_user.email, params[:body])
       end
       flash[:notice] = "Your emails were successfully sent"
       redirect_to :action => :email_sent

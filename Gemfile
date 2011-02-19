@@ -10,8 +10,8 @@ gem 'simple_form'
 gem "paperclip", "~> 2.3"
 gem 'aws-s3'
 gem 'validates_timeliness', '~> 3.0.2'
-
 gem 'pdfkit'
+gem 'delayed_job'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0"
@@ -28,5 +28,5 @@ group :development, :test do
   gem 'ruby_parser'
   
   gem 'factory_girl_rails'
-  gem 'heroku_san'
+
 end

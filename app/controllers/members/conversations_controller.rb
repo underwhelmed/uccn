@@ -34,7 +34,7 @@ class Members::ConversationsController < ApplicationController
     respond_to do |format|
       if @conversation.save      
         User.for_forum_notification.each do |u|
-          Notifier.send_member_new_forum_post(u, @conversation).deliver unless @comment.user_id == u.id
+          Notifier.delay.send_member_new_forum_post(u, @conversation) unless @comment.user_id == u.id
         end        
         flash[:success] = 'Your Post was successfully created'
         format.html {redirect_to members_forum_path  }
