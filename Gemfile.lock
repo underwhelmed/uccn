@@ -79,6 +79,12 @@ GEM
     gherkin (2.3.3)
       json (~> 1.4.6)
     haml (3.0.25)
+    heroku (1.17.16)
+      json (~> 1.4.6)
+      launchy (~> 0.3.2)
+      rest-client (>= 1.4.0, < 1.7.0)
+    heroku_san (1.0.8)
+      heroku
     hpricot (0.8.3)
     i18n (0.5.0)
     json (1.4.6)
@@ -117,6 +123,8 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -176,6 +184,7 @@ DEPENDENCIES
   event-calendar
   factory_girl_rails
   haml
+  heroku_san
   hpricot
   launchy
   paperclip (~> 2.3)
