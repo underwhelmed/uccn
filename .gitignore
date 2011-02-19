@@ -3,4 +3,3 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 config/s3.yml
-db/uccn_migration.rb
