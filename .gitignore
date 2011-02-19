@@ -4,3 +4,4 @@ log/*.log
 tmp/**/*
 config/s3.yml
 config/heroku.yml
+db/uccn_migration.rb
