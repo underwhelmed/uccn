@@ -8,7 +8,7 @@ class BlogController < ApplicationController
       if (user_signed_in?)
         @posts = Post.published_for_members.joins(:categories).where(:categories => {:slug => params[:slug] }).paginate :per_page => 5, :page => params[:page], :order => 'published_at DESC'
       else
-        @posts = Post.published.paginate :per_page => 5, :page => params[:page], :order => 'published_at DESC'
+        @posts = Post.published.joins(:categories).where(:categories => {:slug => params[:slug] }).paginate :per_page => 5, :page => params[:page], :order => 'published_at DESC'
       end
     else
       if (user_signed_in?)
