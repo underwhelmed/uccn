@@ -26,7 +26,7 @@
           =link_to "Delete this Post", members_delete_forum_post_path(@conversation), :confirm => "Are you sure you want to delete this post?\n\nWARNING: THIS CANNOT BE UNDONE!!!!", :method => :delete
       %h2= @conversation.title
       %br/      
-      - @conversation.comments.each do |c|
+      - @conversation.comments.order(:created_at).each do |c|
         .forum_post{:style => 'border: 1px solid #101010;'}
           .post_head{:style => 'background-color:#0065A7;color:#EEEEEE;border-bottom: 1px solid #101010;padding:3px;line-height:24px;'}
             .user{:style => 'float:left;clear:right'}=c.user.name
