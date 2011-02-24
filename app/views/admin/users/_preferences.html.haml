@@ -18,6 +18,6 @@
     = f.text_field :display_name, :class => 'text medium'
   %p
     = f.label :date_of_birth
-    = f.text_field :date_of_birth, :class => 'text date_picker', :value => @user.date_of_birth.strftime("%-m/%-e/%Y") unless @user.date_of_birth.nil?
+    = f.text_field :date_of_birth, :class => 'text date_picker', :value => @user.date_of_birth.nil? ? '' : @user.date_of_birth.strftime("%-m/%-e/%Y")
   %p
     = f.submit 'Update', :class => 'submit mid'
