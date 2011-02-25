@@ -35,6 +35,10 @@ module NavigationHelpers
       admin_posts_path
     when /the send email page/i
       admin_email_path
+    when /the members page/i
+      user_root_path
+    when /the forum index/i 
+      members_forum_path
     else
       begin
         page_name =~ /the (.*) page/
