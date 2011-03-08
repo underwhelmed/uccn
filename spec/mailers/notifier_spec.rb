@@ -3,7 +3,8 @@ require "spec_helper"
 describe Notifier do
  
   describe "user_feedback" do
-    let(:mail) { Notifier.user_feedback("Person", "user@example.com", "", "Hi") }
+    message = Message.new :name => "Person", :email => "user@example.com", :message => "Hi"
+    let(:mail) { Notifier.user_feedback(message) }
 
     it "renders the headers" do
       mail.subject.should eq("Feedback from the UCCN website")

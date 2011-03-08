@@ -1,7 +1,7 @@
-= "You have received a message from #{@name}"
-= "Email: #{@email}"
-- if !@phone.empty?
-  ="Phone: #{@phone}"
+= "You have received a message from #{@message.name}"
+= "Email: #{@message.email}"
+- if !@message.phone.nil? && !@message.phone.empty?
+  ="Phone: #{@message.phone}"
 
 Message:  
-= @greeting
+= @message.message

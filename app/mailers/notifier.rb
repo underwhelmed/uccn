@@ -6,12 +6,9 @@ class Notifier < ActionMailer::Base
   #
   #   en.notifier.user_feedback.subject
   #
-  def user_feedback(name, email, phone, message)
-    @name = name
-    @greeting = message
-    @phone = phone
-    @email = email
-    mail :to => "irishpeg@comcast.net", :reply_to => email
+  def user_feedback(message)
+    @message = message
+    mail :to => "irishpeg@comcast.net", :reply_to => message.email
   end
   
   def send_member_emails(to, subject, reply_to, body)
