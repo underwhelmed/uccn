@@ -5,7 +5,7 @@ class ContactController < ApplicationController
   end
   
   def create    
-    Notifier.user_feedback(params[:message]).deliver
+    Notifier.user_feedback(params[:name], params[:email], params[:phone], params[:message]).deliver
     redirect_to contact_success_path, :notice => 'Thanks for your feedback!'
   end
   
