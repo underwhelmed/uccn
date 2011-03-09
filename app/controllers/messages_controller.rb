@@ -11,7 +11,10 @@ class MessagesController < ApplicationController
       redirect_to contact_success_path, :notice => 'Thanks for your feedback!'
     else
       flash[:notice] =  "Unable to send your message, please fill out the form in its entirety and click SEND. Make sure that all required fields (marked with an asterisk) are filled in."
-      render "new"
+       respond_to do |format|
+          format.html { render "new" }
+        end
+      
     end
   end
   

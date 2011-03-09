@@ -1,0 +1,31 @@
+.block
+  .block_head
+    .bheadl
+    .bheadr
+    %h2 Contact Us Messages
+  .block_content
+    %p 
+    - if @messages.empty?
+      .message.warning{:style => "display: block; "}
+        %p No messages currently in the system
+    - else
+      - if !notice.nil?
+        .message.success{:style=> 'display:block;'}
+          %p=notice
+      %table.sortable{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+        %thead
+          %tr
+            %th.header{:style => "width: 100px; "} Name
+            %th.header{:style => "width: 100px; "} Email
+            %th.header{:style => "width: 100px; "} Phone
+            %th.header{:style => "width: 300px; "} Message
+            %td.header{:style => "width: 30px;text-align:center "} Delete
+        %tbody
+          - @messages.each do |msg| 
+            %tr{ :class => cycle('even', 'odd') }
+              %td= msg.name
+              %td=mail_to msg.email
+              %td= (msg.phone.nil? || msg.phone.empty?) ? 'N/A' : msg.phone
+              %td= msg.message
+              %td{:style => "width: 30px;text-align:center "} 
+                = link_to image_tag('/images/delete.png', :alt=>'Delete'), admin_delete_message_path(msg), :confirm => "Are you sure you want to delete this message?", :method => :delete
