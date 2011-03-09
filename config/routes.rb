@@ -68,8 +68,8 @@ Uccnrails::Application.routes.draw do
     resources :categories
     resources :documents
     
-    match 'admin/messages' => 'contact#index', :as => 'messages'
-    match 'admin/messages/delete/:id' => 'contact#destroy', :via => :delete, :as => 'delete_message'
+    match 'messages' => 'contact#index', :as => 'messages'
+    match 'messages/delete/:id' => 'contact#destroy', :via => :delete, :as => 'delete_message'
   end
    
   # The priority is based upon order of creation:
