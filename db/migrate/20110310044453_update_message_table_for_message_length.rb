@@ -1,7 +1,7 @@
 class UpdateMessageTableForMessageLength < ActiveRecord::Migration
   def self.up
     remove_column :messages, :message
-        remove_column :messages, :messages, :text
+    add_column :messages, :message, :text
   end
 
   def self.down
