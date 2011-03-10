@@ -8,7 +8,7 @@ class Admin::ContactController < AdminController
     @message = Message.find(params[:id])
     begin
       @message.destroy
-      flash[:notice] = "Message from #{@openings.name} deleted"
+      flash[:notice] = "Message from #{@message.name} deleted"
     rescue Exception => e
       flash[:notice] = e.message
     end
