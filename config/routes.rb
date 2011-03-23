@@ -18,6 +18,7 @@ Uccnrails::Application.routes.draw do
   match 'contact/create' => 'messages#create', :via => :post
   match 'contact/success' => 'messages#success'
   match 'openings' => 'openings#index', :as => 'openings'
+  match 'openings/choosing_a_provider' => 'openings#choosing_a_provider', :as => 'choosing_a_provider'
   match 'resources' => 'resources#index'
   match 'membership' => 'home#join'
   match 'resources/associations' => 'resources#associations'
