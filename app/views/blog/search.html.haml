@@ -10,7 +10,7 @@
       %p
         =text_field_tag :search, params[:search]
         =submit_tag "Search", :name => nil        
-    - if @posts.empty? && !params[:search].empty?
+    - if !params[:search].empty? && @posts.empty?
       %article
         .message.warning
           No Posts were found for your search
@@ -36,6 +36,7 @@
               .coms
                 &nbsp;
     .clear
-    = will_paginate @posts, :class => "prefnext", :previous_label => "Newer", :next_label => "Older"
+    - if !@posts.empty? 
+      =will_paginate @posts, :class => "prefnext", :previous_label => "Newer", :next_label => "Older"
   =render :partial => "blog_side", :locals => {:categories => @categories}
   .clear

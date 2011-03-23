@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
   }
   
   def self.search(search, is_member)
-    if search.empty?
+    if search.nil?
       published.where('title = ?', "waleirypoaishnefamshjer")
     elsif is_member
       published_for_members.where('(title LIKE ? OR body LIKE ?)', "%#{search}%", "%#{search}%")
