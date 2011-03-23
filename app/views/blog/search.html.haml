@@ -1,20 +1,20 @@
-- title("UCCN Blog")
-
-- content_for :head do
-  =auto_discovery_link_tag :rss, blog_rss_path, :title => 'UCCN Blog'
+- title("Search UCCN Blog")
 
 %section#header
   %h1
-    UCCN Blog
-    =raw(" - #{@category.name}") unless @category.nil?
+    UCCN Blog - Search
   
 %section.blog
   #posts
-    - if @posts.empty?
+    =form_tag blog_search_path, :method => 'get'
+      %p
+        =text_field_tag :search, params[:search]
+        =submit_tag "Search", :name => nil        
+    - if @posts.empty? && !params[:search].empty?
       %article
         .message.warning
-          No Posts Available to Display
-    -else    
+          No Posts were found for your search
+    - elsif !@posts.empty?
       - @posts.each do |post|
         %article
           .title

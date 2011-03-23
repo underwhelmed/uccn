@@ -33,4 +33,9 @@ class BlogController < ApplicationController
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
   
+  def search
+    @categories = Category.find(:all, :order => :name)
+    @posts = Post.search(params[:terms], user_signed_in?).paginate :per_page => 5, :page => params[:page], :order => 'published_at DESC'
+  end
+  
 end

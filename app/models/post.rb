@@ -18,6 +18,16 @@ class Post < ActiveRecord::Base
   scope :published_for_members, lambda {
     where("posts.status = 2 and posts.published_at IS NOT NULL AND posts.published_at <= ?", Time.zone.now)
   }
+  
+  def self.search(search, is_member)
+    if search.empty?
+      published.where('title = ?', "waleirypoaishnefamshjer")
+    elsif is_member
+      published_for_members.where('(title LIKE ? OR body LIKE ?)', "%#{search}%", "%#{search}%")
+    else
+      published.where('(title LIKE ? OR body LIKE ?)', "%#{search}%", "%#{search}%")
+    end
+  end
 
   def has_categories
     self.categories.count > 0

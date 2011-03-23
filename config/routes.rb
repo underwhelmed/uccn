@@ -8,7 +8,7 @@ Uccnrails::Application.routes.draw do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"
   end
-
+  
   match 'terms' => 'home#terms_of_use', :as => 'terms'
   match 'privacy' => 'home#privacy_policy', :as => 'privacy'
   match 'about' => 'home#about'
@@ -28,6 +28,7 @@ Uccnrails::Application.routes.draw do
   match 'blog/rss' => 'blog#rss', :as => :blog_rss
   match '/blog/category/:slug' => 'blog#index', :as => :blog_category
   match '/blog/:year/:month/:day/:slug', :as => :blog_post, :controller => "blog", :action => "show", :constraints => {:year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/}
+  match 'blog/search/(:search)' => 'blog#search', :as => 'blog_search'
   match 'members' => 'members#index', :as => 'user_root'
   match 'profile' => 'members#profile', :via => :get
   match 'profile' => 'members#update_profile', :via => :put
