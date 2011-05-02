@@ -12,6 +12,7 @@ gem 'aws-s3'
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'pdfkit'
 gem 'delayed_job'
+gem 'hirefire'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0"
