@@ -20,7 +20,11 @@ namespace :backups do
     heroku = Heroku::Client.new HEROKU_USERNAME, HEROKU_PASSWORD
 
     puts "Capturing new pg_dump"
-    Heroku::Command.run_internal 'pgbackups:capture', ['--expire', '--app', APP_NAME], heroku
+    Heroku::Command::Pgbackups.new(['--app', APP_NAME, '--expire']).capture, heroku
+    
+    #backup_url = Heroku::Command::Pgbackups.new(['--app', name]).pgbackup_client.get_latest_backup['public_url']
+    
+    #Heroku::Command.run_internal 'pgbackups:capture', ['--expire', '--app', APP_NAME], heroku
    
     puts "Opening S3 connection"
     AWS::S3::Base.establish_connection!(
