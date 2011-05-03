@@ -13,7 +13,6 @@ gem 'validates_timeliness', '~> 3.0.2'
 gem 'pdfkit'
 gem 'delayed_job'
 gem 'hirefire'
-gem 'heroku'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0"
