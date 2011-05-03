@@ -20,7 +20,7 @@ namespace :backups do
     heroku = Heroku::Client.new HEROKU_USERNAME, HEROKU_PASSWORD
 
     puts "Capturing new pg_dump"
-    Heroku::Command::Pgbackups.new(['--app', APP_NAME, '--expire']).capture, heroku
+    Heroku::Command::Pgbackups.new(['--app', APP_NAME, '--expire']).capture
     
     #backup_url = Heroku::Command::Pgbackups.new(['--app', name]).pgbackup_client.get_latest_backup['public_url']
     
