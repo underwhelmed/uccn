@@ -1,7 +1,7 @@
 class Admin::DocumentsController < AdminController
   
   def index
-    @documents = Document.all
+    @documents = Document.order("updated_at DESC").all
   end
   
   def new
