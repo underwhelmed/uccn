@@ -75,6 +75,18 @@
           %div{:style => 'clear:both'}
           %hr/
           %p Please take a few minutes to answer the following questions to better serve you
-          
+          %p
+            = f.label :member_type
+            \:
+            = f.select :member_type, [['New Member'], ['Renewing Member']]
+          %p
+            = f.label :provider_type
+            \:
+            = f.select :provider_type, [['Family Child Care'], ['Group Home'], ['Parent'], ['Advocate']]
+          %p
+            = f.label :license_type
+            \:
+            = f.select :license_type, [['Licensed Provider'], ['Unlicensed Provider'], ['License Exempt']]
+            
           %p
             = f.submit 'Submit', :class => 'btn'
