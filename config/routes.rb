@@ -21,6 +21,8 @@ Uccnrails::Application.routes.draw do
   match 'openings/choosing_a_provider' => 'openings#choosing_a_provider', :as => 'choosing_a_provider'
   match 'resources' => 'resources#index'
   match 'membership' => 'home#join'
+  match 'membership/apply' => 'membership#new'
+  match 'membership/create' => 'membership#create', :via => :post, :as => 'membership_create'
   match 'resources/associations' => 'resources#associations'
   match 'resources/foodprograms' => 'resources#food_programs'
   match 'resources/referrals' => 'resources#referrals'
