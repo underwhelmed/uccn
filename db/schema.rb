@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110808011545) do
+ActiveRecord::Schema.define(:version => 20110815031748) do
 
   create_table "categories", :force => true do |t|
     t.string    "name"
@@ -92,20 +92,41 @@ ActiveRecord::Schema.define(:version => 20110808011545) do
   end
 
   create_table "memberships", :force => true do |t|
-    t.string   "first_name",    :null => false
-    t.string   "last_name",     :null => false
-    t.string   "business_name", :null => false
-    t.string   "address_1",     :null => false
-    t.string   "address_2",     :null => false
-    t.string   "city",          :null => false
-    t.string   "state",         :null => false
-    t.string   "postal_code",   :null => false
-    t.string   "email",         :null => false
-    t.string   "phone_number",  :null => false
-    t.string   "date_of_birth", :null => false
-    t.string   "ip_address",    :null => false
+    t.string   "first_name",           :null => false
+    t.string   "last_name",            :null => false
+    t.string   "business_name",        :null => false
+    t.string   "address_1",            :null => false
+    t.string   "address_2",            :null => false
+    t.string   "city",                 :null => false
+    t.string   "state",                :null => false
+    t.string   "postal_code",          :null => false
+    t.string   "email",                :null => false
+    t.string   "phone_number",         :null => false
+    t.string   "date_of_birth",        :null => false
+    t.string   "ip_address",           :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "new_member"
+    t.string   "member_type"
+    t.string   "license_type"
+    t.boolean  "interest_newsletter"
+    t.boolean  "interest_website"
+    t.boolean  "interest_networking"
+    t.boolean  "interest_cpr"
+    t.boolean  "interest_backup"
+    t.boolean  "interest_meetings"
+    t.boolean  "interest_field_trips"
+    t.string   "interest_other"
+    t.string   "topic_requests"
+    t.boolean  "publish_address"
+    t.string   "license_number"
+    t.string   "referral_info"
+    t.string   "christmas"
+    t.string   "manna"
+    t.string   "membership"
+    t.string   "newsletter"
+    t.string   "public_relations"
+    t.string   "token"
   end
 
   create_table "messages", :force => true do |t|

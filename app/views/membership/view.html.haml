@@ -1,0 +1,14 @@
+- title("View Membership Request")
+  
+%section#header
+  %h1 Membership Request
+%section.pageboxy.white
+  %section.full_width
+    #membership.elements
+      =render "form"
+      
+:javascript
+  $(document).ready(function() {
+     $('#membership :input').attr('disabled', true);
+     $("#membership :submit").hide();
+  });

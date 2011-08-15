@@ -1,0 +1,143 @@
+.form         
+  %p{:style => 'text-align:right;font-style:italic;font-size:.8em'} Fields with (*) are required
+  = form_for @membership do |f|
+    - if @membership.errors.any?
+      %p There were errors trying to send your message:               
+      - @membership.errors.full_messages.each do |msg|   
+        *        
+        = msg
+        %br/          
+      %br/
+    %div{:style => 'float:right;width:460px'}
+      %p
+        = f.label :business_name
+        %br/
+        = f.text_field :business_name, :style => 'width:400px'
+        *           
+      %p
+        = f.label :email
+        %br/
+        = f.text_field :email, :style => 'width:300px'
+        *
+      %p
+        = f.label :phone_number
+        %br/
+        = f.text_field :phone_number, :style => 'width:100px'
+        *
+      %p
+        = f.label :date_of_birth
+        %br/
+        = f.text_field :date_of_birth, :style => 'width:100px'
+        *
+    %div{:style => 'float:left;width:460px'}
+      %p
+        = f.label :first_name
+        %br/
+        = f.text_field :first_name, :style => 'width:300px'
+        *
+      %p
+        = f.label :last_name
+        %br/
+        = f.text_field :last_name, :style => 'width:300px'
+        *
+      %p
+        = f.label :address_1
+        %br/
+        = f.text_field :address_1, :style => 'width:300px'
+        *
+      %p
+        = f.label :address_2
+        %br/
+        = f.text_field :address_2, :style => 'width:300px'
+      %p
+        = f.label :city
+        %br/
+        = f.text_field :city, :style => 'width:200px'
+        *
+      %p
+        = f.label :state
+        %br/
+        = f.text_field :state, :style => 'width:200px'
+        *
+      %p
+        = f.label :postal_code
+        %br/
+        = f.text_field :postal_code, :style => 'width:100px'
+        *
+    %div{:style => 'clear:both'}
+    %hr/
+    %p Please take a few minutes to answer the following questions to better serve you
+    %p
+      = f.label :new_member, 'I am a '
+      \:
+      = f.select :new_member, [[ "New Member", "false" ], [ "Renewing Member", "true" ]]
+    %p
+      = f.label :member_type, 'I am a '
+      \:
+      = f.select :member_type, [[ "Family Child Care", "Family Child Care" ], [ "Group Home", "Group Home" ], ["Advocate", "Advocate"], ["Parent", "Parent"]]
+      %p
+        = f.label :license_type
+        \:
+        = f.select :license_type, [[ "Licensed Provider", "Licensed Provider" ], [ "License Exempt", "License Exempt" ], ["Unlicensed", "Unlicensed"], ["N/A", "N/A"]]
+        If you're licensed, please enter your license number:
+        =f.text_field :license_number, :style => 'width:150px'
+    %p
+      Please check the features that you are most interested in:
+      %br/
+      Newsletter
+      = f.check_box :interest_newsletter
+      %br/
+      Website
+      = f.check_box :interest_website
+      %br/
+      Networking with other Providers
+      = f.check_box :interest_networking
+      %br/
+      CPR Training
+      = f.check_box :interest_cpr
+      %br/
+      Back up Care
+      = f.check_box :interest_backup
+      %br/
+      Meetings
+      = f.check_box :interest_meetings
+      %br/
+      Field Trips
+      = f.check_box :interest_field_trips
+    %p
+      Any additional features that you would like to see?
+      %br/
+      =f.text_area :interest_other, :style => 'width:500px', :rows => 4
+    %p
+      What meeting/training topics or special projects would you like to see UCCN present?
+      %br/
+      =f.text_area :topic_requests, :style => 'width:500px', :rows => 4
+    %p
+      Please select the areas that you would like to work with or would like to know more about:
+    %p
+      =f.select :christmas, [["--Select--", ""], ["Know More About"], ["Work With"]]
+      Christmas Party
+      %br/
+      =f.select :manna, [["--Select--", ""], ["Know More About"], ["Work With"]]
+      Manna Fundraiser
+      %br/
+      =f.select :membership, [["--Select--", ""], ["Know More About"], ["Work With"]]
+      Membership
+      %br/
+      =f.select :newsletter, [["--Select--", ""], ["Know More About"], ["Work With"]]
+      Newsletter
+      %br/
+      =f.select :public_relations, [["--Select--", ""], ["Know More About"], ["Work With"]]
+      Public Relations
+    %p
+      If give my permission to have my name, address & phone number in the UCCN online directory.
+      %br/
+      %em This information is only available to members and not the public
+      %br/
+      =f.select :publish_address, [["I agree to have my information published", "true"], ["I do NOT agree, do not publish my information", "false"]]
+    %p
+      If you are a new member, how did you hear about the UCCN?
+      %br/
+      =f.text_area :referral_info, :style => 'width:500px', :rows => 4
+    %p
+      = f.submit 'Submit', :class => 'btn'

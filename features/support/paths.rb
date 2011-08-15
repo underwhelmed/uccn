@@ -39,6 +39,10 @@ module NavigationHelpers
       user_root_path
     when /the forum index/i 
       members_forum_path
+    when /the membership application page/i
+      new_membership_path
+    when /the successful membership request page/i
+      membership_success_path
     else
       begin
         page_name =~ /the (.*) page/

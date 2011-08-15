@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %p You have received a new application from the UCCN website. You can view it at the address below:
+    %p
+      =link_to "view it here", view_membership_url(@membership.token)
+    %p This message was sent automatically from the UCCN website.

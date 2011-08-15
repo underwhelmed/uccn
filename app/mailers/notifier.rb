@@ -22,4 +22,9 @@ class Notifier < ActionMailer::Base
     mail :to => user.email, :subject => "New UCCN Forum Post"
   end
   
+  def send_new_membership_application(membership)
+    @membership = membership
+    mail :to => 'barb-peterson@sbcglobal.net', :subject => "New UCCN Membership Application Request"
+  end
+  
 end
