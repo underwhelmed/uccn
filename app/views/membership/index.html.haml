@@ -11,8 +11,7 @@
       - else
         - if !notice.nil?
           .message.success{:style=> 'display:block;'}
-            %p 
-              = notice
+            %p= notice
         %table.sortable{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
           %thead
             %tr
