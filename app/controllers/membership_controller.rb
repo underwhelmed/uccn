@@ -1,4 +1,5 @@
 class MembershipController < ApplicationController
+  before_filter :authenticate_user!, :only => :view
   
   def new
     @membership = Membership.new
