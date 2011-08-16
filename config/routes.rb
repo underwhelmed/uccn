@@ -24,7 +24,9 @@ Uccnrails::Application.routes.draw do
   match 'membership/apply' => 'membership#new', :as => 'new_membership'
   match 'membership/create' => 'membership#create', :via => :post, :as => 'memberships'
   match 'membership/success' => 'membership#success', :as => 'membership_success'
-  match 'membership/view/:token' => 'membership#view', :as => 'view_membership'
+  match 'membership/view/' => 'membership#index', :as => 'view_memberships'
+  match 'membership/view/:token' => 'membership#view', :as => 'view_membership', :via => :get
+  match 'membership/delete/:id' => 'membership#destroy', :as => 'delete_membership', :via => :delete
   match 'resources/associations' => 'resources#associations'
   match 'resources/foodprograms' => 'resources#food_programs'
   match 'resources/referrals' => 'resources#referrals'
