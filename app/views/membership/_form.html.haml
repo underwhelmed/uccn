@@ -84,9 +84,6 @@
     %p
       Please check the features that you are most interested in:
       %br/
-      Newsletter
-      = f.check_box :interest_newsletter
-      %br/
       Website
       = f.check_box :interest_website
       %br/
@@ -123,9 +120,6 @@
       %br/
       =f.select :membership, [["--Select--", ""], ["Know More About"], ["Work With"]]
       Membership
-      %br/
-      =f.select :newsletter, [["--Select--", ""], ["Know More About"], ["Work With"]]
-      Newsletter
       %br/
       =f.select :public_relations, [["--Select--", ""], ["Know More About"], ["Work With"]]
       Public Relations

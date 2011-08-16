@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110815031748) do
+ActiveRecord::Schema.define(:version => 20110816224728) do
 
   create_table "categories", :force => true do |t|
     t.string    "name"
@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(:version => 20110815031748) do
     t.boolean  "new_member"
     t.string   "member_type"
     t.string   "license_type"
-    t.boolean  "interest_newsletter"
     t.boolean  "interest_website"
     t.boolean  "interest_networking"
     t.boolean  "interest_cpr"
@@ -124,7 +123,6 @@ ActiveRecord::Schema.define(:version => 20110815031748) do
     t.string   "christmas"
     t.string   "manna"
     t.string   "membership"
-    t.string   "newsletter"
     t.string   "public_relations"
     t.string   "token"
   end
