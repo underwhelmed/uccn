@@ -83,24 +83,26 @@
         =f.text_field :license_number, :style => 'width:150px'
     %p
       Please check the features that you are most interested in:
-      %br/
-      Website
-      = f.check_box :interest_website
-      %br/
-      Networking with other Providers
-      = f.check_box :interest_networking
-      %br/
-      CPR Training
-      = f.check_box :interest_cpr
-      %br/
-      Back up Care
-      = f.check_box :interest_backup
-      %br/
-      Meetings
-      = f.check_box :interest_meetings
-      %br/
-      Field Trips
-      = f.check_box :interest_field_trips
+    %table{:style => 'border:none'}
+      %tr
+        %td{:style => 'text-align:right'} Website
+        %td= f.check_box :interest_website, :style => 'vertical-align:middle'
+      %tr{:style => 'background-color:#EEE'}
+        %td{:style => 'text-align:right'} Networking with other Providers
+        %td= f.check_box :interest_networking, :style => 'vertical-align:middle'
+      %tr
+        %td{:style => 'text-align:right'} CPR Training
+        %td= f.check_box :interest_cpr, :style => 'vertical-align:middle'
+      %tr{:style => 'background-color:#EEE'}
+        %td{:style => 'text-align:right'} Back up Care
+        %td= f.check_box :interest_backup, :style => 'vertical-align:middle'
+      %tr
+        %td{:style => 'text-align:right'} Meetings
+        %td= f.check_box :interest_meetings, :style => 'vertical-align:middle'
+      %tr{:style => 'background-color:#EEE'}
+        %td{:style => 'text-align:right'} Field Trips
+        %td= f.check_box :interest_field_trips, :style => 'vertical-align:middle'
+    %br/
     %p
       Any additional features that you would like to see?
       %br/
