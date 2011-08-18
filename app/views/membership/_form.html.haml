@@ -1,3 +1,10 @@
+-content_for :styles do
+  :plain
+    .form p {padding:6px}
+    .curFocus {
+      background: #fdecb2;
+    }
+
 .form         
   %p{:style => 'text-align:right;font-style:italic;font-size:.8em'} Fields with (*) are required
   = form_for @membership do |f|
@@ -116,13 +123,13 @@
     %p
       =f.select :christmas, [["--Select--", ""], ["Know More About"], ["Work With"]], {}, {:tabindex => 24}
       Christmas Party
-      %br/
+    %p
       =f.select :manna, [["--Select--", ""], ["Know More About"], ["Work With"]], {}, {:tabindex => 25}
       Manna Fundraiser
-      %br/
+    %p
       =f.select :membership, [["--Select--", ""], ["Know More About"], ["Work With"]], {}, {:tabindex => 26}
       Membership
-      %br/
+    %p
       =f.select :public_relations, [["--Select--", ""], ["Know More About"], ["Work With"]], {}, {:tabindex => 27}
       Public Relations
     %p
@@ -137,3 +144,27 @@
       =f.text_area :referral_info, :style => 'width:500px', :rows => 4, :tabindex => 29
     %p
       = f.submit 'Submit', :class => 'btn', :tabindex => 30
+:javascript
+  $(document).ready(function() {
+    $("input").focus(function() {
+      $(this).parent().addClass("curFocus")
+    });
+    $("input").blur(function() {
+      $(this).parent().removeClass("curFocus")
+    });
+    $("textarea").focus(function() {
+      $(this).parent().addClass("curFocus")
+    });
+    $("textarea").blur(function() {
+      $(this).parent().removeClass("curFocus")
+    });
+    $("select").focus(function() {
+      $(this).parent().addClass("curFocus")
+    });
+    $("select").blur(function() {
+      $(this).parent().removeClass("curFocus")
+    });
+    
+    $('#membership_first_name').focus();
+    
+  });
