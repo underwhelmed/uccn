@@ -12,57 +12,57 @@
       %p
         = f.label :business_name
         %br/
-        = f.text_field :business_name, :style => 'width:400px'
+        = f.text_field :business_name, :style => 'width:400px', :tabindex => 8
         *           
       %p
         = f.label :email
         %br/
-        = f.text_field :email, :style => 'width:300px'
+        = f.text_field :email, :style => 'width:300px', :tabindex => 9
         *
       %p
         = f.label :phone_number
         %br/
-        = f.text_field :phone_number, :style => 'width:100px'
+        = f.text_field :phone_number, :style => 'width:100px', :tabindex => 10
         *
       %p
         = f.label :date_of_birth
         %br/
-        = f.text_field :date_of_birth, :style => 'width:100px'
+        = f.text_field :date_of_birth, :style => 'width:100px', :tabindex => 11
         *
     %div{:style => 'float:left;width:460px'}
       %p
         = f.label :first_name
         %br/
-        = f.text_field :first_name, :style => 'width:300px'
+        = f.text_field :first_name, :style => 'width:300px', :tabindex => 1
         *
       %p
         = f.label :last_name
         %br/
-        = f.text_field :last_name, :style => 'width:300px'
+        = f.text_field :last_name, :style => 'width:300px', :tabindex => 2
         *
       %p
         = f.label :address_1
         %br/
-        = f.text_field :address_1, :style => 'width:300px'
+        = f.text_field :address_1, :style => 'width:300px', :tabindex => 3
         *
       %p
         = f.label :address_2
         %br/
-        = f.text_field :address_2, :style => 'width:300px'
+        = f.text_field :address_2, :style => 'width:300px', :tabindex => 4
       %p
         = f.label :city
         %br/
-        = f.text_field :city, :style => 'width:200px'
+        = f.text_field :city, :style => 'width:200px', :tabindex => 5
         *
       %p
         = f.label :state
         %br/
-        = f.text_field :state, :style => 'width:200px'
+        = f.text_field :state, :style => 'width:200px', :tabindex => 6
         *
       %p
         = f.label :postal_code
         %br/
-        = f.text_field :postal_code, :style => 'width:100px'
+        = f.text_field :postal_code, :style => 'width:100px', :tabindex => 7
         *
     %div{:style => 'clear:both'}
     %hr/
@@ -70,70 +70,70 @@
     %p
       = f.label :new_member, 'I am a '
       \:
-      = f.select :new_member, [[ "New Member", "false" ], [ "Renewing Member", "true" ]]
+      = f.select :new_member, [[ "New Member", "false" ], [ "Renewing Member", "true" ]], {}, {:tabindex => 12}
     %p
       = f.label :member_type, 'I am a '
       \:
-      = f.select :member_type, [[ "Family Child Care", "Family Child Care" ], [ "Group Home", "Group Home" ], ["Advocate", "Advocate"], ["Parent", "Parent"]]
+      = f.select :member_type, [[ "Family Child Care", "Family Child Care" ], [ "Group Home", "Group Home" ], ["Advocate", "Advocate"], ["Parent", "Parent"]], {}, {:tabindex => 13}
       %p
         = f.label :license_type
         \:
-        = f.select :license_type, [[ "Licensed Provider", "Licensed Provider" ], [ "License Exempt", "License Exempt" ], ["Unlicensed", "Unlicensed"], ["N/A", "N/A"]]
+        = f.select :license_type, [[ "Licensed Provider", "Licensed Provider" ], [ "License Exempt", "License Exempt" ], ["Unlicensed", "Unlicensed"], ["N/A", "N/A"]], {}, {:tabindex => 14}
         If you're licensed, please enter your license number:
-        =f.text_field :license_number, :style => 'width:150px'
+        =f.text_field :license_number, :style => 'width:150px', :tabindex => 15
     %p
       Please check the features that you are most interested in:
     %table{:style => 'border:none'}
       %tr
         %td{:style => 'text-align:right'} Website
-        %td= f.check_box :interest_website, :style => 'vertical-align:middle'
+        %td= f.check_box :interest_website, {:style => 'vertical-align:middle', :tabindex => 16}
       %tr{:style => 'background-color:#EEE'}
         %td{:style => 'text-align:right'} Networking with other Providers
-        %td= f.check_box :interest_networking, :style => 'vertical-align:middle'
+        %td= f.check_box :interest_networking, {:style => 'vertical-align:middle', :tabindex => 17}
       %tr
         %td{:style => 'text-align:right'} CPR Training
-        %td= f.check_box :interest_cpr, :style => 'vertical-align:middle'
+        %td= f.check_box :interest_cpr, {:style => 'vertical-align:middle', :tabindex => 18}
       %tr{:style => 'background-color:#EEE'}
         %td{:style => 'text-align:right'} Back up Care
-        %td= f.check_box :interest_backup, :style => 'vertical-align:middle'
+        %td= f.check_box :interest_backup, {:style => 'vertical-align:middle', :tabindex => 19}
       %tr
         %td{:style => 'text-align:right'} Meetings
-        %td= f.check_box :interest_meetings, :style => 'vertical-align:middle'
+        %td= f.check_box :interest_meetings, {:style => 'vertical-align:middle', :tabindex => 20}
       %tr{:style => 'background-color:#EEE'}
         %td{:style => 'text-align:right'} Field Trips
-        %td= f.check_box :interest_field_trips, :style => 'vertical-align:middle'
+        %td= f.check_box :interest_field_trips, {:style => 'vertical-align:middle', :tabindex => 21}
     %br/
     %p
       Any additional features that you would like to see?
       %br/
-      =f.text_area :interest_other, :style => 'width:500px', :rows => 4
+      =f.text_area :interest_other, :style => 'width:500px', :rows => 4, :tabindex => 22
     %p
       What meeting/training topics or special projects would you like to see UCCN present?
       %br/
-      =f.text_area :topic_requests, :style => 'width:500px', :rows => 4
+      =f.text_area :topic_requests, :style => 'width:500px', :rows => 4, :tabindex => 23
     %p
       Please select the areas that you would like to work with or would like to know more about:
     %p
-      =f.select :christmas, [["--Select--", ""], ["Know More About"], ["Work With"]]
+      =f.select :christmas, [["--Select--", ""], ["Know More About"], ["Work With"]], {}, {:tabindex => 24}
       Christmas Party
       %br/
-      =f.select :manna, [["--Select--", ""], ["Know More About"], ["Work With"]]
+      =f.select :manna, [["--Select--", ""], ["Know More About"], ["Work With"]], {}, {:tabindex => 25}
       Manna Fundraiser
       %br/
-      =f.select :membership, [["--Select--", ""], ["Know More About"], ["Work With"]]
+      =f.select :membership, [["--Select--", ""], ["Know More About"], ["Work With"]], {}, {:tabindex => 26}
       Membership
       %br/
-      =f.select :public_relations, [["--Select--", ""], ["Know More About"], ["Work With"]]
+      =f.select :public_relations, [["--Select--", ""], ["Know More About"], ["Work With"]], {}, {:tabindex => 27}
       Public Relations
     %p
       If give my permission to have my name, address & phone number in the UCCN online directory.
       %br/
       %em This information is only available to members and not the public
       %br/
-      =f.select :publish_address, [["I agree to have my information published", "true"], ["I do NOT agree, do not publish my information", "false"]]
+      =f.select :publish_address, [["I agree to have my information published", "true"], ["I do NOT agree, do not publish my information", "false"]], {}, {:tabindex => 28}
     %p
       If you are a new member, how did you hear about the UCCN?
       %br/
-      =f.text_area :referral_info, :style => 'width:500px', :rows => 4
+      =f.text_area :referral_info, :style => 'width:500px', :rows => 4, :tabindex => 29
     %p
-      = f.submit 'Submit', :class => 'btn'
+      = f.submit 'Submit', :class => 'btn', :tabindex => 30
