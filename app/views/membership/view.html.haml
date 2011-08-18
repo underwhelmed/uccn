@@ -5,6 +5,7 @@
 %section.pageboxy.white
   %section.full_width
     #membership.elements
+      =link_to_if current_user.admin?, "Return to Membership List", view_memberships_path
       =render "form"
       
 :javascript
