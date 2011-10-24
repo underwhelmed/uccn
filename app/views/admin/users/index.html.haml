@@ -3,6 +3,9 @@
   :javascript
     $(document).ready(function() {
        $('input#search').quicksearch('table tbody tr');
+       $('input#search').bind('keypress', function(e) {
+           if ( e.which == 13 ) return false;
+       });
     });
 
 .block
