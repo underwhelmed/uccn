@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     Date.parse("#{year}#{mmdd}")
   end
   
+  scope :active_members, lambda {
+    where(["users.account_active = ?", true]).order('users.login')
+  }
+  
   scope :board, lambda {
     where(["users.board_member = ? and users.account_active = ?", true, true])
   }

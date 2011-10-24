@@ -1,7 +1,11 @@
 class Admin::UsersController < AdminController
   
   def index
-    @users = User.all(:order => :login)
+    if (params[:view] == nil)
+      @users = User.active_members
+    else
+      @users = User.all(:order => :login)
+    end
   end
   
   def new
