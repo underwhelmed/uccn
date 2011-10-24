@@ -1,3 +1,10 @@
+- content_for :head do
+  = javascript_include_tag "jquery.quicksearch" 
+  :javascript
+    $(document).ready(function() {
+       $('input#search').quicksearch('table tbody tr');
+    });
+
 .block
   .block_head
     .bheadl
@@ -17,13 +24,18 @@
         .message.success{:style=> 'display:block;'}
           %p 
             = notice
-      %div{:style => "float:right;"}
+      %div{:style => "float:left;clear:right;"}
+        %form
+          Search:
+          %input{:type => "text", :id => "search", :class => 'text medium'}
+      %div{:style => "float:right;clear:left"}
         - if params[:view] == nil
           %em Viewing only active users
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           =link_to "View All Users", admin_users_path(:view => "all")
         - else
           =link_to "View Active Users Only", admin_users_path
+    
       %table.sortable{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
         %thead
           %tr
