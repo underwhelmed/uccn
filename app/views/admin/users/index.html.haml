@@ -17,7 +17,14 @@
       %li.nobg        
         = link_to image_tag('/images/add.png', :alt => 'Add', :style=>'vertical-align: text-bottom') + ' Add New User', new_admin_user_path, :style => 'line-height:5em'
   .block_content
-    %p 
+    %div{:style => "float:right;clear:left"}
+      - if params[:view] == nil
+        %em Viewing only active users
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        =link_to "View All Users", admin_users_path(:view => "all")
+      - else
+        =link_to "View Active Users Only", admin_users_path
+    %p
       %em Click the user's login to edit their profile
     - if @users.empty?
       .message.warning{:style => "display: block; "}
@@ -27,18 +34,10 @@
         .message.success{:style=> 'display:block;'}
           %p 
             = notice
-      %div{:style => "float:left;clear:right;"}
-        %form
-          Search:
-          %input{:type => "text", :id => "search", :class => 'text medium'}
-      %div{:style => "float:right;clear:left"}
-        - if params[:view] == nil
-          %em Viewing only active users
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          =link_to "View All Users", admin_users_path(:view => "all")
-        - else
-          =link_to "View Active Users Only", admin_users_path
-    
+      %form
+        Filter:
+        %input{:type => "text", :id => "search", :class => 'text medium'}
+      %br/
       %table.sortable{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
         %thead
           %tr

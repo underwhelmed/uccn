@@ -421,6 +421,7 @@ a:hover {
 .block table {
 	text-align: left;
 	margin-bottom: 15px;
+	border:1px solid #ddd;
 	}
 
 .block table tr.even td {
