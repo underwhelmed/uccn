@@ -19,17 +19,8 @@
     = f.label :description
     %br
     = f.text_field :description, :class => 'text big'  
-  %p
-    =f.fields_for :pictures do |picture|
-      -if picture.object.new_record?
-        =picture.file_field :image
-        %br/
-        %br/
-        
-    =f.fields_for :pictures do |picture|
-      -unless picture.object.new_record?
-        .thumbnail
-          = link_to image_tag(picture.photo.image.url(:thumb)), picture.photo.image.url(:original) 
-          = asset.check_box :_destroy
+  %p    
+    = f.label :public, "Display this Album to All Users (Public)?"
+    = f.check_box :public
   %p
     = f.submit :class => 'submit long'

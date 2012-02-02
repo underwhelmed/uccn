@@ -6,12 +6,19 @@ class Admin::AlbumsController < AdminController
   
   def new
     @album = Album.new
-    3.times {@album.pictures.build}
+  end
+  
+  def create
+    @album = Album.new( params[:album] )
+    if @album.save
+      redirect_to admin_albums_url, :notice => "Photo Album was successfully created."
+    else
+      render :action => "new"
+    end
   end
   
   def edit
-    @album = Album.find(params[:id])
-    3.times {@album.pictures.build}
+    @album = Album.find(params[:id])    
   end
 
 end

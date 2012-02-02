@@ -22,7 +22,8 @@
           %tr
             %th.header{:style => "cursor: pointer; "} Name
             %th.header{:style => "cursor: pointer; "} Description
-            %th.header{:style => "cursor: pointer; "} Public
+            %th.header{:style => "cursor: pointer; "} Visibility
+            %th.header{:style => "cursor: pointer; "} Total Photos
             %th.header{:style => "cursor: pointer; "} Last Updated
             %td.header{:style => "cursor: pointerx; "} Options
         %tbody
@@ -31,6 +32,7 @@
               %td=link_to album.name, edit_admin_album_path(album)
               %td= album.description
               %td=album.public == true ? 'Public' : 'Members Only'
-              %td=post.updated_at.strftime("%-m/%-e/%Y %-l:%M %p")
+              %td=album.pictures.count
+              %td=album.updated_at.strftime("%-m/%-e/%Y %-l:%M %p")
               %td
                 = link_to image_tag('/images/delete.png', :alt=>'Delete'), admin_album_path(album), :confirm => "Are you sure you want to delete this album?\n\nWARNING: THIS CANNOT BE UNDONE!!!!", :method => :delete
