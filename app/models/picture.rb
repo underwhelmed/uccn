@@ -12,7 +12,7 @@ class Picture < ActiveRecord::Base
                     :path => ":id/:album_id/:style/:filename",
                     :styles => {
                                 :thumb  => "100x100#",
-                                :small  => "150x150>",
+                                :small  => "256x256>",
                                 :mid    => "640x640>",
                                 :large  => "800x800>"
                     }

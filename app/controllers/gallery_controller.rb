@@ -9,10 +9,10 @@ class GalleryController < ApplicationController
   end
   
   def view
-    if (params[:name].nil? || Album.find_by_name(params[:name]).nil?)
-      render index
+    if (params[:slug].nil? || Album.find_by_slug(params[:slug]).nil? || Album.find_by_slug(params[:slug]).pictures.count == 0) 
+      redirect_to gallery_path
     else
-      @album = Album.find_by_name(params[:name])
+      @album = Album.find_by_slug(params[:slug])
     end
   end
   

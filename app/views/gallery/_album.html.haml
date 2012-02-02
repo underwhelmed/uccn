@@ -1,0 +1,11 @@
+.left{:style=>'float:left;clear:right;margin-right:20px'}
+  -if album.pictures.count == 0
+    =image_tag '/images/pictures.png', :alt => 'No Photos'  
+.right{:style=>'float:left'}
+  %h2
+    =link_to album.name, view_gallery_album_path(:slug => album.slug) if album.pictures.count > 0
+    =album.name unless album.pictures.count > 0
+  %p{:style => "font-size:.85em;font-style:italic"}="Last Updated: #{album.updated_at.strftime("%-m/%-e/%Y %-l:%M %p")}, #{album.pictures.count} Pictures"
+  %p{:style => "margin-top:15px"}=album.description
+.clear{:style=>'clear:both'}
+%hr/

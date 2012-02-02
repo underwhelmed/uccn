@@ -32,7 +32,7 @@ Uccnrails::Application.routes.draw do
   match 'resources/referrals' => 'resources#referrals'
   
   match 'gallery' => 'gallery#index', :as => 'gallery'
-  match 'gallery/album/{:name}/' => 'gallery#view', :as => 'view_gallery_album'
+  match 'gallery/album/:slug/' => 'gallery#view', :as => 'view_gallery_album'
   
   match 'blog' => 'blog#index'
   match 'blog/rss' => 'blog#rss', :as => :blog_rss

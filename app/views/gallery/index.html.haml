@@ -9,5 +9,7 @@
       - if @albums.nil?
         There are currently no albums to display
       - else
-        Display All the things!
+        %p{:style => 'margin-bottom:20px;text-align:right;font-style:italic'} Click on the Album title to view the pictures
+        -@albums.each do |a|
+          =render :partial => 'album', :locals => {:album => a}
   .clear
