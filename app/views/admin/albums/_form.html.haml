@@ -1,0 +1,35 @@
+= form_for [:admin, @album], :html => { :multipart => true } do |f|
+  - if @album.errors.any?
+    .message.errormsg{:style => "display: block; "}
+      %p 
+        There were errors trying to save this album: 
+        %br
+        - @album.errors.full_messages.each do |msg|   
+          *        
+          = msg
+          %br/   
+    - if !notice.nil?
+      .message.errormsg{:style=> 'display:block;'}
+      %p= notice
+  %p
+    = f.label :name 
+    %br
+    = f.text_field :name, :class => 'text medium'
+  %p
+    = f.label :description
+    %br
+    = f.text_field :description, :class => 'text big'  
+  %p
+    =f.fields_for :pictures do |picture|
+      -if picture.object.new_record?
+        =picture.file_field :image
+        %br/
+        %br/
+        
+    =f.fields_for :pictures do |picture|
+      -unless picture.object.new_record?
+        .thumbnail
+          = link_to image_tag(picture.photo.image.url(:thumb)), picture.photo.image.url(:original) 
+          = asset.check_box :_destroy
+  %p
+    = f.submit :class => 'submit long'
