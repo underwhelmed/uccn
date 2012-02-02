@@ -30,6 +30,10 @@ Uccnrails::Application.routes.draw do
   match 'resources/associations' => 'resources#associations'
   match 'resources/foodprograms' => 'resources#food_programs'
   match 'resources/referrals' => 'resources#referrals'
+  
+  match 'gallery' => 'gallery#index', :as => 'gallery'
+  match 'gallery/album/{:name}/' => 'gallery#view', :as => 'view_gallery_album'
+  
   match 'blog' => 'blog#index'
   match 'blog/rss' => 'blog#rss', :as => :blog_rss
   match '/blog/category/:slug' => 'blog#index', :as => :blog_category

@@ -1,0 +1,13 @@
+- content_for :title do
+  UCCN Photo Gallery
+  
+%section#header
+  %h1 Photo Gallery
+%section.pageboxy.white
+  %section.full_width
+    .elements
+      - if @albums.nil?
+        There are currently no albums to display
+      - else
+        Display All the things!
+  .clear
