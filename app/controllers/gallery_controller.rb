@@ -4,7 +4,7 @@ class GalleryController < ApplicationController
     if (user_signed_in?)
       @albums = Album.all
     else
-      @albums = Album.find_by_public(true)
+      @albums = Album.where(:public => true)
     end
   end
   
