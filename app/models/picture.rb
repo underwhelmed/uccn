@@ -1,7 +1,7 @@
 class Picture < ActiveRecord::Base
   belongs_to :album
 
-  validates_presence_of :name, :order, :album_id 
+  validates_presence_of :order, :album_id 
   
   attr_accessible :name, :order, :photo
   
@@ -22,4 +22,13 @@ class Picture < ActiveRecord::Base
   validates_attachment_content_type :photo, 
                                     :content_type => ['image/jpeg', 'image/pjpeg', 
                                     'image/jpg', 'image/png', 'image/gif']
+  
+  before_validation :increment_order
+  
+  private
+    def increment_order
+      if self.order.nil?
+        self.order = self.album.last.order + 1
+      end
+    end
 end

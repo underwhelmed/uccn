@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120202045032) do
+ActiveRecord::Schema.define(:version => 20120203014446) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(:version => 20120202045032) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.string   "name",               :null => false
+    t.string   "name"
     t.integer  "order",              :null => false
     t.integer  "album_id",           :null => false
     t.string   "photo_file_name",    :null => false
