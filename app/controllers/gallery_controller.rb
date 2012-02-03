@@ -9,10 +9,9 @@ class GalleryController < ApplicationController
   end
   
   def view
-    if (params[:slug].nil? || Album.find_by_slug(params[:slug]).nil? || Album.find_by_slug(params[:slug]).pictures.count == 0) 
+    @album = Album.find_by_slug(params[:slug])
+    if (@album.nil? || @album.pictures.count == 0 || (!user_signed_in? && !@album.public?)) 
       redirect_to gallery_path
-    else
-      @album = Album.find_by_slug(params[:slug])
     end
   end
   

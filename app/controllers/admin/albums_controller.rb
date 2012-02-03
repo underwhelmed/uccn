@@ -20,5 +20,14 @@ class Admin::AlbumsController < AdminController
   def edit
     @album = Album.find(params[:id])    
   end
+  
+  def update
+    @album = Album.find(params[:id])
+    if @album.update_attributes(params[:album])
+      redirect_to admin_albums_url, :notice => "Photo Album was successfully updated."
+    else
+      render :action => "edit"
+    end
+  end
 
 end
