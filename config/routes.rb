@@ -79,7 +79,9 @@ Uccnrails::Application.routes.draw do
     resources :posts
     resources :categories
     resources :documents
-    resources :albums
+    resources :albums do
+      resources :pictures
+    end
     
     match 'messages' => 'contact#index', :as => 'messages'
     match 'messages/delete/:id' => 'contact#destroy', :via => :delete, :as => 'delete_message'

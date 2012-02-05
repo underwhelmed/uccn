@@ -4,7 +4,8 @@ class Album < ActiveRecord::Base
   
   validates_presence_of :name, :description, :slug
   validates_inclusion_of :public, :in => [true, false]
-  attr_accessible :name, :description, :public
+  validates :pictures, :length => {:minimum => 1, :message => 'must have at least one (1) photo'}
+  attr_accessible :name, :description, :public, :pictures_attributes
   
   before_validation :add_slug
   

@@ -1,4 +1,4 @@
-= form_for [:admin, @album] do |f|
+= form_for [:admin, @album], :html => { :multipart => true } do |f|
   - if @album.errors.any?
     .message.errormsg{:style => "display: block; "}
       %p 
@@ -22,5 +22,16 @@
   %p    
     = f.label :public, "Display this Album to All Users (Public)?"
     = f.check_box :public
-  %p
-    = f.submit :class => 'submit long'
+  
+  = f.fields_for :pictures do |picture_fields|
+    - unless picture_fields.object.new_record?
+      .thumb
+        = link_to image_tag(picture_fields.object.asset.url(:thumb)), picture_fields.object.asset.url(:original)
+        = picture_fields.check_box :_destroy
+
+  %h3 Add New Photos
+  = f.fields_for :pictures do |picture_fields|
+    - if picture_fields.object.new_record?
+      %p= picture_fields.file_field :photo
+      
+  %p= f.submit :class => 'submit long'

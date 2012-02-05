@@ -3,7 +3,7 @@ class Picture < ActiveRecord::Base
 
   validates_presence_of :order, :album_id 
   
-  attr_accessible :name, :order, :photo
+  attr_accessible :order, :photo
   
   has_attached_file :photo, 
                     :storage => :s3, 
@@ -20,8 +20,7 @@ class Picture < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 5.megabytes                                      
   validates_attachment_presence :photo
   validates_attachment_content_type :photo, 
-                                    :content_type => ['image/jpeg', 'image/pjpeg', 
-                                    'image/jpg', 'image/png', 'image/gif']
+                                    :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
   
   before_validation :increment_order
   

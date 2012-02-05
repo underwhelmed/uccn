@@ -6,6 +6,7 @@ class Admin::AlbumsController < AdminController
   
   def new
     @album = Album.new
+    3.times { @album.pictures.build }    
   end
   
   def create
@@ -18,7 +19,8 @@ class Admin::AlbumsController < AdminController
   end
   
   def edit
-    @album = Album.find(params[:id])    
+    @album = Album.find(params[:id])
+    3.times { @album.pictures.build }    
   end
   
   def update
@@ -28,6 +30,13 @@ class Admin::AlbumsController < AdminController
     else
       render :action => "edit"
     end
+  end
+  
+  def destroy
+    @album = Album.find(params[:id])
+    @album.destroy
+    flash[:notice] = "Successfully deleted album."
+    redirect_to admin_albums_url
   end
 
 end
