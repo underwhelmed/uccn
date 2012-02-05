@@ -7,8 +7,8 @@ gem 'devise'
 gem 'event-calendar', :require => 'event_calendar'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'simple_form'
-gem "paperclip", "~> 2.3"
-gem 'aws-s3'
+gem "paperclip", "~> 2.4"
+gem 'aws-sdk'
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'pdfkit'
 gem 'delayed_job'
