@@ -47,7 +47,7 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
-    childprocess (0.3.0)
+    childprocess (0.3.1)
       ffi (~> 1.0.6)
     cocaine (0.2.1)
     cucumber (1.1.4)
@@ -138,6 +138,7 @@ GEM
     rake (0.9.2.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rmagick (2.13.1)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
       rspec-expectations (~> 2.8.0)
@@ -211,6 +212,7 @@ DEPENDENCIES
   paperclip (~> 2.4)
   pdfkit
   rails (= 3.0.4)
+  rmagick
   rspec-rails (>= 2.0.0)
   ruby_parser
   simple_form

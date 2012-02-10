@@ -5,7 +5,7 @@ class Picture < ActiveRecord::Base
   
   attr_accessible :order, :photo
   
-  has_attached_file :photo, 
+  has_attached_file :photo, :whiny => false,
                     :storage => :s3, 
                     :s3_credentials => S3_CREDENTIALS,
                     :bucket => "uccnws-" + Rails.env,
