@@ -5,15 +5,15 @@ class Picture < ActiveRecord::Base
   
   attr_accessible :order, :photo
   
-  has_attached_file :photo, :whiny => false,
+  has_attached_file :photo,
                     :storage => :s3, 
                     :s3_credentials => S3_CREDENTIALS,
                     :bucket => "uccnws-" + Rails.env,
                     :path => "albums/:album_id/:id/:style/:filename",
                     :styles => {
                                 :thumb  => "100x100#",
-                                :small  => "256x256>",
-                                :mid    => "640x640>",
+                                :small  => "128x128>",
+                                :mid    => "480x480>",
                                 :large  => "800x800>"
                     }
                     

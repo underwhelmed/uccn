@@ -6,6 +6,7 @@
 %section.pageboxy.white
   %section.full_width
     .elements
-    -@album.pictures.each do |a|
-      =image_tag @album.pictures.first.photo.url(:mid)
+      %p{:style => 'margin-bottom:20px;text-align:right;'}=link_to "Return to Gallery List", gallery_path
+      -@album.pictures.each do |a|
+        =image_tag @album.pictures.first.photo.url(:mid)
   .clear
