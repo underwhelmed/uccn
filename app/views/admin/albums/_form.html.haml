@@ -28,7 +28,7 @@
       .thumb
         = link_to image_tag(picture_fields.object.photo.url(:thumb)), picture_fields.object.photo.url(:original)
         = picture_fields.check_box :_destroy
-
+        Delete?
   %h3 Add New Photos
   = f.fields_for :pictures do |picture_fields|
     - if picture_fields.object.new_record?

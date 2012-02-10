@@ -6,7 +6,7 @@
 %section.pageboxy.white
   %section.full_width
     .elements
-      - if @albums.nil?
+      - if @albums.nil? || @albums.empty?
         There are currently no albums to display
       - else
         %p{:style => 'margin-bottom:20px;text-align:right;font-style:italic'} Click on the Album title to view the pictures

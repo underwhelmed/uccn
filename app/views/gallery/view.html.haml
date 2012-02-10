@@ -6,5 +6,6 @@
 %section.pageboxy.white
   %section.full_width
     .elements
-      
+    -@album.pictures.each do |a|
+      =image_tag @album.pictures.first.photo.url(:mid)
   .clear

@@ -9,7 +9,7 @@ class Picture < ActiveRecord::Base
                     :storage => :s3, 
                     :s3_credentials => S3_CREDENTIALS,
                     :bucket => "uccnws-" + Rails.env,
-                    :path => "albums/:id/:style/:filename",
+                    :path => "albums/:album_id/:id/:style/:filename",
                     :styles => {
                                 :thumb  => "100x100#",
                                 :small  => "256x256>",
