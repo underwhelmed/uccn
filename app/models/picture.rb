@@ -3,13 +3,13 @@ class Picture < ActiveRecord::Base
 
   validates_presence_of :order
   
-  attr_accessible :order, :photo
+  attr_accessible :order, :photo, :album_id
   
   has_attached_file :photo,
                     :storage => :s3, 
                     :s3_credentials => S3_CREDENTIALS,
                     :bucket => "uccnws-" + Rails.env,
-                    :path => "albums/:album_id/:id/:style/:filename",
+                    :path => "albums/:id/:style/:filename",
                     :styles => {
                                 :thumb  => "100x100#",
                                 :small  => "128x128>",
