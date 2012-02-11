@@ -8,5 +8,5 @@
     .elements
       %p{:style => 'margin-bottom:20px;text-align:right;'}=link_to "Return to Gallery List", gallery_path
       -@album.pictures.each do |a|
-        =image_tag @album.pictures.first.photo.url(:mid)
+        = link_to image_tag(a.photo.url(:mid)), a.photo.url(:original)
   .clear
