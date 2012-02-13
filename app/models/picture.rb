@@ -14,7 +14,6 @@ class Picture < ActiveRecord::Base
                                 :thumb  => "100x100#",
                                 :small  => "128x128>",
                                 :mid    => "480x480>",
-                                :large  => "800x800>"
                     }
                     
   validates_attachment_size :photo, :less_than => 5.megabytes                                      
