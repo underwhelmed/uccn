@@ -1,5 +1,15 @@
+- content_for :head do
+  =javascript_include_tag "admin/facebox"
+  =stylesheet_link_tag "admin/facebox", :media => "all"
+
 - content_for :title do
   ="UCCN Photo Gallery - #{@album.name}"
+  
+:javascript
+  jQuery(document).ready(function($) {
+    $('a[rel*=facebox]').facebox()
+  })
+
   
 %section#header
   %h1="Photo Gallery - #{@album.name}"
@@ -8,5 +18,5 @@
     .elements
       %p{:style => 'margin-bottom:20px;text-align:right;'}=link_to "Return to Gallery List", gallery_path
       -@album.pictures.each do |a|
-        = link_to image_tag(a.photo.url(:mid)), a.photo.url(:original)
+        = link_to image_tag(a.photo.url(:small)), a.photo.url(:mid), :rel => "facebox"
   .clear
