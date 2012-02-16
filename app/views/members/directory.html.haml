@@ -11,7 +11,7 @@
       %p.alignright{:style => 'text-align:right;margin:10px;font-style:italic;font-size:.85em'}
         Members with an asterisk (*) are available for backup care
       %p.download{:style => 'margin:10px;'}
-        =image_tag '../images/pdfIcon16x16.gif', :style => 'vertical-align:text-bottom' 
+        =image_tag '../images/pdfIcon16x16.gif', :style => 'vertical-align:text-bottom' if !request_from_pdfkit?
         =link_to "Download the Directory as a PDF", members_directory_path(:format => :pdf)            
       %table.directory
         %thead
