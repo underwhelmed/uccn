@@ -9,7 +9,7 @@ Feature: Contact Form
     When I fill in "Name" with "Pete McDonald"
     And I fill in "Email" with "test@example.com"
     And I fill in "Phone" with "630-555-5555"
-    And I fill in "Message" with "What's up?"
+    And I fill in "Body" with "What's up?"
     And I press "Send"
     Then I should see "Thanks for your feedback!"
     And "irishpeg@comcast.net" should receive an email
@@ -22,7 +22,7 @@ Feature: Contact Form
     Given I am on the contact page
     When I fill in "Name" with "Pete McDonald"
     And I fill in "Email" with "test@example.com"
-    And I fill in "Message" with "What's up?"
+    And I fill in "Body" with "What's up?"
     And I press "Send"
     Then I should see "Thanks for your feedback!"
     And "irishpeg@comcast.net" should receive an email

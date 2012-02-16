@@ -13,6 +13,7 @@ gem 'rmagick'
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'pdfkit'
 gem 'delayed_job'
+gem 'delayed_job_active_record'
 gem 'hirefire'
 
 group :development, :test do

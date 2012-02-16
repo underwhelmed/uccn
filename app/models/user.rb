@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
   }
   
   def active?
-    super && (self.account_active? || self.login == 'admin')
+    self.account_active? || self.login == 'admin'
   end
 
   def ensure_user_is_not_admin

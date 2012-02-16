@@ -30,10 +30,10 @@
               = f.text_field :phone
               = f.label :phone
             %p.area
-              = f.label :message
+              = f.label :body
               *
               %br/
-              = f.text_area :message, :size => "60x8"
+              = f.text_area :body, :size => "60x8"
             %p.area
               = f.submit 'Send', :class => 'btn'
     .info.block

@@ -6,4 +6,4 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-require File.expand_path('../uccn_migration.rb', __FILE__)
+User.create :login => 'admin', :first_name => 'Admin', :last_name => 'Account', :password => 'testing1', :password_confirmation => 'testing1', :email => 'testing@example.com', :admin => true, :active => true

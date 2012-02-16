@@ -28,11 +28,11 @@ Given /^I am a new, authenticated user$/ do
   login = 'testuser'
   password = 'secretpass'
 
-  Given %{I have one user "#{email}" with password "#{password}" and login "#{login}"}
-  And %{I go to login}
-  And %{I fill in "user_email" with "#{email}"}
-  And %{I fill in "user_password" with "#{password}"}
-  And %{I press "Sign in"}
+  step %{I have one user "#{email}" with password "#{password}" and login "#{login}"}
+  step %{I go to login}
+  step %{I fill in "user_email" with "#{email}"}
+  step %{I fill in "user_password" with "#{password}"}
+  step %{I press "Sign in"}
 end
 
 Given /^I am signed in as an administrator$/ do
@@ -40,11 +40,11 @@ Given /^I am signed in as an administrator$/ do
   login = 'admin'
   password = 'testing1'
 
-  Given %{I have one admin "#{email}" with password "#{password}" and login "#{login}"}
-  And %{I go to login}
-  And %{I fill in "Username" with "#{login}"}
-  And %{I fill in "Password" with "#{password}"}
-  And %{I press "Login"}
+  step %{I have one admin "#{email}" with password "#{password}" and login "#{login}"}
+  step %{I go to login}
+  step %{I fill in "Username" with "#{login}"}
+  step %{I fill in "Password" with "#{password}"}
+  step %{I press "Login"}
 end
 
 Given /^"([^"]*)" is set to not receive emails$/ do |login|
