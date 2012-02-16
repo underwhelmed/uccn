@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'pdfkit'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -11,11 +12,11 @@ module Uccnrails
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    
+  
     ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
-          include ActionView::Helpers::RawOutputHelper
-          raw %(<span class="field_with_errors">#{html_tag}</span>)
-        end
+      include ActionView::Helpers::RawOutputHelper
+      raw %(<span class="field_with_errors">#{html_tag}</span>)
+    end
 
     # Added for will_paginate custom link renderer
     # http://thewebfellas.com/blog/2010/8/22/revisited-roll-your-own-pagination-links-with-will_paginate-and-rails-3
@@ -47,5 +48,7 @@ module Uccnrails
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :password_confirmation]
+    
+    config.middleware.use PDFKit::Middleware, {}, :only => %r[^/members/directory]    
   end
 end
