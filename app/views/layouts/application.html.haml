@@ -22,10 +22,7 @@
     #top
       #topwrapper
         #logo
-          - if request_from_pdfkit? 
-            =pdf_image_tag 'boxy_lg_blue/logo.png' 
-          -else 
-            =image_tag '/images/boxy_lg_blue/logo.png'
+          =image_tag '/images/boxy_lg_blue/logo.png' if !request_from_pdfkit?
           %p.title UCCN
           %p.slogan United Child Care Network
         = render :partial => 'layouts/menu'
