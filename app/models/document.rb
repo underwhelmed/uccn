@@ -24,5 +24,11 @@ class Document < ActiveRecord::Base
   def attachment_url
     "/members/#{self.class.name.downcase.pluralize}/#{id}/#{file_file_name}"
   end
+  
+  def authenticated_s3_get_url(expires = nil)
+    expires ||= 10.minutes.from_now
+    url = attachment.send(:directory).files.get_http_url attachment.path, expires
+    url.gsub! /s3.amazonaws.com\//, ''
+  end
 
 end
