@@ -27,7 +27,7 @@ class Document < ActiveRecord::Base
 
   def authenticated_s3_get_url(options={})
     options.reverse_merge! :use_ssl => true
-    self.file.expiring_url(10)
+    file.url_for file.path, file.options[:bucket]
   end
 
 end
