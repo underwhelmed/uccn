@@ -25,9 +25,4 @@ class Document < ActiveRecord::Base
     "/members/#{self.class.name.downcase.pluralize}/#{id}/#{file_file_name}"
   end
 
-  def authenticated_s3_get_url(options={})
-    options.reverse_merge! :use_ssl => true
-    AWS::S3::S3Object.url_for file.path, file.options[:bucket]
-  end
-
 end

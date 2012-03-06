@@ -52,7 +52,7 @@ class MembersController < ApplicationController
   def download
     doc = Document.find(params[:id])
     if current_user.admin? || doc.allow_download
-      redirect_to doc.authenticated_s3_get_url
+      redirect_to doc.file.expiring_url(10)
     end    
   end
   
