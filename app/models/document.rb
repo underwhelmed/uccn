@@ -5,7 +5,7 @@ class Document < ActiveRecord::Base
                     :bucket => "uccnws-" + Rails.env,
                     :s3_protocol => 'https',                    
                     :s3_permissions => :private,
-                    :path => lambda { |file| ":id_partition/:filename" },
+                    :path => ":id_partition/:filename",
                     :processors => [:noop]
                     
   # http://www.metaskills.net/2009/11/23/authenticated-s3-gets-for-private-objects-using-paperclip/
@@ -23,11 +23,6 @@ class Document < ActiveRecord::Base
   
   def attachment_url
     "/members/#{self.class.name.downcase.pluralize}/#{id}/#{file_file_name}"
-  end
-
-  def authenticated_s3_get_url(options={})
-    options.reverse_merge! :use_ssl => true
-    file.url_for file.path, file.options[:bucket]
   end
 
 end
