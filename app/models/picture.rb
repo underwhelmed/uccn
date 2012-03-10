@@ -16,7 +16,7 @@ class Picture < ActiveRecord::Base
                                 :mid    => "480x480>",
                     }
                     
-  validates_attachment_size :photo, :less_than => 5.megabytes                                      
+  validates_attachment_size :photo, :less_than => 10.megabytes                                      
   validates_attachment_presence :photo
   validates_attachment_content_type :photo, 
                                     :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
