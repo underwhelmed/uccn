@@ -33,4 +33,6 @@ RSpec.configure do |config|
   config.include(EmailSpec::Matchers)
   
   config.include Paperclip::Shoulda::Matchers
+  
+  config.include FactoryGirl::Syntax::Methods
 end

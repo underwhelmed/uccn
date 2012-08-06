@@ -31,5 +31,4 @@ group :development, :test do
   gem 'ruby_parser'
   
   gem 'factory_girl_rails'
-
 end
