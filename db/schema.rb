@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127040613) do
+ActiveRecord::Schema.define(:version => 20121127042106) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -171,12 +171,12 @@ ActiveRecord::Schema.define(:version => 20121127040613) do
 
   create_table "posts", :force => true do |t|
     t.string   "slug"
-    t.string   "title",                           :null => false
+    t.string   "title",                                            :null => false
     t.datetime "published_at"
-    t.string   "excerpt"
+    t.string   "excerpt",      :limit => 10000
     t.text     "body"
     t.string   "author"
-    t.boolean  "members_only", :default => false
+    t.boolean  "members_only",                  :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status"

@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Post do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it {should ensure_length_of(:excerpt).is_at_most(2000)}
 end

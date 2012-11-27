@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :title
 
+  validates_length_of :excerpt, :allow_blank => true, :maximum => 2000
+  
   attr_accessible :title, :excerpt, :body, :members_only, :status, :published_at, :category_ids, :author, :created_at, :updated_at
   
   before_validation :add_slug, :set_published
