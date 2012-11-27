@@ -31,6 +31,6 @@
               %td=link_to opening.name, edit_admin_opening_path(opening)
               %td= opening.city
               %td= opening.phone
-              %td= opening.updated_at.strftime("%-m/%e/%Y %l:%M %p")
+              %td= opening.updated_at.strftime("%-m/%-e/%Y %l:%M %p")
               %td
                 = link_to image_tag('/images/delete.png', :alt=>'Delete'), admin_opening_path(opening), :confirm => "Are you sure you want to delete this daycare opening?\n\nWARNING: THIS CANNOT BE UNDONE!!!!", :method => :delete
