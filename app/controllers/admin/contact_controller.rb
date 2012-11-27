@@ -1,7 +1,7 @@
 class Admin::ContactController < AdminController
   
   def index
-    @messages = Message.all
+    @messages = Message.all(:order => "created_at DESC")
   end
   
   def destroy
