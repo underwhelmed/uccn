@@ -61,4 +61,9 @@ Uccnrails::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  config.middleware.use ExceptionNotifier,
+    :sender_address => %{"UCCN Production Exception" <no-reply@uccn.org>},
+    :exception_recipients => %w{webmaster@uccn.org},
+    :email_format => :html
 end

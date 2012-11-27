@@ -15,6 +15,7 @@ gem 'pdfkit'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'hirefire'
+gem 'exception_notification'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0"
