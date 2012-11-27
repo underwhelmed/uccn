@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   
   def create    
     @message = Message.new(params[:message])   
+    @message.ip_address = request.remote_ip
     if @message.save
       Notifier.user_feedback(@message).deliver
       redirect_to contact_success_path, :notice => 'Thanks for your feedback!'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216175858) do
+ActiveRecord::Schema.define(:version => 20121127040613) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(:version => 20120216175858) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "body"
+    t.string   "ip_address"
   end
 
   create_table "openings", :force => true do |t|
