@@ -9,6 +9,10 @@ class Event < ActiveRecord::Base
   
   validate :start_at_and_end_date_valid
   
+  scope :recent, lambda {
+    where("start_at >= ?", 30.days.ago).order('events.start_at')
+  }
+  
   scope :upcoming, lambda {
     upcoming_for_members.where("members_only = ?", false)
   }  

@@ -19,6 +19,13 @@
       %li.nobg        
         = link_to image_tag('/images/add.png', :alt => 'Add', :style=>'vertical-align: text-bottom') + ' Add New Event', new_admin_event_path, :style => 'line-height:5em'
   .block_content
+    %div{:style => "float:right;clear:left"}
+      - if params[:view] == nil
+        %em Viewing recent and upcoming events only
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        =link_to "View All Events", admin_events_path(:view => "all")
+      - else
+        =link_to "View Only Recent and Upcoming", admin_events_path
     %p 
       %em Click the event to edit it's information
     - if @events.empty?

@@ -1,7 +1,11 @@
 class Admin::EventsController < AdminController
 
   def index
-    @events = Event.all(:order => :start_at)
+    if (params[:view] == nil)
+      @events = Event.recent
+    else
+      @events = Event.all(:order => :start_at)
+    end
   end
   
   def new
