@@ -1,3 +1,15 @@
+- content_for :head do
+  = javascript_include_tag "jquery.quicksearch" 
+  = javascript_include_tag "jquery.tablesorter.min" 
+  :javascript
+    $(document).ready(function() {
+       $('input#search').quicksearch('table tbody tr');
+       $('input#search').bind('keypress', function(e) {
+           if ( e.which == 13 ) return false;
+       });
+       $("#eventTable").tablesorter(); 
+    });
+
 .block
   .block_head
     .bheadl
@@ -17,7 +29,11 @@
         .message.success{:style=> 'display:block;'}
           %p 
             = notice
-      %table.sortable{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+      %form
+        Filter:
+        %input{:type => "text", :id => "search", :class => 'text medium'}
+      %br/
+      %table#eventTable.sortable.tablesorter{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
         %thead
           %tr
             %th.header{:style => "cursor: pointer; "} Name
