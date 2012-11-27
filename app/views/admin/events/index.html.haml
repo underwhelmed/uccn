@@ -31,7 +31,7 @@
               %td  
                 =link_to event.name, edit_admin_event_path(event)
               %td
-                = event.start_at.strftime("%A, %B #{event.start_at.day.ordinalize}")
+                = event.start_at.strftime("%a, %b %e, %Y")
                 - if !event.all_day
                   = event.start_at.strftime(" at %l:%M %p")
               %td= event.name
