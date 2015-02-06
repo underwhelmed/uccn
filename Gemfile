@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.19'
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'pg'
 gem 'haml'
 gem 'devise'
 gem 'event-calendar', :require => 'event_calendar'
@@ -32,6 +32,6 @@ group :development, :test do
   gem 'ruby_parser'
   
   gem 'factory_girl_rails'
-  
+  gem 'sqlite3-ruby', :require => 'sqlite3'
   gem "shoulda-matchers"
 end
