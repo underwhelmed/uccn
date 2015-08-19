@@ -1,1 +1,0 @@
-#Time::DATE_FORMATS[:default] = '%-m/%-e/%Y %-l:%M %p' 

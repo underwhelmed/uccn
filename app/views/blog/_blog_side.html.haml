@@ -1,8 +1,0 @@
-%aside
-  .rss.block
-    =link_to "RSS", blog_rss_path
-  .categories.block
-    %h2 Categories
-    %ul
-      - @categories.each do |c|
-        %li=link_to c.name, blog_category_path(c.slug)

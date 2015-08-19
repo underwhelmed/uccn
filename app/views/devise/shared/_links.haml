@@ -1,9 +1,0 @@
-- if controller_name != 'sessions'
-  = link_to "Return to Login", login_path
-  %br/
-- if devise_mapping.recoverable? && controller_name != 'passwords'
-  If you forgot your password, you can
-  %br/
-  use the
-  = link_to "Password Recovery page", new_password_path(resource_name)
-  %br/

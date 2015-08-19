@@ -1,37 +1,3 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '3.0.19'
-gem 'pg'
-gem 'haml'
-gem 'devise'
-gem 'event-calendar', :require => 'event_calendar'
-gem "will_paginate", "~> 3.0.pre2"
-gem 'simple_form'
-gem "paperclip", "~> 2.4"
-gem 'aws-sdk'
-gem 'rmagick'
-gem 'validates_timeliness', '~> 3.0.2'
-gem 'pdfkit'
-gem 'delayed_job'
-gem 'delayed_job_active_record'
-gem 'hirefire'
-gem 'exception_notification'
-
-group :development, :test do
-  gem "rspec-rails", ">= 2.0.0"
-  gem "cucumber-rails", ">= 0.3.2"
-  gem "webrat", ">= 0.7.2"
-  gem 'email_spec'
-  gem 'capybara'
-  gem "autotest"
-
-  gem 'database_cleaner'
-  gem 'launchy'
-
-  gem 'hpricot'
-  gem 'ruby_parser'
-  
-  gem 'factory_girl_rails'
-  gem 'sqlite3-ruby', :require => 'sqlite3'
-  gem "shoulda-matchers"
-end
+gem "rack"
